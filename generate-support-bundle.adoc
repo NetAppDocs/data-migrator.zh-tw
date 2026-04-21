@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: generate-support-bundle.html 
+keywords: support bundle, diagnostics, troubleshooting, log files, download report 
+summary: 產生並下載 NetApp Data Migrator 支援套件組合，其中包含診斷記錄、錯誤報告和用於疑難排解的組態資料。 
+---
+= 產生 NetApp Data Migrator 支援套件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Data Migrator 可讓您產生支援套件，以協助疑難排解您遇到的任何問題。此套件包含診斷資訊，例如記錄檔、錯誤報告和組態資料。
+
+.步驟
+. 登入 NetApp Data Migrator 。
+. 在導覽列中選擇 *Help* ，然後選擇 Support Bundle 選項。
+. 選擇 *Date* 。輸入您希望包含在支援包中的日期範圍。
+. 選取 *Other Metrics* 。輸入您要納入支援套裝組合的其他指標。
+. 選擇 *Generate Support Bundle* 。當套裝組合準備就緒時， *Download Report* 會變為作用中。
+. 選擇 *Download Report* 。
+

@@ -1,0 +1,157 @@
+---
+sidebar: sidebar 
+permalink: deploy-control-plane-and-linux-workers.html 
+keywords: aws installation, prerequisites, control plane, worker vm, ec2 
+summary: 了解如何安裝 NetApp Data Migrator 控制平面和工作虛擬機器。 
+---
+= 為 NetApp Data Migrator 部署控制平面和 Linux 工作虛擬機
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用 AWS、Azure 或 Google Cloud 服務或 Open Virtual Appliance (OVA) 範本部署 NetApp Data Migrator 的控制平面虛擬機器 (VM) 和 Linux 工作虛擬機器。Linux 工作虛擬機器支援 NFS 資料遷移。
+
+.開始之前
+從 link:https://mysupport.netapp.com/site/downloads["NetApp 支援網站"^] 下載 NetApp Data Migrator 映像：
+
+. 選擇 *NetApp Data Migrator*。
+. 請依照 NetApp Data Migrator 下載頁面上的說明存取 NetApp Data Migrator 映像。
+
+
+.關於此任務
+根據您的部署選項，選擇 AWS 、 Azure 、 Google Cloud 標籤或 OVA 標籤。
+
+[role="tabbed-block"]
+====
+.AWS
+--
+針對控制平面和 Linux 工作節點 Amazon Machine Images（AMI）重複下列步驟。
+
+.步驟
+. 使用提供的 AMI ID 在您的 AWS 帳戶的 *EC2* > *AMIs* > *Private images* 下尋找 AMI。
+. 將 AMI 複製到您的帳戶：
++
+.. 選擇 AMI、然後選擇 *Actions* > *Copy AMI*
+.. 選擇目標區域（如有需要）。
+.. 啟用加密並選擇您自己的 KMS 金鑰。
+.. 等待 AMI 狀態顯示為 *Available* 。
+
+
+
+
+--
+.Azure
+--
+針對控制平面和 Linux 工作節點 VHD 重複下列步驟。
+
+.步驟
+. 將 VHD 檔案複製到 Azure Blob Storage：
++
+[source, cli]
+----
+az storage blob copy start \
+  --source-uri "<PROVIDED_SAS_URL>" \
+  --destination-blob "<VHD_FILE_NAME>.vhd" \
+Group 1065216673, Grouped object  --destination-container <YOUR_CONTAINER_NAME> \
+  --account-name <YOUR_STORAGE_ACCOUNT> \
+  --account-key <YOUR_STORAGE_ACCOUNT_KEY>
+----
+. 從複製的 VHD 檔案建立新的 Azure 映像：
++
+[source, cli]
+----
+az image create \
+  --resource-group <YOUR_RESOURCE_GROUP> \
+  --name <YOUR_IMAGE_NAME> \
+  --source https://<YOUR_STORAGE_ACCOUNT>.blob.core.windows.net/<YOUR_CONTAINER_NAME>/<VHD_FILE_NAME>.vhd \
+  --os-type linux \
+  --location <YOUR_AZURE_REGION>
+----
+
+
+--
+.Google Cloud
+--
+.步驟
+. 請確認匯入映像以及部署控制平面和工作虛擬機器所需的 Google Cloud API 已啟用。如需詳細資訊，請參閱 link:https://docs.cloud.google.com/migrate/virtual-machines/docs/5.0/get-started/enable-services#enabling_required_services_on_the_host_project["Google Cloud 文件"^]。
+. 如果 Google Cloud Storage 儲存區尚不存在，請建立一個。此儲存區用於在匯入作業期間儲存映像歸檔檔案（.tar.gz）。
++
+了解如何link:https://cloud.google.com/storage/docs/creating-buckets#console["建立 Google Cloud Storage 儲存貯體"^]。
+
+. 設定 IAM 角色和權限。這可確保 VM 移轉 API 擁有所需的存取權限，且 VM 移轉服務可以存取 Google Cloud Storage 儲存區並建立映像。
++
+.. 將服務帳戶 objectViewer 存取權限指派給目標 Cloud Storage 儲存貯體：
++
+[source, cli]
+----
+gcloud storage buckets add-iam-policy-binding gs://<GCS_BUCKET> \
+  --member=serviceAccount:service-<PROJECT_NUMBER>@gcp-sa-vmmigration.iam.gserviceaccount.com \
+  --role=roles/storage.objectViewer
+----
++
+服務帳戶需要 roles/storage.objectViewer 權限，才能在移轉過程中從您的 Cloud Storage 儲存貯體讀取 VM 映像檔案。
+
++
+啟用 VM Migration API 後，Google Cloud 會自動佈建格式如下的服務帳戶：
+
++
+`service-<PROJECT_NUMBER>@gcp-sa-vmmigration.iam.gserviceaccount.com`
+
++
+*** `++ gcp-sa` 是 Google Cloud 服務帳戶
+*** `vmmigration` 是 VM Migration 服務識別碼
+*** `iam.gserviceaccount.com` 是 Google Cloud 服務帳戶的標準網域
+
+
+.. 將自己設定為  `vmmigration` 服務的管理員使用者：
++
+[source, cli]
+----
+gcloud projects add-iam-policy-binding <PROJECT_ID> \
+  --member=user:<YOUR_EMAIL> \
+  --role=roles/vmmigration.admin
+----
++
+這將賦予您在專案層級的 VM 遷移管理權限。
+
+
+
+. 取得並上傳映像檔案：
++
+.. 從link:https://mysupport.netapp.com/site/["NetApp 支援網站"^]下載控制平面 `.tar.gz`映像檔案以及 Linux worker `.tar.gz`映像檔案。
+.. 將  `.tar.gz` 檔案上傳到您的 Google Cloud Storage 儲存桶。
+
+
+. 將映像歸檔檔案上傳到 Google Cloud Storage 後，使用 VM Migration Service 建立 VM 映像，方法是對每個映像（控制平面和 Linux 工作節點）執行下列命令。
++
+[source, cli]
+----
+--source-file=gs://<GCS_BUCKET>/<IMAGE_NAME>.tar.gz \
+  --image-name=<IMAGE_NAME> \
+  --location=<REGION> \
+  --target-project=projects/<PROJECT_ID>/locations/global/targetProjects/<PROJECT_ID> \
+  --project=<PROJECT_ID>
+----
++
+此指令會根據提供的歸檔檔案在指定區域中建立新的 Google Cloud Platform VM 映像。
+
+. 列出映像匯入作業並確認完成：
++
+[source, cli]
+----
+gcloud migration vms image-imports list --location=<REGION> --project=<PROJECT_ID>
+----
+
+
+--
+.OVA
+--
+.步驟
+從link:https://mysupport.netapp.com/site/["NetApp 支援網站"^]下載控制平面 `.ova`映像檔案以及 Linux worker `.ova`映像檔案。
+
+--
+====
+.接下來呢？
+在了解如何部署控制平面虛擬機器和 Linux 工作虛擬機器之後，您可以link:create-control-plane-and-worker-vms.html["建立控制平面和工作節點 VM"]。

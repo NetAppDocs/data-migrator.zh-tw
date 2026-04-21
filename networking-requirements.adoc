@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: networking-requirements.html 
+keywords: networking requirements, TCP, UDP, control plane, worker, communication 
+summary: NetApp Data Migrator 的網路需求，包括控制平面和工作區通訊所需的 TCP 和 UDP 連接埠。 
+---
+= 在 NetApp Data Migrator 中驗證 NFS 和 SMB 網路存取
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+您需要確保控制平面和工作節點的 IP 位址和子網路都已新增至儲存系統的匯出原則。這是為了支援使用 NetApp Data Migrator 進行 NFS 和 SMB 遷移。
+
+
+
+== 驗證 NFS 存取
+
+對於 NFS、控制平面和工作節點需要以 root 用戶端身分存取儲存系統的權限。
+
+.步驟
+. 從工作節點執行手動掛載以驗證磁碟區存取能力：
++
+[source, cli]
+----
+sudo mount -t nfs <storage-ip>:/<volume-path> /mnt/test
+ls -la /mnt/test
+----
+. 確保已啟用 root 存取、方法是驗證匯出原則規則是否允許超級使用者存取。如有必要、請修改匯出原則規則以啟用 root 存取（no root squash）。
+
+
+
+
+== 驗證 SMB 存取
+
+對於 SMB 存取，控制平面節點和工作節點需要獲得使用 SMB 憑證存取儲存系統的權限。SMB 使用者必須是備份操作員群組和管理員群組的成員。
+
+.步驟
+. 從工作節點執行手動掛載以驗證磁碟區存取能力：
++
+[source, cli]
+----
+net use Z: \\<storage-ip>\<share> /user:<domain>\<username> <password>
+----
+

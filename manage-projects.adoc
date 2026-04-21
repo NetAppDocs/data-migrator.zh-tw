@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: manage-projects.html 
+keywords: projects, project management, user roles, create project, project admin 
+summary: 使用 NetApp Data Migrator 控制平面中的「專案」標籤來建立、編輯專案或在專案之間切換。 
+---
+= 在 NetApp Data Migrator 中建立和管理專案
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用 NetApp Data Migrator 控制平面中的「專案」標籤來建立、編輯專案或在專案之間切換。
+
+
+
+== 建立專案
+
+App Admin 使用者可以在 NetApp Data Migrator 中建立新專案，並將具有已定義角色的使用者指派給該專案。
+
+.步驟
+. 登入 NetApp Data Migrator 。
+. 選擇 *Settings* > *Projects* 以檢視現有專案清單。
+. 選取 *Add Project* ，隨即出現新視窗。
+. 輸入您的 *Project Name* 和 *Project Description (optional)*。
+. 將使用者新增至您的專案：
++
+** 從下拉清單中選擇 *User*。
+** 為使用者指派 * 角色 * （ *App Admin* 、 *Project Admin* 或 *Project Viewer* ）。
+** 選取 *+Add*。
+
+
+. 選取 *Save and Confirm* 。
+. 選擇 *Submit*，將出現一條確認訊息，表示專案已成功建立。
+
+
+
+
+== 編輯專案
+
+如果需要更新，您可以快速編輯專案的詳細資料。
+
+.步驟
+. 在頂端導覽列中選取 *Settings* 。
+. 選取 *Projects* 標籤以檢視現有專案清單。
+. 選擇要編輯的專案詳細資料旁邊的 *(⋮)*，然後從下拉式選單中選擇 *Edit Project*。
+. 根據需要更新專案名稱、專案說明或新增使用者。
+. 選取 *Submit* 以儲存變更。
+
+
+
+
+== 在專案之間切換
+
+如果您同時監控多個專案，您可以快速在它們之間切換。
+
+.步驟
+. 從頂端導覽列中選取 *專案* 下拉式功能表、
+. 選擇目前專案名稱以開啟 *Project Selection* 選單，並顯示可用專案清單。
+. 使用 *Search Projects* 列快速找到您要切換到的專案。
+. 選取要切換到的專案名稱旁的核取方塊。
+. 選擇 *Switch* 以載入選定的專案。
+

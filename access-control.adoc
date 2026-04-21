@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: access-control.html 
+keywords: role-based access control, rbac, user permissions, app admin, project admin 
+summary: NetApp Data Migrator 使用角色型存取控制（RBAC）來管理使用者權限，允許 App Admin 使用者將角色指派給其他使用者。 
+---
+= 管理 NetApp Data Migrator 的存取控制
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Data Migrator 使用基於角色的存取控制（RBAC）來管理使用者權限。RBAC 允許 App Admin 使用者（管理員）將以下三種角色中的任何一種指派給其他使用者，從而確保安全的存取控制和高效的運作。App Admin 使用者根據其他使用者的職責和存取需求授予其相應的權限。
+
+* *App Admin*：此存取等級可讓使用者管理整體系統設定、使用者角色和存取權限。
+* *Project Admin*：此存取等級可讓使用者管理特定的遷移專案，包括作業組態和執行。
+* *Project Viewer*：此存取等級為使用者提供唯讀存取，用於監控遷移進度、日誌和報告。此角色適用於需要監控和觀察資料遷移專案進度，但無需執行任何可能變更或干擾專案的操作的使用者。
+
+
+下表提供動作和使用者角色權限的摘要。
+
+[cols="1,2,1,1,1a"]
+|===
+| 行動 | 說明 | App 管理員 | 專案管理員 | 專案檢視器 
+
+
+| 代理程式部署 | 使用者可以存取 *View Instruction To Setup Worker* | 是的 | 是的  a| 
+否
+
+
+
+| 建立使用者 | 使用者可以建立新的使用者帳戶 | 是的 | 否  a| 
+否
+
+
+
+| 列出使用者 | 使用者可以檢視使用者清單 | 是的 | 是的  a| 
+是的
+
+
+
+| 管理組態 | 使用者可以管理組態設定 | 是的 | 是的  a| 
+否
+
+
+
+| 管理工作 | 使用者可以管理移轉工作 | 是的 | 是的  a| 
+否
+
+
+
+| 報告 | 使用者可以存取下載報告的選項。 | 是的 | 是的  a| 
+是的
+
+
+
+| 更新專案 | 使用者可以編輯專案 | 是的 | 是的  a| 
+否
+
+
+
+| 檢視專案 | 使用者可以存取專案清單頁面 | 是的 | 是的  a| 
+是的
+
+
+
+| 建立專案 | 使用者可以建立專案 | 是的 | 否  a| 
+否
+
+
+
+| 儲存 SMTP | 使用者可以新增或編輯 SMTP 詳細資料 | 是的 | 否  a| 
+否
+
+|===

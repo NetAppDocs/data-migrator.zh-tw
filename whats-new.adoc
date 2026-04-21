@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: whats-new.html 
+keywords: netapp, data, migrator, whats new, release, notes 
+summary: 了解此文件網站的最新內容。 
+---
+= NetApp Data Migrator 新增功能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+了解 NetApp Data Migrator 的新功能。
+
+
+
+== 2026 年 4 月 22 日
+
+NetApp Data Migrator 2026.04.0 提供了一個全新的資料檔案遷移解決方案。您可以使用 NetApp Data Migrator 將資料從內部部署或第三方儲存系統遷移到 NetApp 雲端儲存服務。NetApp Data Migrator 支援 NFS 和 SMB 檔案傳輸協定。
+
+link:learn-about-data-migrator.html["深入瞭解 NetApp Data Migrator"]

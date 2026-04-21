@@ -1,0 +1,233 @@
+---
+sidebar: sidebar 
+permalink: manage-file-servers.html 
+keywords: file servers, nfs, smb, worker association, export paths 
+summary: 使用 NetApp Data Migrator 新增、設定和編輯使用 NFS 或 SMB 傳輸協定的檔案伺服器。 
+---
+= 新增和管理檔案伺服器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用 NetApp Data Migrator 來新增、設定和編輯使用 NFS 或 SMB 協定的檔案伺服器。
+
+
+
+== 新增檔案伺服器
+
+新增新的 NFS 或 SMB 檔案伺服器並配置工作虛擬機器。
+
+根據您的系統組態，使用 Other NAS 或 Dell Isilon 工作流程選項。
+
+[role="tabbed-block"]
+====
+.其他 NAS
+--
+.步驟
+. 在左側導覽面板中，選取 *Storage Servers* 。
+. 選取 *File Servers* > *+Add*。
++
+「*檔案伺服器*」頁面隨即開啟，接著是「*伺服器類型*」頁面。
+
+. 輸入伺服器名稱，然後選取 *Server Type* 為 Other NAS 。
++
+*憑證* 頁面隨即開啟。
+
+. 輸入 NFS 或 SMB 伺服器的 *Host Name*（或 IP 位址）。
+. 如果您使用的是 *NFS* 檔案伺服器：
++
+** 請輸入用於存取 NFS 檔案共用的 *Username* 。
+** （選用）輸入 *Password*。
+** 選擇 NFS 的 *Protocol Version*。
+** 在 *Export Paths Retrieval Mechanism* 面板中選取 *Auto Discover* 或 *Manual Upload* ：
++
+*Auto Discover* 會自動探索匯出路徑。
+
++
+*手動上傳* 指的是手動上傳匯出路徑，或在不支援 *自動探索* 的環境中使用，例如 Google Cloud NetApp Volumes（GCNV）Flex 服務。新增檔案伺服器後，<<manually-upload-export-paths,您需要手動上傳匯出路徑>>。
+
+
+
+. 如果您使用的是 *SMB* 檔案伺服器：
++
+** 請輸入用於存取 SMB 檔案共享的 *Username*。
+** 輸入 *Password*。
+** 選擇 SMB 的 *Protocol Version*。
+
+
+. 選取 *Workers* 分頁。
++
+.. 在 *Associated* 欄中、選取您要與伺服器建立關聯的一或多個工作人員旁的切換按鈕。
+.. 選擇 *Proceed* 以啟動預先檢查作業，測試所選的一個或多個工作進程是否與 NetApp Data Migrator 有連線。
+
+
+. 預檢查完成後，您應該解決所有標記的錯誤。（有關如何解決錯誤的詳細資訊，請參閱檔案伺服器常見問題（FAQ））。
++
+如果預先檢查完成且沒有錯誤，請選取 *Job Config* 標籤，然後選取 *Finish*。您的 File Server 名稱會顯示在 *File Servers* 清單下。
+
++
+檔案伺服器的狀態列在 *File Servers* 表格的 *Status* 欄中。狀態類型包括：
+
++
+** *Active*：沒有錯誤，所有細節均已驗證。
+** *進行中：* 伺服器驗證進行中。
+** *草稿*：沒有工作人員與檔案伺服器建立關聯。
+** *錯誤*：權限有問題、沒有可用路徑，或匯出路徑只有 /。如果在建立檔案伺服器時選擇 *Auto Discovery* 匯出路徑，則可能會出現這些問題。
+
+
+
+
+--
+.Dell Isilon
+--
+.步驟
+. 在左側導覽面板中，選取 *Storage Servers* 。
+. 選取 *File Servers* > *+Add*。
++
+「*檔案伺服器*」頁面隨即開啟，接著是「*伺服器類型*」頁面。
+
+. 請輸入 Isilon 檔案伺服器的 *Configuration Name* （設定名稱）。
+. 從 *Server Type* 下拉式選單中選擇 *Dell Isilon*。
++
+*Management Console* 部分開啟：
+
+. 輸入 *Management Host*（Isilon 管理主控台的主機名稱或 IP 位址）。
+. 輸入用於存取 Isilon 管理 API 的 *Username*。
+. 輸入 *Password*。
+. 選擇 *Proceed* 以從 Isilon 叢集擷取 TLS 憑證。
+. 請查看彈跳窗中顯示的 *TLS 憑證* 詳細資料：
++
+.. 驗證憑證核發者、有效日期和指紋。
+.. 選取 *Accept* 以信任憑證並繼續。
+.. 如果您不信任該憑證，請選擇 *Reject* 以取消。
+
+
+. *Zone Credentials* 頁面開啟：
++
+.. 從已發現的可用區域中選擇一個或多個 *Access Zones* 。
+.. 針對每個選定的區域，設定傳輸協定認證資料：
+.. 從下拉式選單中選取 *NFS IP 位址*。
+.. 請輸入用於存取 NFS 匯出路徑的 *Username* 。
+.. 請輸入 *SMB IP 位址*。
+.. 請輸入用於存取 SMB 檔案共享的 *Username*。
+.. 輸入 *Password*。
+
+
++
+
+NOTE: 如果在 Isilon 叢集上設定了 SmartConnect 服務 IP（SSIP），您可以從「IP 位址」下拉清單中選擇 SmartConnect 區域網域名稱。使用啟用 SSIP 的網域名稱時，Isilon SmartConnect 基礎架構會管理連線負載平衡並在儲存層進行解析。NetApp Data Migrator 在此組態中不會執行額外的負載平衡。
+
+. *Workers* 索引標籤隨即開啟：
++
+.. 針對每個區域和協定組合，分配工作進程：
++
+在 *Associated* 欄中，選取您要建立關聯的一或多個工作者旁的切換按鈕。
+
+.. 選擇 *Proceed* 以啟動預先檢查作業，測試一或多個選定的工作人員是否與 NetApp Data Migrator 和 Isilon 檔案伺服器有連線。
+
+
+. 預先檢查完成後，請解決所有標記的錯誤。
++
+如果預先檢查完成且沒有錯誤，您的檔案伺服器名稱會顯示在檔案伺服器清單下。顯示的檔案伺服器下拉式清單會顯示已設定的區域。
+
+
+
+--
+====
+
+
+== 手動上傳匯出和目錄路徑
+
+NetApp Data Migrator 可讓您手動上傳匯出路徑和目錄路徑，以便在 NFS 協定的資料遷移操作中使用。此功能在無法自動偵測 NFS 匯出路徑的環境中非常有用。例如，當與 GCNV Flex 服務一起使用，或遷移目錄路徑而不是整個匯出路徑時。如果您在「匯出路徑擷取機制」面板中選擇「手動上傳」，則需要在建立檔案伺服器後下載並填寫 NetApp Data Migrator 提供的範本檔案。
+
+
+NOTE: 當您需要在目錄層級設定移轉時，請使用此選項。如果移轉涉及特定目錄而非整個匯出，請直接在 Excel 試算表中輸入目錄路徑。這樣可以確保移轉工作流程單獨處理每個目錄，而無需匯出層級的輸入。
+
+.步驟
+. 在左側導覽面板中，選取 *Storage Servers* 。
+. 選擇 *File Servers* 。
+. 選取 *Click here to Upload Export Paths* 。
+. 選擇 *Download Template* 以下載 CSV 檔案模板。
+. 將匯出路徑和目錄路徑儲存到 CSV 檔案中。
+. 選擇 *Click here to Upload Export Paths*，然後選擇包含匯出路徑和目錄路徑的 CSV 檔案。
++
+匯出路徑和目錄路徑會顯示在 *Paths* 下。
+
+. 如果需要新增更多匯出路徑或目錄路徑，請將其新增至檔案中，然後選擇 *重新上傳匯出路徑*。
+
+
+上傳完成後，匯出路徑和目錄路徑可以具有以下幾種狀態類型之一：
+
+* *有效*：路徑已成功上傳，您可以掛載和卸載此路徑。
+* *無效*：路徑上傳失敗。
+* *已停用*：路徑可用，但不在您上傳的檔案中。
+
+
+
+
+== 編輯檔案伺服器詳細資料
+
+如有需要，您可以對先前設定的檔案伺服器進行變更。
+
+使用 Other NAS 或 Dell Isilon 工作流程選項編輯檔案伺服器詳細資訊。
+
+[role="tabbed-block"]
+====
+.其他 NAS
+--
+.步驟
+. 選擇要編輯的 File Server 旁的操作選單。
+. 選擇 *Edit File Server* 。如果您為 *Upload Export Path Retrieval* 選擇了 *Manual Upload* 選項，則只會顯示有效路徑。
+. 選取 *Server Type* 標籤、進行所需的編輯，然後選取 *Proceed*。
+. 選擇 *Credentials* 選項卡，進行任何必要的編輯，然後選擇 *Proceed*。
+. 選取 *Workers* 標籤，進行任何必要的編輯，然後選取 *Submit*。
+
+
+--
+.Dell Isilon
+--
+.步驟
+. 選擇要編輯的 Parent File Server 旁的操作選單。
+. 選取 *Edit File Server*。
+. 選擇 *Server Type* 標籤：
++
+.. 如有需要，請更新 *Configuration Name*。
+.. 如有需要，請更新 *Username* 或 *Password*。
+.. 選擇 *Proceed*。
+
+
++
+
+NOTE: 您無法變更 *Server Type*（Dell Isilon）和 *Management Host*。
+
+. 選取 *Zone Credentials* 標籤：
++
+.. 從可用清單中選擇其他區域，即可新增區域。
+.. 更新每個區域的傳輸協定認證資料：
++
+視需要更新 *NFS IP 位址*、*使用者名稱* 或 *密碼*。
+
++
+根據需要更新 *SMB IP 位址*、*使用者名稱* 或 *密碼*。
+
+.. 選擇 *Proceed*。
+
+
+. 選擇 *Workers* 選項卡：
++
+.. 透過在 *Associated* 欄中開啟或關閉 worker，更新每個區域和通訊協定的 worker 指派。
+.. 選擇 *Proceed* 以對任何新指派的工作節點執行預先檢查驗證。
+
+
+. 選擇 *Job Config* 標籤：
++
+.. 如有需要，請更新 *Working Directory* 。
+.. 選擇 *Finish* 。
+
+
+
+
+--
+====

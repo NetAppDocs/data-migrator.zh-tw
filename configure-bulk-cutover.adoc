@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: configure-bulk-cutover.html 
+keywords: bulk cutover, final sync, cutover job, chain of custody, migration approval 
+summary: 使用 NetApp Data Migrator 中的批次切換功能，執行來源系統和目標系統之間的最終資料同步。 
+---
+= 在 NetApp Data Migrator 中配置批次切換
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用 NetApp Data Migrator 中的批次切換功能，執行來源系統和目標系統之間的最終同步。當基線遷移完成且增量同步正在執行時，您可以將多個路徑合併到一個切換作業中。
+
+
+
+== 開始切換工作
+
+請依照以下步驟開始切換作業。
+
+.步驟
+. 登入 NetApp Data Migrator 。
+. 選擇 *Storage Servers* > *File Servers* 。
+. 選擇要為其建立 Cutover Job 的檔案伺服器名稱。
+. 選擇 *Bulk Cutover* 。
+. 在 *Select Path* 頁面上，選取 *Source Path* 旁的核取方塊。
+. 選取來源路徑旁的核取方塊（確認切換工作）。
+. 選擇 *Proceed* 。
+. 選取工作名稱旁的核取方塊，以確認您要啟動 *Bulk Cutover* 工作。
++
+
+NOTE: 當 Bulk Migrate 作業並行執行時，您可以選取一個作業。
+
+. 選擇 *Submit* 以開始批次切換作業。
++
+隨即顯示「*切換作業已建立*」確認訊息。
+
+. 您可以選取此訊息旁邊的 *View Job Listing* 連結，以開啟 Job Config List 頁面，其中會列出您的新工作。
+
+
+
+
+== 核准大量轉換工作
+
+請依照下列步驟核准切換工作。
+
+.步驟
+. 在 *Jobs* 頁面上，選取 *Job Run List* 標籤。
+. 選擇 Cutover 工作旁邊的動作功能表。
+. 選擇 *Review* 。
++
+出現 *Cutover Confirmation* 彈出方塊。
+
+. 選擇 *Download CoC Report* 連結。
++
+檢閱報告以驗證轉換是否成功，以及所有資料是否已成功從來源移轉至目的地。
+
+. 選取 *I have reviewed and verified the COC document and all other essential information* 旁的核取方塊。
+. 如果您對 COC 報告中的資訊感到滿意，請選取 *Confirm* 以核准 *Bulk Cutover*。
++
+狀態變更為 *Complete* 。
+
+

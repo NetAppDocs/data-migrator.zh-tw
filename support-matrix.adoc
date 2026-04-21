@@ -1,0 +1,155 @@
+---
+sidebar: sidebar 
+permalink: support-matrix.html 
+keywords: support matrix, nfs, smb, file servers, protocol versions 
+summary: 了解 NetApp Data Migrator 對功能、檔案伺服器和協定的支援情況。 
+---
+= NetApp Data Migrator 對功能、檔案伺服器和傳輸協定的支援
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Data Migrator 支援某些功能、檔案伺服器和傳輸協定。
+
+
+
+== 支援與不支援的功能
+
+NetApp Data Migrator 支援多種 NFS 和 SMB 遷移功能。但部分功能不受支援。
+
+
+
+=== 支援的功能
+
+[cols="1,2a"]
+|===
+| 說明 | 支援的功能 
+
+
+| 權限和稽核處理  a| 
+* 監管鏈報告
+* 自主存取控制清單（DACL）
+* 保留存取控制清單（ACL）
+* 使用者識別碼（UID）和安全性識別碼（SID）重新對應
+
+
+
+
+| 檔案系統物件和連結  a| 
+* 硬連結處理
++
+NetApp Data Migrator 將物件和連結作為單獨的檔案進行遷移。
+
+* 符號連結
++
+*注意*：支援 NFS 遷移
+
+
+
+
+
+| 檔案中繼資料保留  a| 
+* 保留存取時間
+* 保留建立時間
+* 保留修改時間
+* 保留權限
+
+
+
+
+| 遷移行為和資料一致性  a| 
+* 刪除傳播
+* 漸進式移轉
+* 支援開啟的檔案
+* 切換支援
+
+
+
+
+| 移轉控制與執行  a| 
+* 檔案模式排除
+* 遷移排程
+
+
+|===
+
+
+=== 不支援的功能
+
+[cols="1,2a"]
+|===
+| 說明 | 不支援的功能 
+
+
+| 權限和稽核處理  a| 
+系統存取控制清單 (SACL)
+
+*注意*：不支援 SMB 遷移
+
+
+
+| 檔案系統物件和連結  a| 
+* 遵循 NTFS 連接點
+* 符號連結
++
+*注意*：不支援 SMB 遷移
+
+* 替代資料串流
++
+NetApp Data Migrator 可以探索但無法移轉替代資料串流。
+
+
+
+
+
+| 檔案中繼資料保留  a| 
+選擇性檔案屬性
+
+
+
+| 遷移行為和資料一致性  a| 
+快照遷移
+
+|===
+
+
+== 支援的檔案伺服器
+
+NetApp Data Migrator 支援某些檔案伺服器作為資料遷移的來源和目標。
+
+[cols="1,2a"]
+|===
+| 說明 | 支援的檔案伺服器 
+
+
+| 來源  a| 
+任何 NAS 伺服器，例如 Dell Isilon、ONTAP、Vanilla Linux、Windows、Cloud Volumes ONTAP
+
+
+
+| 目的地  a| 
+Azure NetApp Files（ANF）、Google Cloud NetApp Volumes（GCNV）、Amazon FSx for NetApp ONTAP（FSxN）、Cloud Volumes ONTAP 的所有服務層級
+
+|===
+
+
+== 支援 NFS 和 SMB 遷移傳輸協定
+
+NetApp Data Migrator 支援特定 NFS 和 SMB 傳輸協定版本進行資料遷移。
+
+[cols="1,2a"]
+|===
+| 傳輸協定 | 支援的版本 
+
+
+| NFS  a| 
+4.1 、 3.0
+
+
+
+| SMB  a| 
+3.1、3.0、2.0
+
+|===

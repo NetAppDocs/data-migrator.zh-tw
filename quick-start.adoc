@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: quick-start.html 
+keywords: quick start, installation, first project, control plane 
+summary: 要開始使用 NetApp Data Migrator，您需要使用 AWS、Azure、Google Cloud 或 Open Virtual Appliance（OVA）範本設定控制平面和工作虛擬機器。 
+---
+= NetApp Data Migrator 快速入門
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+開始使用 NetApp Data Migrator 需要幾個步驟。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"]了解 NetApp Data Migrator
+[role="quick-margin-para"]
+NetApp Data Migrator 支援 NFS 和 SMB 檔案傳輸協定。請確認 NetApp Data Migrator 是否符合您的資料遷移需求，並選擇適合您環境的部署選項：
+
+[role="quick-margin-list"]
+* AWS
+* Azure
+* Google Cloud 服務
+* Open Virtual Appliance (OVA) 範本
+
+
+[role="quick-margin-para"]
+審查 link:decide-to-use-data-migrator.html["決定是否使用 NetApp Data Migrator"] 和 link:networking-requirements.html["網路需求"]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"]安裝與設定
+[role="quick-margin-para"]
+NetApp Data Migrator 使用控制平面和工作節點。首先，您需要根據遷移需求部署控制平面虛擬機器和工作虛擬機器。對於 NFS，您需要部署一個 Linux 工作節點；對於 SMB，您需要部署一個 Windows 工作節點。您可以選擇使用 NFS 或 SMB，也可以同時使用兩種協定。部署完成後，您可以建立控制平面虛擬機和工作虛擬機，並存取 NetApp Data Migrator 使用者介面。
+
+[role="quick-margin-para"]
+link:learn-about-install.html["了解如何安裝 NetApp Data Migrator"]
+
+[role="quick-margin-para"]
+瞭解如何：
+
+[role="quick-margin-list"]
+. link:deploy-control-plane-and-linux-workers.html["部署控制平面 VM 和 Linux 工作 VM"]
+. link:create-control-plane-and-worker-vms.html["建立控制平面 VM 和工作 VM"]
+. link:access-data-migrator-ui.html["存取 NetApp Data Migrator UI"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]設定及管理
+[role="quick-margin-para"]
+首先，您需要使用預設憑證以管理員身分登入，並更新您的使用者名稱和密碼。然後，您可以建立您的第一個專案並新增檔案伺服器以啟動移轉工作流程。
+
+[role="quick-margin-para"]
+瞭解如何：
+
+[role="quick-margin-list"]
+. link:configure-data-migrator.html["設定 NetApp Data Migrator"]
+. link:manage-projects.html["在 NetApp Data Migrator 中建立和管理專案"]
+

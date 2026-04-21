@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: configure-bulk-discover.html 
+keywords: bulk discover, storage inventory, export paths, data scan, migration planning 
+summary: 在 NetApp Data Migrator 中配置 Bulk Discover，以便在開始遷移資料之前產生現有儲存容量的概覽。 
+---
+= 使用批量探索在 NetApp Data Migrator 中規劃資料移轉
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+在 NetApp Data Migrator 中配置 Bulk Discover，以便在開始遷移資料之前快速產生現有儲存容量的概覽。清楚了解儲存的檔案和系統結構有助於簡化資料遷移過程。
+
+.步驟
+. 登入 NetApp Data Migrator 。
+. 選擇 *Storage Servers* > *File Servers* 以檢視可用檔案伺服器清單。
+. 選擇要執行大量探索的伺服器名稱，然後選取 *Bulk Discover*。
+. 選取 *Job Schedule*，然後選取下列其中一個選項：
++
+** 如果您希望立即開始探索，請選擇 *Start Now*。
+** *排程日期和時間（UTC）* 如果您想要排程探索程序。輸入您想要工作開始的日期和時間。
+
+
+. 請選擇以下其中一個選項來設定 *Scan Alternate Data Streams* ：
++
+** 如果您希望 NetApp Data Migrator 發現與您的檔案關聯的備用資料流（ADS），請選擇 *Yes*。
+** 如果您不希望 NetApp Data Migrator 發現與您的檔案關聯的 ADS，請選擇「否」。
+
+
+. 在 *Excluded Path Patterns* 文字方塊中、輸入要從探索程序中排除的路徑。您應該在新行中輸入每個路徑。
+. 使用 *Search bar* 尋找要包含在探索程序中的特定匯出路徑（在列出的路徑中），然後選取 *Export Path(s)* 旁邊的核取方塊。
++
+無法存取的匯出路徑將被停用，無法在發現過程中使用。例如，已刪除的匯出路徑、不再出現在  `showmount -e` for NFS 輸出中的路徑，或在 SMB 共用枚舉期間未回傳的路徑都會停用。
+
+. 選取 *Submit* ，畫面會顯示通知訊息，確認已建立 *Bulk Discover Job* 。選取此訊息中的 *View Job Listing* 連結，即可檢視 *Job Config List* 頁面，您新建立的作業會列在 *Job Listings* 表格中。
+

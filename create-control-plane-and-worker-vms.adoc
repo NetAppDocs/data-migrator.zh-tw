@@ -1,0 +1,105 @@
+---
+sidebar: sidebar 
+permalink: create-control-plane-and-worker-vms.html 
+keywords: aws, azure, google cloud, ova, control plane, worker vm, images, linux, windows 
+summary: 建立控制平面虛擬機器（VM）以及 Linux 和 Windows 工作虛擬機器以存取 NetApp Data Migrator。 
+---
+= 建立控制平面和工作虛擬機器以存取 NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+建立控制平面虛擬機器（VM）以及 Linux 和 Windows 工作虛擬機器以存取 NetApp Data Migrator。
+
+.開始之前
+僅針對 SMB 移轉，請從 link:https://mysupport.netapp.com/site/downloads["NetApp 支援網站"^] 下載 Windows Worker Installer。
+
+.關於此任務
+您可以使用透過 AWS、Azure 或 Google Cloud 服務或 OVA 範本部署的映像來建立控制平面 VM 和 Linux 工作 VM。您可以使用 Windows Worker Installer 來建立 Windows 工作 VM。Linux 工作 VM 支援 NFS 遷移，Windows 工作 VM 支援 SMB 遷移。您可以根據需要建立多個工作 VM。
+
+.步驟
+. 使用已部署的控制平面映像，以下列建議組態建立控制平面 VM：
++
+[cols="1,2a"]
+|===
+| 說明 | 建議設定 
+
+
+| VM 組態  a| 
+** 映像：控制平面的自訂匯入映像
+** 網路介面卡類型:gVNIC
+** 大小：8 個 vCPU、64 GB RAM
+** 儲存空間：200 GiB
++
+--
+在進行儲存規劃時，每百萬個檔案應分配約 1.1 GB 的磁碟空間。您可以將預期檔案數量（以百萬為單位）乘以 1.1 來估算總磁碟需求量。例如，如果您預計有大約 500 萬個檔案，則檔案中繼資料所需的估計磁碟空間為 5 × 1.1 GB = 5.5 GB。
+
+此外，您還應分配以下儲存空間：
+
+*** 額外預留 50 GB 用於 docker 映像、作業系統儲存和其他系統級元件
+*** 配置額外的緩衝空間，以因應未來成長和營運開銷
+
+
+--
+
+
+
+
+| 超大規模雲端服務供應商  a| 
+** AWS：r7i.2xlarge 執行個體
+** Azure VM 大小：Standard_E8ds_v5
+** Google Cloud 機器類型：c3-highmem-8
+
+
+|===
+. 使用已部署的 Linux 工作映像建立 Linux 工作 VM，以支援 NFS 移轉，建議組態如下：
++
+[cols="1,2a"]
+|===
+| 說明 | 建議設定 
+
+
+| VM 組態  a| 
+** 映像：Linux 工作節點的自訂匯入映像
+** 網路介面卡類型:gVNIC
+** 大小：4 個 vCPU、16 GB RAM
+** 儲存空間：100 GB
+
+
+
+
+| 超大規模雲端服務供應商  a| 
+** AWS：r7i.2xlarge
+** Azure VM 大小：Standard_E8ds_v5
+** Google Cloud 機器類型：c3-highmem-8
+
+
+|===
+. 使用 Windows Worker Installer 建立 Windows 工作虛擬機器以支援 SMB 遷移：
++
+.. 使用下列建議的組態設定建立 Windows VM ：
++
+*** 映像：Windows Server 2022 Base
+*** 架構：64 位元
+*** 大小：16 個 vCPU、64 GB RAM
+*** 網路介面卡類型:gVNIC
+*** 確保遠端桌面協定（RDP）（3389）已開啟
+
+
+.. 使用 RDP 建立遠端工作階段。
++
+深入瞭解link:https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-rdp.html["RDP 連線"^]。
+
+.. 在控制平面 VM 上複製並執行 Windows Worker Installer 。
+
+
+
+
+.接下來呢？
+在瞭解如何建立控制平面和工作節點虛擬機器之後、您可以選擇下列其中一個選項：
+
+* （選用）link:validate-control-plane-vm.html["驗證控制平面 VM"]
+* link:access-data-migrator-ui.html["存取 NetApp Data Migrator UI 並連接到控制平面和工作進程"]
+

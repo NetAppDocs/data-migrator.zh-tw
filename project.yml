@@ -1,0 +1,91 @@
+---
+settings:
+  name: NetApp Data Migrator
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: zh-tw,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-cn
+sidebar:
+  entries:
+  - title: NetApp Data Migrator 文件
+    url: "/index.html"
+  - title: 版本資訊
+    entries:
+    - title: 新增功能
+      url: "/whats-new.html"
+    - title: 支援對照表
+      url: "/support-matrix.html"
+    - title: 已知問題
+      url: "/known-issues.html"
+    - title: 已知限制
+      url: "/known-limitations.html"
+  - title: 開始使用
+    entries:
+    - title: 了解 NetApp Data Migrator
+      url: "/learn-about-data-migrator.html"
+    - title: 決定是否使用 NetApp Data Migrator
+      url: "/decide-to-use-data-migrator.html"
+    - title: 快速入門
+      url: "/quick-start.html"
+    - title: 網路需求
+      entries:
+      - title: 驗證網路存取
+        url: "/networking-requirements.html"
+      - title: 連接埠需求
+        url: "/port-requirements.html"
+  - title: 安裝、設定和升級
+    entries:
+    - title: 了解如何安裝 NetApp Data Migrator
+      url: "/learn-about-install.html"
+    - title: 註冊帳戶
+      url: "/register-for-account.html"
+    - title: 部署控制平面和 Linux 工作節點
+      url: "/deploy-control-plane-and-linux-workers.html"
+    - title: 建立控制平面和工作節點虛擬機器
+      url: "/create-control-plane-and-worker-vms.html"
+    - title: 驗證控制平面和 worker 部署
+      url: "/validate-control-plane-vm.html"
+    - title: 存取 NetApp Data Migrator UI
+      url: "/access-data-migrator-ui.html"
+    - title: 設定 NetApp Data Migrator
+      url: "/configure-data-migrator.html"
+    - title: 升級控制平面和 worker
+      url: "/upgrade.html"
+  - title: 使用 NetApp Data Migrator
+    entries:
+    - title: 建立和管理專案
+      url: "/manage-projects.html"
+    - title: 管理使用者
+      entries:
+      - title: 新增和管理使用者
+        url: "/manage-users.html"
+      - title: 管理存取控制
+        url: "/access-control.html"
+    - title: 新增和管理檔案伺服器
+      url: "/manage-file-servers.html"
+    - title: 設定即時通知
+      url: "/configure-notifications.html"
+    - title: 管理移轉選項
+      entries:
+      - title: 規劃資料移轉
+        url: "/configure-bulk-discover.html"
+      - title: 設定大量移轉
+        url: "/configure-bulk-migrate.html"
+      - title: 設定大量切換
+        url: "/configure-bulk-cutover.html"
+    - title: 管理工作和工作執行
+      url: "/manage-jobs.html"
+    - title: 產生支援服務組合
+      url: "/generate-support-bundle.html"
+  - title: 常見問題
+    url: "/faq.html"
+  - title: 取得協助
+    entries:
+    - title: 註冊以取得支援
+      url: "/register-for-support.html"
+    - title: 疑難排解
+      url: "/troubleshoot.html"
+  - title: 法律聲明
+    url: "/legal-notices.html"

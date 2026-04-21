@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: port-requirements.html 
+keywords: port requirements, TCP, UDP, control plane, worker, communication 
+summary: NetApp Data Migrator 的連接埠需求，包括控制平面和工作通訊所需的 TCP 和 UDP 連接埠。 
+---
+= NetApp Data Migrator 的連接埠要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+您需要確保某些 TCP 連接埠已開啟，以便在 NetApp Data Migrator 中控制平面虛擬機器（VM）和工作 VM 之間進行通訊。
+
+
+
+== 控制平面連接埠
+
+[cols="1,1,1,1a"]
+|===
+| 服務 | TCP 連接埠 | 從 | 至 
+
+
+| Temporal Server | 7233 或 7234 | 工作者和用戶端  a| 
+控制平面
+
+
+
+| Temporal UI | 8080 | 預設連接埠（如果已啟用）  a| 
+控制平面
+
+
+
+| PostgreSQL （Temporal 資料庫） | 5432 | Temporal Services（來自控制平面）  a| 
+控制平面
+
+
+
+| Redis | 6379 | 工作節點或控制平面服務  a| 
+控制平面
+
+
+
+| API 或 UI 入口 （您的應用程式） | 80 或 443 | 瀏覽器或任何外部用戶端  a| 
+控制平面
+
+
+
+| Grafana | 3000 | 瀏覽器  a| 
+控制平面
+
+|===
+
+
+== 工作者連接埠
+
+[cols="1,1,1,1a"]
+|===
+| 服務 | TCP 連接埠 | 從 | 至 
+
+
+| 輸出至控制平面 | 7233 | 控制平面中的服務  a| 
+Temporal 前端
+
+
+
+| 輸出至控制平面 | 6379 | 控制平面中的服務  a| 
+Redis
+
+
+
+| 輸出至控制平面 | 80 或 443 | 瀏覽器  a| 
+API 或 UI （如果您這麼稱呼它的話）
+
+
+
+| 傳出至儲存設備 | 2049 | 工作節點  a| 
+NFS 伺服器
+
+*注意*：如果您需要遠端程序呼叫的 portmapper 服務，請包含 TCP 或 UDP 連接埠 111。
+
+
+
+| 傳出至儲存設備 | 445 | 工作節點  a| 
+SMB 伺服器
+
+|===

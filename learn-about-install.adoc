@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: learn-about-install.html 
+keywords: aws installation, prerequisites, control plane, worker vm, ec2 
+summary: 了解如何安裝 NetApp Data Migrator 控制平面和工作虛擬機器。 
+---
+= 了解如何安裝 NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+若要使用 NetApp Data Migrator 執行 NFS 和 SMB 遷移作業，您需要安裝控制平面和工作節點。
+
+* *控制平面*：控制平面充當中央管理和控制層。您需要將控制平面部署在 Linux 虛擬機器（VM）上，然後再部署工作進程。
+* *Workers*：Workers 是執行實際資料遷移的虛擬機器。您可以根據規模和需求部署多個 Workers。Worker 類型取決於傳輸協定：
++
+** Linux 工作者支援 NFS 移轉。
+** Windows 工作進程支援 SMB 移轉。
+
+
+
+
+首先，您可以使用 AWS、Azure 或 Google Cloud 服務，或使用 Open Virtual Appliance (OVA) 範本來部署控制平面虛擬機器 (VM) 和 Linux 工作虛擬機器。您可以從 NetApp 支援網站下載部署所需的 NetApp Data Migrator 映像。
+
+部署完成後，您需要建立控制平面虛擬機器和工作虛擬機器以存取 NetApp Data Migrator。您可以使用已部署的映像來建立控制平面虛擬機器和 Linux 工作虛擬機器。您可以使用從 NetApp 支援網站下載的 Windows Worker Installer 來建立 Windows 工作虛擬機器。
+
+.接下來呢？
+了解如何安裝 NetApp Data Migrator 後、您可以link:register-for-account.html["註冊帳戶"]。

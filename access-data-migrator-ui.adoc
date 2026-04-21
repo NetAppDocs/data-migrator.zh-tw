@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: access-data-migrator-ui.html 
+keywords: netapp, data, migrator, ui, control, plane, access, worker, linux, windows 
+summary: 部署完成後，存取 NetApp Data Migrator UI，登入控制平面，並連接已部署的 Linux 和 Windows 工作節點。 
+---
+= 存取 NetApp Data Migrator UI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+部署控制平面虛擬機器並驗證服務和 Pod 成功執行後，請存取 NetApp Data Migrator UI，並連線至控制平面、Linux 工作節點和 Windows 工作節點。
+
+.開始之前
+請確認您擁有控制平面 VM 私有 IP 位址，該位址是您在link:deploy-control-plane-and-linux-workers.html["部署了控制平面 VM"]時取得的。您可以使用控制平面 VM 私有 IP 位址來存取 UI。
+
+.步驟
+. 使用網頁瀏覽器導覽至控制平面：
++
+`\https://<control-plane-private-ip-address>/`
+
+. 使用預設使用者名稱和密碼登入。
+. 根據您的遷移類型，選取下列其中一個索引標籤：
++
+*NFS*：此選項用於 NFS 遷移（Linux worker）。
+
++
+*SMB*：此選項用於 SMB 遷移（Windows 工作者）。
+
+. 依照螢幕上的指示，使用控制平面連線至已部署的工作虛擬機器。
++
+在首頁上，選取 *View Instruction to Setup Worker*。
+
+. 檢查 *Workers* 區段中的狀態，以確認 Worker 是否已成功連線。
++
+工作節點成功連線後，即可設定 NetApp Data Migrator 環境並執行遷移作業。
+
+
+
+.接下來呢？
+了解如何存取 NetApp Data Migrator UI 後，您可以link:configure-data-migrator.html["設定 NetApp Data Migrator"]。

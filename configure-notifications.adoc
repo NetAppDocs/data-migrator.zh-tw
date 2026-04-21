@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: configure-notifications.html 
+keywords: notifications, smtp, email alerts, real-time alerts, project status 
+summary: 設定 NetApp Data Migrator，透過設定 SMTP 電子郵件伺服器，發送有關專案狀態變更的即時電子郵件警報。 
+---
+= 設定 NetApp Data Migrator 的即時通知
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以設定 NetApp Data Migrator，使其透過電子郵件向您發送有關專案狀態變更的即時警報。
+
+.開始之前
+請確認您已以 *App Admin* 使用者身分登入。配置 SMTP 電子郵件伺服器詳細資訊需要此使用者等級。
+
+.步驟
+. 在導覽列中選取 *Settings* 。
+. 選取 *SMTP* 索引標籤，並完成下表所示的欄位。
+
+
+[cols="1,2a"]
+|===
+| 欄位 | 說明 
+
+
+| IP 位址  a| 
+SMTP 伺服器位址
+
+
+
+| 連接埠  a| 
+SMTP 連接埠
+
+
+
+| 使用者名稱  a| 
+伺服器驗證使用者名稱
+
+
+
+| 密碼  a| 
+伺服器驗證密碼
+
+
+
+| 來自電子郵件  a| 
+所有通知的寄件者地址
+
+
+
+| 傳送電子郵件  a| 
+警示的收件者地址
+
+|===
+
+NOTE: 設定 SMTP 後，使用者在編輯 SMTP 設定時需要重新輸入密碼。

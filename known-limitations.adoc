@@ -1,0 +1,126 @@
+---
+sidebar: sidebar 
+permalink: known-limitations.html 
+keywords: known, limitations, nfs limits, smb limits, worker sizing, migration restrictions 
+summary: 了解 NetApp Data Migrator 的已知限制，有助於提高遷移活動的效率。 
+---
+= NetApp Data Migrator 的已知限制
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+此版本中 NFS 和 SMB 遷移的限制以及無法正常運作或無法良好運作的功能列於此。請仔細閱讀這些限制。
+
+
+
+== NFS 和 SMB 探索與移轉限制
+
+[cols="1,2,2a"]
+|===
+| 說明 | NFS | SMB 
+
+
+| 可同時執行的匯出路徑數量 | 4  a| 
+2
+
+
+
+| 目錄中的檔案數量上限 | 100 萬  a| 
+100 萬
+
+
+
+| 工作節點大小調整 | 4 核心 CPU、16 GB 記憶體  a| 
+16 核心 CPU、64 GB 記憶體
+
+
+
+| 控制平面大小調整 | 8 核心 CPU、64 GB 記憶體  a| 
+8 核心 CPU、64 GB 記憶體
+
+
+
+| 匯出路徑中的檔案數量上限 | 2000 萬  a| 
+2000 萬
+
+|===
+
+
+== 功能限制
+
+[cols="1,2a"]
+|===
+| 說明 | 限制 
+
+
+| 主動目的地支援  a| 
+NetApp Data Migrator 不支援主動目的地（當目標儲存設備在完全移轉之前正在主動使用或寫入時）。
+
+
+
+| 區分大小寫的檔案  a| 
+對於 SMB，NetApp Data Migrator 只會遷移資料夾中使用 NFS 建立的兩個區分大小寫的檔案中的一個，而另一個檔案則會被錯誤處理。這是因為 SMB 無法同時接受這兩個檔案。您可以使用 NFS 執行探索來識別這些區分大小寫的檔案。
+
+
+
+| 網路存取能力  a| 
+NetApp 建議在私有網路中使用 NetApp Data Migrator。
+
+
+
+| NFSv4 ACL  a| 
+NetApp Data Migrator 不會在存取控制清單（ACL）中新增 NFSv4 標識，它只會在目的地套用基本權限。這種行為與 NFSv3 類似。
+
+
+
+| 傳輸協定移轉 - 類型  a| 
+不支援跨傳輸協定移轉，例如從 NFS 移轉至 SMB。
+
+
+
+| 傳輸協定移轉 - 版本  a| 
+不支援相同傳輸協定內的跨版本移轉，例如從 NFSv3 移轉到 NFSv4。
+
+
+
+| SMB 權限  a| 
+NetApp Data Migrator 不支援遷移 SMB 系統存取控制清單（SACL）（稽核權限）。
+
+
+
+| 帶有尾隨空格的 SMB 檔案  a| 
+透過 SMB 遷移時、 NetApp Data Migrator 會將名稱包含尾端空格的檔案標示為錯誤、因為 SMB 不允許這些檔案名稱。
+
+
+
+| SMB 特殊檔案  a| 
+NetApp Data Migrator 會發現重新導向（符號連結、硬連結、連接點、備用資料串流 (ADS) 和磁碟區掛載點），並在探索後回報。不支援移轉 ADS、疏鬆檔案和 SMB 重新導向。
+
+
+
+| 安全性  a| 
+NetApp Data Migrator 使用自簽名憑證透過 SSL/TLS 加密網路流量。
+
+
+
+| 疏鬆檔案  a| 
+稀疏檔案在移轉時會變成完整大小的檔案、NetApp Data Migrator 不會保留稀疏性。您需要額外的儲存空間來存放這些檔案。
+
+
+
+| 系統檔案  a| 
+NetApp Data Migrator 無法遷移來源擁有的系統產生檔案。
+
+
+
+| 使用者介面  a| 
+NetApp Data Migrator 針對使用 1920 x 1080 螢幕解析度的 Google Chrome 和 Firefox 瀏覽器進行了最佳化；不支援行動顯示器。
+
+
+
+| Windows 工作節點部署  a| 
+Windows 工作進程必須與目的地屬於同一根網域。
+
+|===

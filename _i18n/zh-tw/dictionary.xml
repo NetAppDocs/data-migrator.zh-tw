@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blocks>
+  <block id="4821361904f08ed800ae73ad92927d3d" category="summary">NetApp Data Migrator 使用角色型存取控制（RBAC）來管理使用者權限，允許 App Admin 使用者將角色指派給其他使用者。</block>
+  <block id="f02b2be434e8a727287102f6a252e24c" category="doc">管理 NetApp Data Migrator 的存取控制</block>
+  <block id="d7c622d175e7320d211daad224463513" category="paragraph">NetApp Data Migrator 使用基於角色的存取控制（RBAC）來管理使用者權限。RBAC 允許 App Admin 使用者（管理員）將以下三種角色中的任何一種指派給其他使用者，從而確保安全的存取控制和高效的運作。App Admin 使用者根據其他使用者的職責和存取需求授予其相應的權限。</block>
+  <block id="918f97579e4443ee0226f731ca1b2454" category="list-text">*App Admin*：此存取等級可讓使用者管理整體系統設定、使用者角色和存取權限。</block>
+  <block id="0ffac7595c5d5ad698326101c205f97d" category="list-text">*Project Admin*：此存取等級可讓使用者管理特定的遷移專案，包括作業組態和執行。</block>
+  <block id="9bec1a049bf6b183e7f01837d1d0b38b" category="list-text">*Project Viewer*：此存取等級為使用者提供唯讀存取，用於監控遷移進度、日誌和報告。此角色適用於需要監控和觀察資料遷移專案進度，但無需執行任何可能變更或干擾專案的操作的使用者。</block>
+  <block id="cbd7227ec8822f2a9c681211cd2b2e47" category="paragraph">下表提供動作和使用者角色權限的摘要。</block>
+  <block id="004bf6c9a40003140292e97330236c53" category="cell">行動</block>
+  <block id="b5a7adde1af5c87d7fd797b6245c2a39" category="cell">說明</block>
+  <block id="bc99e1a834c7a116f4e5a1926fec7a4b" category="cell">App 管理員</block>
+  <block id="4a77ffaf07c1c0b1e953880f4462ccf9" category="cell">專案管理員</block>
+  <block id="60c9a7fbaded19745dee96e2591b5dd5" category="cell">專案檢視器</block>
+  <block id="1bc2957f5ad93e6de5200e68a0926979" category="cell">代理程式部署</block>
+  <block id="b91a46c270503cceee464d9cc98301be" category="cell">使用者可以存取 *View Instruction To Setup Worker*</block>
+  <block id="93cba07454f06a4a960172bbd6e2a435" category="cell">是的</block>
+  <block id="d41d8cd98f00b204e9800998ecf8427e" category="doc"></block>
+  <block id="bafd7322c6e97d25b6299b5d6fe8920b" category="paragraph">否</block>
+  <block id="5fed933898706fd78ac043eef2dcc541" category="cell">建立使用者</block>
+  <block id="b65eb58d7c9b34d0dd8eaf85b51dc84a" category="cell">使用者可以建立新的使用者帳戶</block>
+  <block id="f923f903857a5387d3db70494e074632" category="cell">列出使用者</block>
+  <block id="6cc4f9db0272e87efc4f7aef344f47da" category="cell">使用者可以檢視使用者清單</block>
+  <block id="5d7d916557fc1d11c4ac2409e17441dd" category="cell">管理組態</block>
+  <block id="f180e689374b19f7086f777798b94512" category="cell">使用者可以管理組態設定</block>
+  <block id="f616e8b19078a6728addbab5c26541d1" category="cell">管理工作</block>
+  <block id="fe05f8b474a5c2ed2d4a69e491757560" category="cell">使用者可以管理移轉工作</block>
+  <block id="c91c7b93c28cd18741b71f727ee81ee3" category="cell">報告</block>
+  <block id="1f9a56de57c8e8b5ae1500f6842190b8" category="cell">使用者可以存取下載報告的選項。</block>
+  <block id="ba623d3bcb3f92061c623e7ba585a677" category="cell">更新專案</block>
+  <block id="4a20713ddddd493d7a982089f2d8e7ac" category="cell">使用者可以編輯專案</block>
+  <block id="f9ff25aac7d17c14e19d286ae0a043e2" category="cell">檢視專案</block>
+  <block id="dc7a98ce3350dab03f5e08beee2be9cf" category="cell">使用者可以存取專案清單頁面</block>
+  <block id="be86ca474df5e14056bc0f20d2cdb767" category="cell">建立專案</block>
+  <block id="2d490fff311df40dd93e29f99112f7b5" category="cell">使用者可以建立專案</block>
+  <block id="04e2fa8a65517a2edb23d527f3b18b8d" category="cell">儲存 SMTP</block>
+  <block id="2d538349110055d188b1b161a4f6f4d1" category="cell">使用者可以新增或編輯 SMTP 詳細資料</block>
+  <block id="4131a47b90245e698ff17260f9aa8fa2" category="summary">部署完成後，存取 NetApp Data Migrator UI，登入控制平面，並連接已部署的 Linux 和 Windows 工作節點。</block>
+  <block id="bba519d0273fc545ec8a0eda7178c85c" category="doc">存取 NetApp Data Migrator UI</block>
+  <block id="251eddead9eeff785f849aa0655b368f" category="paragraph">部署控制平面虛擬機器並驗證服務和 Pod 成功執行後，請存取 NetApp Data Migrator UI，並連線至控制平面、Linux 工作節點和 Windows 工作節點。</block>
+  <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">開始之前</block>
+  <block id="133ea86f1607a2d480c47f6e7726ddec" category="inline-link-macro">部署了控制平面 VM</block>
+  <block id="ef36a05239a3ef82b65b5fc75b47cd9a" category="paragraph">請確認您擁有控制平面 VM 私有 IP 位址，該位址是您在<block ref="b713e00d541e82e4f58ea133e9b1520d" category="inline-link-macro-rx"></block>時取得的。您可以使用控制平面 VM 私有 IP 位址來存取 UI。</block>
+  <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">步驟</block>
+  <block id="451af897e2ad83a812621e959105663f" category="list-text">使用網頁瀏覽器導覽至控制平面：</block>
+  <block id="2e1fbfc868f4121471d4fee2563be03a" category="paragraph"><block ref="41ac7b764f12237e8a19ee966045da1f" prefix="" category="inline-code"></block></block>
+  <block id="3b9b583d53710398a6b9516f89e216ce" category="list-text">使用預設使用者名稱和密碼登入。</block>
+  <block id="334e64be38c81fde8ba773e178c909f4" category="list-text">根據您的遷移類型，選取下列其中一個索引標籤：</block>
+  <block id="6eb7a962c965cb0f7c579d6b275f7c73" category="paragraph">*NFS*：此選項用於 NFS 遷移（Linux worker）。</block>
+  <block id="f6b034ffb89dcbedb3e9122b0fec0090" category="paragraph">*SMB*：此選項用於 SMB 遷移（Windows 工作者）。</block>
+  <block id="53382efc8d30cb7b67f54a38e7a73f7e" category="list-text">依照螢幕上的指示，使用控制平面連線至已部署的工作虛擬機器。</block>
+  <block id="c68c3837aaf840cec302cd98e4de25e6" category="paragraph">在首頁上，選取 *View Instruction to Setup Worker*。</block>
+  <block id="cbc86ed7a1779fea6df3ea3b0e24c65b" category="list-text">檢查 *Workers* 區段中的狀態，以確認 Worker 是否已成功連線。</block>
+  <block id="4e33e6ed8061b5502ae7957b4f0debc0" category="paragraph">工作節點成功連線後，即可設定 NetApp Data Migrator 環境並執行遷移作業。</block>
+  <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">接下來呢？</block>
+  <block id="9a4c92be3cfd0d8c4e5f2cc68d66bdf0" category="inline-link-macro">設定 NetApp Data Migrator</block>
+  <block id="5a28d0f81430b8b9faa8e3faf94a8949" category="paragraph">了解如何存取 NetApp Data Migrator UI 後，您可以<block ref="eb61382f2bad59bb62f83c02035f2305" category="inline-link-macro-rx"></block>。</block>
+  <block id="51b99ea2354394ff1092c103509ccc36" category="summary">使用 NetApp Data Migrator 中的批次切換功能，執行來源系統和目標系統之間的最終資料同步。</block>
+  <block id="7fed1ba6a385026467b1c86f9fd1d712" category="doc">在 NetApp Data Migrator 中配置批次切換</block>
+  <block id="51be7e6ef751cd9ff13cb2267fd7150b" category="paragraph">使用 NetApp Data Migrator 中的批次切換功能，執行來源系統和目標系統之間的最終同步。當基線遷移完成且增量同步正在執行時，您可以將多個路徑合併到一個切換作業中。</block>
+  <block id="df4a7c4be419a6027452e739e9d7a7e9" category="section-title">開始切換工作</block>
+  <block id="4a19765a52cb7b078e0c60fef3d01f09" category="paragraph">請依照以下步驟開始切換作業。</block>
+  <block id="9b4589cb01c1cffb60da40d95406e28b" category="list-text">登入 NetApp Data Migrator 。</block>
+  <block id="80e42802b345b31373483c9e5b712463" category="list-text">選擇 *Storage Servers* &gt; *File Servers* 。</block>
+  <block id="68a3336bf8fe230a94c34c82b0b74a50" category="list-text">選擇要為其建立 Cutover Job 的檔案伺服器名稱。</block>
+  <block id="11eb060703c5fe76f1af75c126d310a5" category="list-text">選擇 *Bulk Cutover* 。</block>
+  <block id="e562cfd62f1801784f2f3cf6c3c569af" category="list-text">在 *Select Path* 頁面上，選取 *Source Path* 旁的核取方塊。</block>
+  <block id="57f2cecc0eef0d3f0ae462c30ffeb996" category="list-text">選取來源路徑旁的核取方塊（確認切換工作）。</block>
+  <block id="b74bf2ecb25f4010a9250d808366fd9c" category="list-text">選擇 *Proceed* 。</block>
+  <block id="7d2bca1fc64db9e7d167f7045e6068b0" category="list-text">選取工作名稱旁的核取方塊，以確認您要啟動 *Bulk Cutover* 工作。</block>
+  <block id="48793918c3cac256347c6f47502a6324" category="admonition">當 Bulk Migrate 作業並行執行時，您可以選取一個作業。</block>
+  <block id="1a80a47ef2f6882ed8173f7652fb3fc7" category="list-text">選擇 *Submit* 以開始批次切換作業。</block>
+  <block id="280d6c51f63c8390a817118a5cc7ddd3" category="paragraph">隨即顯示「*切換作業已建立*」確認訊息。</block>
+  <block id="c6dabc1f813ae186e36d5c5d23e5fd36" category="list-text">您可以選取此訊息旁邊的 *View Job Listing* 連結，以開啟 Job Config List 頁面，其中會列出您的新工作。</block>
+  <block id="dc43384221aadf441fb56925cde36520" category="section-title">核准大量轉換工作</block>
+  <block id="f7fb517f490b23ee9f475f28618c2417" category="paragraph">請依照下列步驟核准切換工作。</block>
+  <block id="1beaf51f3950838b267bb0f11b927748" category="list-text">在 *Jobs* 頁面上，選取 *Job Run List* 標籤。</block>
+  <block id="5b3b7f3cd0d32f906fcbbf8fb1d705de" category="list-text">選擇 Cutover 工作旁邊的動作功能表。</block>
+  <block id="b99a9a5879442c5ad3ae30c94964ccb3" category="list-text">選擇 *Review* 。</block>
+  <block id="531330f2326fb3283c827799b9c4dec0" category="paragraph">出現 *Cutover Confirmation* 彈出方塊。</block>
+  <block id="ffc9534ab431605bc11f516d99c43ba5" category="list-text">選擇 *Download CoC Report* 連結。</block>
+  <block id="cc5fcd3fba3014c23240ac1c1497d8b7" category="paragraph">檢閱報告以驗證轉換是否成功，以及所有資料是否已成功從來源移轉至目的地。</block>
+  <block id="67116d320a2bb4f66b0bb10629a28264" category="list-text">選取 *I have reviewed and verified the COC document and all other essential information* 旁的核取方塊。</block>
+  <block id="228159fcd8ad29c01efe569a236253d2" category="list-text">如果您對 COC 報告中的資訊感到滿意，請選取 *Confirm* 以核准 *Bulk Cutover*。</block>
+  <block id="e15884a19074f86e7c09ab35a649f46a" category="paragraph">狀態變更為 *Complete* 。</block>
+  <block id="c7c7190135e9f9b9ece90813a338db20" category="summary">在 NetApp Data Migrator 中配置 Bulk Discover，以便在開始遷移資料之前產生現有儲存容量的概覽。</block>
+  <block id="237c9334ef000476a7394e5432d15caa" category="doc">使用批量探索在 NetApp Data Migrator 中規劃資料移轉</block>
+  <block id="5fe4d49f2bb62d43bc8130b371624a60" category="paragraph">在 NetApp Data Migrator 中配置 Bulk Discover，以便在開始遷移資料之前快速產生現有儲存容量的概覽。清楚了解儲存的檔案和系統結構有助於簡化資料遷移過程。</block>
+  <block id="996e73c7461d886afe19727bc21490cf" category="list-text">選擇 *Storage Servers* &gt; *File Servers* 以檢視可用檔案伺服器清單。</block>
+  <block id="8eef17af229d9974a423c51577657da9" category="list-text">選擇要執行大量探索的伺服器名稱，然後選取 *Bulk Discover*。</block>
+  <block id="4ad61ed3eebd122efb6373bdff80b6d8" category="list-text">選取 *Job Schedule*，然後選取下列其中一個選項：</block>
+  <block id="90d449d963866835f03aebec004adec6" category="list-text">如果您希望立即開始探索，請選擇 *Start Now*。</block>
+  <block id="776d91f489c41dc480313599429022d8" category="list-text">*排程日期和時間（UTC）* 如果您想要排程探索程序。輸入您想要工作開始的日期和時間。</block>
+  <block id="ec612ce3f200b4c2ad7488256be9be02" category="list-text">請選擇以下其中一個選項來設定 *Scan Alternate Data Streams* ：</block>
+  <block id="26f67c023990c39890e2fc88083d1acb" category="list-text">如果您希望 NetApp Data Migrator 發現與您的檔案關聯的備用資料流（ADS），請選擇 *Yes*。</block>
+  <block id="9db88ff5db96c9cd9c9c254a6a10d998" category="list-text">如果您不希望 NetApp Data Migrator 發現與您的檔案關聯的 ADS，請選擇「否」。</block>
+  <block id="23aa07a919b422e82048c83eaa11fdee" category="list-text">在 *Excluded Path Patterns* 文字方塊中、輸入要從探索程序中排除的路徑。您應該在新行中輸入每個路徑。</block>
+  <block id="0b1a6aba743e5817c0e2fde514af1c01" category="list-text">使用 *Search bar* 尋找要包含在探索程序中的特定匯出路徑（在列出的路徑中），然後選取 *Export Path(s)* 旁邊的核取方塊。</block>
+  <block id="f5f9bbbb5b9949b693fcb9afc02c0bf1" category="paragraph">無法存取的匯出路徑將被停用，無法在發現過程中使用。例如，已刪除的匯出路徑、不再出現在 <block ref="55fb64f15dd3d0c53de3a4d095218569" prefix=" " category="inline-code"></block> for NFS 輸出中的路徑，或在 SMB 共用枚舉期間未回傳的路徑都會停用。</block>
+  <block id="d9ef6c926d575b1081ad9bd10cfb8a20" category="list-text">選取 *Submit* ，畫面會顯示通知訊息，確認已建立 *Bulk Discover Job* 。選取此訊息中的 *View Job Listing* 連結，即可檢視 *Job Config List* 頁面，您新建立的作業會列在 *Job Listings* 表格中。</block>
+  <block id="52651e9e259665a27e120a368f26f728" category="summary">使用 NetApp Data Migrator 中的批量遷移功能，將大量資料從來源位置傳輸到目標位置。</block>
+  <block id="82a11be88932c60c6c29c06b4c233449" category="doc">使用 NetApp Data Migrator 執行資料遷移</block>
+  <block id="505619737019b89dd9d4c16b706d8f62" category="paragraph">使用 NetApp Data Migrator 中的批量遷移功能，將大量資料從來源位置傳輸到目標位置。</block>
+  <block id="a2d8cf659766e21d3e11e4f9a79d56c0" category="section-title">步驟 1：在 NetApp Data Migrator 中設定批量遷移</block>
+  <block id="b2e1f3e6312c7b8aad6ed527c694618d" category="paragraph">在使用批次遷移功能之前，您需要先定義批次遷移的伺服器。</block>
+  <block id="219fce68df0e060529d041bc226f8111" category="list-text">選擇要為其建立工作的 *File Server Name*。</block>
+  <block id="699fcc2d622cb7cc67663305534ed067" category="list-text">選擇 *Bulk Migrate* 。</block>
+  <block id="4dbe34dcfaf21a426bc5f1d0a9947fc0" category="section-title">步驟 2：新增來源和目的地對應</block>
+  <block id="87834d34f8d8989b4c54caedbea8b7d4" category="paragraph">新增來源和目的地對應，以指定移轉的來源匯出路徑和目的地匯出路徑。</block>
+  <block id="a270c874dd3f23eef6fb2f8c7a227252" category="list-text">選擇要移轉的來源中的匯出路徑。</block>
+  <block id="1ada8f7056024f536b0017b8a818a648" category="list-text">如果您要執行目錄層級移轉，可選擇 *Add Source Directory* 。</block>
+  <block id="5657e4af05fc77ede4d05249c45b45e9" category="paragraph">選擇 *Add Source Directory* 後，將顯示目錄資源管理器檢視。此檢視顯示根目錄下的目錄清單。您可以導航到所需目錄，也可以直接複製所需目錄的路徑並貼上到資源管理器視窗的搜尋列中以導航至該資料夾。</block>
+  <block id="96a001e4dedac46d583f146f571969b2" category="list-text">選擇來源目錄後，請選擇目標檔案伺服器和目標匯出路徑。</block>
+  <block id="72f51b9743f5e36c1ea9f0ecd58e0f52" category="list-text">（選用）在目的地匯出路徑中選取目錄。</block>
+  <block id="eefcae75419b78d75bfc79496b19979e" category="paragraph">如果未在目的地匯出路徑中選取目錄，則移轉會在所選匯出路徑的根層級進行。</block>
+  <block id="8831a2a9218d9ad9780279eb56459895" category="list-text">選擇來源路徑和目標路徑後，選擇 *Add Mapping* 以新增所選映射。您可以為不同的匯出路徑和目錄建立多個對應。</block>
+  <block id="2b030877d1f1c8f607d5ca91b0a78034" category="paragraph">NetApp Data Migrator 會阻止您選擇與現有對應存在父級或子級連線的對應。這樣可以避免遷移過程中發生衝突。</block>
+  <block id="d753c570fa3cb330988352990ab9d256" category="list-text">您也可以選擇 *Edit* 或 *Delete* 選項來刪除或編輯對應。</block>
+  <block id="59c71fe0ee9891f4b357478a9f0b05ea" category="list-text">新增對應後，請選取 *Proceed* 。</block>
+  <block id="6e7276e697785c1151ded5bdc2b7e6c2" category="section-title">步驟 3：自訂 Bulk Migrate 作業</block>
+  <block id="cdffa971bc37c6ea429061f382706f1b" category="paragraph">您可以根據需要，從 *Options* 頁面選擇各種設定來自訂 Bulk Migrate 作業。</block>
+  <block id="054b4f3ea543c990f6b125f41af6ebf7" category="cell">選項</block>
+  <block id="53de9558db4284118c92c948fe5d5062" category="cell">排除路徑模式</block>
+  <block id="fd6a2d100c8f79156ebf6d0acc1560fd" category="paragraph">定義要從處理過程中排除的特定檔案路徑或目錄。這有助於跳過不必要的檔案，從而優化儲存空間和效能。</block>
+  <block id="b2d7b0df61dab0c76bd9c566bd24ff53" category="list-text">您可以輸入多個路徑模式，每行一個。</block>
+  <block id="65eb767384fc37283189756aec69a4c0" category="list-text">您可以輸入通配符 <block ref="3389dae361af79b04c9c8e7057f60cc6" prefix="(" category="inline-code"></block>）來符合多個檔案或資料夾。</block>
+  <block id="f3eda43d0e3be869eeee59cc434c9697" category="list-text">排除項範例：</block>
+  <block id="345d8aa7375b5de168baa2d72106f334" category="list-text"><block ref="f54b2b60498c09ff44ebf22381d6373c" prefix="" category="inline-code"></block>：排除任何 snapshots 目錄內的所有檔案和資料夾</block>
+  <block id="82bac5ef0147b5d60483f8d501227c3f" category="list-text"><block ref="3f763766aef1e7f764f69bfa8ce878f7" prefix="" category="inline-code"></block>：不包含記錄檔</block>
+  <block id="2985ff2a0d24cdc2355a4ccfa9d1d9d9" category="list-text"><block ref="cbf258df55b17a18bba2ba23cef66778" prefix="" category="inline-code"></block>：不包括暫存檔案</block>
+  <block id="722fe1f6d22c0695404492fa4518d9f2" category="cell">遞增同步排程</block>
+  <block id="e835f3861a378dd665368b313251f1a5" category="paragraph">配置資料增量同步的頻率。這可確保僅更新自上次同步以來發生的變更，從而提高移轉效率並減少處理時間。</block>
+  <block id="0b1132f19cad793f2687f25662d2c8e6" category="list-text">選擇 *Off* 以停用增量同步。</block>
+  <block id="ba7982c8b14e51913792d3ae2df46cbc" category="list-text">選擇 *Set Schedule* 以指定同步排程。您可以選擇按小時、按天或按週同步資料。</block>
+  <block id="73a42fe909ffc5e15a75cd0977894b32" category="list-text">如果您是進階使用者，想要使用 cron 運算式定義自訂同步排程，以便更精細地控制同步時間，請選擇 *Cron Expression*。</block>
+  <block id="6dfd407960448084b5a0f7c341f29515" category="cell">遷移檔案</block>
+  <block id="e011c45ef18e58a0f53e9fc9c6901ae7" category="paragraph">根據檔案的最後修改時間選擇要遷移的檔案。</block>
+  <block id="dc8948b915144964bce1f670fe4ace9d" category="list-text">選擇 *All* 以移轉所有檔案，無論其修改日期為何。</block>
+  <block id="26e40508e41d8e4ced00ebe03695a193" category="list-text">選取 *Exclude file older than (UTC)* 以排除早於指定日期的檔案。</block>
+  <block id="b94727e59c0fedfed37fa08bc69a519c" category="cell">保留 a-time（存取時間）</block>
+  <block id="1a1f5a07ace08898f81128e362e8e27d" category="paragraph">保留原始檔案存取時間戳記，而不是將其更新為移轉時間。</block>
+  <block id="15c487a98f4213c0d55f465020b0226d" category="cell">保留權限</block>
+  <block id="eb64b891f63d6ffabf6217004cd05ca9" category="paragraph">保留目的地上的原始來源檔案和目錄權限。</block>
+  <block id="94dd63ab1c4b4342bd84fded4655c951" category="list-text">選擇 *Enabled* 以保留從來源到目的地的原始權限，包括擁有者、群組和存取權限（SMB 的存取控制清單、NFS 的模式位元）。</block>
+  <block id="2ad8c16e554562f9312bc992dcca9a5e" category="list-text">選擇 *已停用* 可跳過權限保留。NetApp Data Migrator 會使用預設目標權限遷移檔案，這在不相容的檔案系統之間遷移時非常有用。</block>
+  <block id="7db97d9c235c5e7fc35da92664b80209" category="cell">跳過最近修改的檔案</block>
+  <block id="89480adc629ca4e121b5621567f92571" category="paragraph">指定要從遷移中排除的時間視窗（以分鐘、小時或天為單位）內的檔案。這有助於防止資料不一致，確保正在編輯的檔案不會在更新過程中傳輸。</block>
+  <block id="44c7a5e141aad3b574f30358d34467c0" category="cell">上傳 GID / UID 映射</block>
+  <block id="561bec026aadc20d54b4b375338895e0" category="paragraph">上傳群組 ID（GID）或使用者 ID（UID）對應檔案，以在移轉過程中維持正確的檔案擁有權。上傳的檔案必須遵循範本中指定的格式。</block>
+  <block id="a99220b4486d225ce4c9f923226635e7" category="list-text">選擇 *Download Template* 以下載範例檔案格式。</block>
+  <block id="ac0df8cfc38c9f9ac956f30d62de5456" category="list-text">選擇 *Choose a file* 以從本機系統中選擇映射檔案。</block>
+  <block id="4c068d58547c6e11bbd4dba098739bee" category="list-text">選擇 *Upload* 以套用對應。</block>
+  <block id="c2f492f3c50be90aa564aed90e0fc304" category="cell">上傳 SID 對應</block>
+  <block id="7a190e8decdc07a49c3cf8a1f327c646" category="paragraph">上傳安全性識別碼 (SID) 映射檔案。SID 映射可確保在系統間遷移或同步檔案時，使用者和群組權限會準確保留。上傳的檔案必須遵循提供給您下載的範本中指定的格式。</block>
+  <block id="2319db93ba7524fc1d897cb3ec220082" category="paragraph">選擇選項後，選擇 *Proceed* 以開啟 *Review and Submit* 頁面。</block>
+  <block id="f16f4869607de3851167be91bdf17cf4" category="section-title">步驟 4：檢閱並提交</block>
+  <block id="11c09fc0c5afb12435057761dfaf1043" category="paragraph">驗證您的設定、然後繼續執行大量移轉工作。</block>
+  <block id="8a9fa295f8f3c420e542fbdb2be67f26" category="list-text">查看作業的 *Precheck Status* 。確保來源路徑包含正確的資料，並確認目標路徑具有足夠的儲存空間和存取權限。</block>
+  <block id="3a5d4f769154afbab4499cd26cd677c2" category="list-text">選擇 *Submit* 以建立新的移轉工作。</block>
+  <block id="c0320bc343dcb3dfc953df326f85a1f1" category="paragraph">顯示 *Bulk Migrate job has been created* 確認訊息。</block>
+  <block id="61fcf75e406c2f8580d9cfe1134092cd" category="list-text">選擇通知訊息旁邊的 *View Job Listing* 連結、以開啟 *Job Config List* 頁面、其中會列出您的新工作。</block>
+  <block id="4ea5d203fbdeb59d3aba88b36b0fb49b" category="summary">以 App Admin（管理員）身分使用預設認證登入，並更新您的使用者名稱和密碼。</block>
+  <block id="b9eb0db38a633459a1a4f1573806598c" category="doc">設定 NetApp Data Migrator</block>
+  <block id="a60613f02f079190f3f23ed86b85a746" category="paragraph">安裝 NetApp Data Migrator 後、您需要使用預設使用者名稱和密碼以 App Admin（管理員）身分登入。</block>
+  <block id="4e4712cd21c2a03063a755ec11a55d4b" category="section-title">登入 NetApp Data Migrator</block>
+  <block id="79ead709a7d2a7a52f8890bc2ccbd4de" category="paragraph">登入 NetApp Data Migrator，然後變更您的登入憑證並建立您的第一個專案。</block>
+  <block id="3fc11e04b07d8e866f2add31278093d2" category="list-text">開啟網頁瀏覽器並造訪 NetApp Data Migrator：</block>
+  <block id="3fdcf5257adfc8dc72531d88d87c137f" category="paragraph"><block ref="8424895e08f1a08bf32a5ebd95eb9b25" prefix="" category="inline-code"></block></block>
+  <block id="6d5531ea9180071396710683fda13899" category="list-text">在 *Welcome* 頁面上、於 *Username/Email* 中輸入預設使用者名稱。</block>
+  <block id="329c0bba0a702627545256b34f866dae" category="list-text">在 *Password* 中輸入預設密碼。</block>
+  <block id="c73579d39b5f5df8c4a2d6a8604926e6" category="list-text">選取 *Login* 。</block>
+  <block id="1faff00a18996a3019ce89a226bc5839" category="paragraph">*Reset Password* 頁面開啟。</block>
+  <block id="4bca89a1f516cc233ef01f0d0beba886" category="list-text">請輸入符合以下安全要求的新密碼：</block>
+  <block id="9c5d553ad697089d0c2996bbc3a55765" category="list-text">至少包含 8 個字元</block>
+  <block id="ee7df51a7f3a94f61fc6c94b6fe82f66" category="list-text">包含至少一個大寫字母</block>
+  <block id="4033d9d6a973cbb2eeee793c2526040f" category="list-text">包含至少一個小寫字母</block>
+  <block id="74374e5ff978c98b8089211e9d1e2b05" category="list-text">包含至少一個數字</block>
+  <block id="c29be0b7ea49d6d9d0b6bcccb58eaf76" category="list-text">包含至少一個特殊字元</block>
+  <block id="a6e4856c624ae244e6c8abd1550d7872" category="list-text">選擇 *Reset Password* 。*Your Details* 頁面隨即開啟。</block>
+  <block id="65440c4a393217bbcbac2a08da44ada3" category="list-text">請輸入您的 *First Name*、*Last Name* 和 *Email* 地址。</block>
+  <block id="8ae3a65ab5dbbaec436dff36af47c72f" category="list-text">選擇 *Proceed* 。*Create a New Project* 頁面隨即開啟。</block>
+  <block id="a7769139ddefa30ec753d34c7dcf1530" category="list-text">選擇 *Create Project*，然後輸入以下詳細資訊：</block>
+  <block id="e588eec0749c107e3a35a2239ab97ab6" category="list-text">*Project Name*：輸入專案的描述性名稱。</block>
+  <block id="5bd649e944ca70a8104746e5471b5344" category="list-text">*專案說明（選用）*：您可以提供有關專案的其他詳細資料。</block>
+  <block id="bf18811faac9b8e4fcaebab51afd1113" category="list-text">選擇 *Create* 。</block>
+  <block id="7925494af01d80aae3e2f3b865e89284" category="paragraph">新專案會出現在 NetApp Data Migrator 控制平面頂部的通知欄中。</block>
+  <block id="2a7d5edd6c91ee2c533266ad7edd9e99" category="section-title">登出 NetApp Data Migrator</block>
+  <block id="703289ac8a82d2e93f145b9913fe5960" category="paragraph">從 NetApp Data Migrator 登出後，下次登入時需要使用新建立的憑證（電子郵件和密碼）。</block>
+  <block id="2b63a14e00dfaa13460d382f1dae6d76" category="list-text">選取 *User* 圖示（位於 *Settings* 旁邊）。</block>
+  <block id="6d01d818bda218e1f5383a41fcaef8a4" category="list-text">選擇 *Logout* 。*Welcome* 頁面隨即開啟。</block>
+  <block id="5a02a55144e98574da051358293abae7" category="inline-xref">已登入</block>
+  <block id="69bae6def768dd89f908c38a763d6a2a" category="list-text">在 *Email* 和 *Password* 中，輸入您註冊時使用的電子郵件地址和密碼 <block ref="936cc0ab9f7b6af145da805d7de86517" category="inline-xref-macro-rx"></block>。</block>
+  <block id="87857f52bd96407fa85a6f1ba301966d" category="inline-link-macro">使用 NetApp Data Migrator</block>
+  <block id="dd30e7d75cc22a941a3c49fb80cec333" category="paragraph">了解如何設定 NetApp Data Migrator 後、您可以<block ref="ab29639a271409fa761d8431a246879d" category="inline-link-macro-rx"></block>。</block>
+  <block id="e174dd43d02d3758479a35ae78156ebf" category="summary">設定 NetApp Data Migrator，透過設定 SMTP 電子郵件伺服器，發送有關專案狀態變更的即時電子郵件警報。</block>
+  <block id="1a031c746d9668df5197eb3a49217dc3" category="doc">設定 NetApp Data Migrator 的即時通知</block>
+  <block id="fa6b8e03caf292beef06bd1e70db654b" category="paragraph">您可以設定 NetApp Data Migrator，使其透過電子郵件向您發送有關專案狀態變更的即時警報。</block>
+  <block id="3a5d711b26ecaceded81d81f5f55bdf6" category="paragraph">請確認您已以 *App Admin* 使用者身分登入。配置 SMTP 電子郵件伺服器詳細資訊需要此使用者等級。</block>
+  <block id="a9a616da981db88decc636038dffd789" category="list-text">在導覽列中選取 *Settings* 。</block>
+  <block id="0d3e50236390c45edcb134d1e70495fc" category="list-text">選取 *SMTP* 索引標籤，並完成下表所示的欄位。</block>
+  <block id="6f16a5f8ff5d75ab84c018adacdfcbb7" category="cell">欄位</block>
+  <block id="5b8c99dad1893a85076709b2d3c2d2d0" category="cell">IP 位址</block>
+  <block id="c6bc689d6f8659853400bfdf8bb5815e" category="paragraph">SMTP 伺服器位址</block>
+  <block id="60aaf44d4b562252c04db7f98497e9aa" category="cell">連接埠</block>
+  <block id="824c1fa95c0a8bdccaa8d674c9297a46" category="paragraph">SMTP 連接埠</block>
+  <block id="f6039d44b29456b20f8f373155ae4973" category="cell">使用者名稱</block>
+  <block id="bd5dd02af0fecf457250c2306554fd75" category="paragraph">伺服器驗證使用者名稱</block>
+  <block id="dc647eb65e6711e155375218212b3964" category="cell">密碼</block>
+  <block id="1f11c34b0cb70fd75dd51cf580c1d760" category="paragraph">伺服器驗證密碼</block>
+  <block id="4ca679a383343ab3d4ca1cd7c91b43f7" category="cell">來自電子郵件</block>
+  <block id="e3ff2cd6c1009c2f5c182b8f7d0a879f" category="paragraph">所有通知的寄件者地址</block>
+  <block id="879de5fd02e10c3b90201a2d9c9d8a63" category="cell">傳送電子郵件</block>
+  <block id="fa54b1fb674193fb45e642021bea6eea" category="paragraph">警示的收件者地址</block>
+  <block id="8d42a83580debfe7ef1513ad0211c385" category="admonition">設定 SMTP 後，使用者在編輯 SMTP 設定時需要重新輸入密碼。</block>
+  <block id="f0d42477027388df0e6f14bb5386d338" category="summary">建立控制平面虛擬機器（VM）以及 Linux 和 Windows 工作虛擬機器以存取 NetApp Data Migrator。</block>
+  <block id="bfe4a94c6fb8394475bdc0c5cf518a5b" category="doc">建立控制平面和工作虛擬機器以存取 NetApp Data Migrator</block>
+  <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link-macro">NetApp 支援網站</block>
+  <block id="4a01e4c225ea2f8676dc37b3e618f358" category="paragraph">僅針對 SMB 移轉，請從 <block ref="79a5efacdd8155d1c0d2f7284cc3f087" category="inline-link-macro-rx"></block> 下載 Windows Worker Installer。</block>
+  <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">關於此任務</block>
+  <block id="c657e93e7fbad14bf1d06ea3c4bd51b0" category="paragraph">您可以使用透過 AWS、Azure 或 Google Cloud 服務或 OVA 範本部署的映像來建立控制平面 VM 和 Linux 工作 VM。您可以使用 Windows Worker Installer 來建立 Windows 工作 VM。Linux 工作 VM 支援 NFS 遷移，Windows 工作 VM 支援 SMB 遷移。您可以根據需要建立多個工作 VM。</block>
+  <block id="3d0b39987fd5c9b4656db2fcddd0787d" category="list-text">使用已部署的控制平面映像，以下列建議組態建立控制平面 VM：</block>
+  <block id="c65ddce3c65e864dcd4a5e3efc91388c" category="cell">建議設定</block>
+  <block id="17126aef3e415713552604218f448967" category="cell">VM 組態</block>
+  <block id="2abe83fe30f387e731f1d55a40079fc7" category="list-text">映像：控制平面的自訂匯入映像</block>
+  <block id="429358998441afe97c4c69febb718229" category="list-text">網路介面卡類型:gVNIC</block>
+  <block id="ca2a317a8a02e6eb7778a69821932f85" category="list-text">大小：8 個 vCPU、64 GB RAM</block>
+  <block id="dc5a62a67a863dd167b6eb6968f84d86" category="list-text">儲存空間：200 GiB</block>
+  <block id="d3bb1b691a86953ed189d1934971df50" category="paragraph">在進行儲存規劃時，每百萬個檔案應分配約 1.1 GB 的磁碟空間。您可以將預期檔案數量（以百萬為單位）乘以 1.1 來估算總磁碟需求量。例如，如果您預計有大約 500 萬個檔案，則檔案中繼資料所需的估計磁碟空間為 5 × 1.1 GB = 5.5 GB。</block>
+  <block id="8f92f4faf9313e148d5e94928e5b4284" category="paragraph">此外，您還應分配以下儲存空間：</block>
+  <block id="76d1cafd7382e933616ec9fd2d168972" category="list-text">額外預留 50 GB 用於 docker 映像、作業系統儲存和其他系統級元件</block>
+  <block id="839e84f24852431ceb092e5f0057cfe0" category="list-text">配置額外的緩衝空間，以因應未來成長和營運開銷</block>
+  <block id="c1b47471a575ac0bf20392ca17ecd880" category="cell">超大規模雲端服務供應商</block>
+  <block id="23d16bb5d0d5d99dd45983a3744fd24c" category="list-text">AWS：r7i.2xlarge 執行個體</block>
+  <block id="8a2ba98c67a5ef87934221f46c888255" category="list-text">Azure VM 大小：Standard_E8ds_v5</block>
+  <block id="b8ffe263f5c16cad1d5fd16a4a7e096a" category="list-text">Google Cloud 機器類型：c3-highmem-8</block>
+  <block id="cc15b875f2d3d23a7f90fcb82955dc49" category="list-text">使用已部署的 Linux 工作映像建立 Linux 工作 VM，以支援 NFS 移轉，建議組態如下：</block>
+  <block id="4e907780db7852be1cafea81d4bca8f5" category="list-text">映像：Linux 工作節點的自訂匯入映像</block>
+  <block id="76c11c127079bbc1923f9933dd32f80f" category="list-text">大小：4 個 vCPU、16 GB RAM</block>
+  <block id="0bf601825979e6cf394e4e7181583c6f" category="list-text">儲存空間：100 GB</block>
+  <block id="ba6d738a46786dd99e8ec9273c11a205" category="list-text">AWS：r7i.2xlarge</block>
+  <block id="4b5539261d79a205a59aed581fc4867a" category="list-text">使用 Windows Worker Installer 建立 Windows 工作虛擬機器以支援 SMB 遷移：</block>
+  <block id="0c039100d1f05dc36d6a229715b6e704" category="list-text">使用下列建議的組態設定建立 Windows VM ：</block>
+  <block id="63a695f43c2a6265182deb016291c2bc" category="list-text">映像：Windows Server 2022 Base</block>
+  <block id="73fb4065cbd0c9f51b1d2d5691a1b978" category="list-text">架構：64 位元</block>
+  <block id="d925543b6d03e10596af4b2fd60d6f08" category="list-text">大小：16 個 vCPU、64 GB RAM</block>
+  <block id="614ede1f3e88dda36a8c2a9116ac030c" category="list-text">確保遠端桌面協定（RDP）（3389）已開啟</block>
+  <block id="51becc6ceebabbe8d6c1294b0dee6fa7" category="list-text">使用 RDP 建立遠端工作階段。</block>
+  <block id="3de40160643c4264dfdb435901f88134" category="inline-link-macro">RDP 連線</block>
+  <block id="04e35b02091c127ce30a041090d5ae10" category="paragraph">深入瞭解<block ref="413636dc63fc70d1de2995e50bbc28db" category="inline-link-macro-rx"></block>。</block>
+  <block id="c8ec5de526848edba89b4cd247a7c82f" category="list-text">在控制平面 VM 上複製並執行 Windows Worker Installer 。</block>
+  <block id="a9058b2b8149aa6459c22839b8f48e7d" category="paragraph">在瞭解如何建立控制平面和工作節點虛擬機器之後、您可以選擇下列其中一個選項：</block>
+  <block id="a729f07fe3c69abdf2c50ebfa113d507" category="inline-link-macro">驗證控制平面 VM</block>
+  <block id="15f42688d57360bf1f9db0b9f31ac5cb" category="list-text">（選用）<block ref="38876e4285448dda0ef37899ea72b3f7" category="inline-link-macro-rx"></block></block>
+  <block id="359f010480b6cb0e4541e04bb0fcc16b" category="inline-link-macro">存取 NetApp Data Migrator UI 並連接到控制平面和工作進程</block>
+  <block id="ca6ab599cc2e4b0485c935f29da44c3b" category="list-text"><block ref="ca6ab599cc2e4b0485c935f29da44c3b" category="inline-link-macro-rx"></block></block>
+  <block id="a70f927e90b92e5863f95f3d77a75c40" category="summary">使用此決策矩陣來確定是否在您的資料遷移案例中使用 NetApp Data Migrator 或 SnapMirror。</block>
+  <block id="8e92e15e5d350cd28fb679db44bc77d8" category="doc">決定是否使用 NetApp Data Migrator</block>
+  <block id="37b72dc4b7827b60200f9714aa7bfaf9" category="paragraph">使用決策矩陣來決定是否應該使用 NetApp Data Migrator 或 SnapMirror 執行從 ONTAP 內部部署儲存系統的 NFS 和 SMB 資料移轉作業。例如、如果您要將 NFS 和 SMB 檔案從執行 ONTAP 9.12.1 的 ONTAP 內部部署來源移轉到 Google Cloud NetApp Volumes Flex 服務目的地、則應使用 NetApp Data Migrator。</block>
+  <block id="c14c876ded3fe2163d3a5d0d31bc0acd" category="cell">內部部署或第三方儲存系統來源</block>
+  <block id="4d82a1ec1af02725042c8c785564ee7a" category="cell">Amazon FSx for NetApp ONTAP</block>
+  <block id="ec5be37dca378e7be66d606e491d27e5" category="cell">Azure NetApp Files 硬體</block>
+  <block id="117bdbda976fe8b3212bc3b6327a0a1b" category="cell">Cloud Volumes ONTAP</block>
+  <block id="eaae701c3efffbff7da15565f5a664f0" category="cell">Google Cloud NetApp Volumes 硬體</block>
+  <block id="13b13feeb79c410e7ea4bc459d2d8402" category="cell">Google Cloud NetApp Volumes Flex</block>
+  <block id="bc8ed816d898a820d24a579fced737a5" category="cell">Google Cloud NetApp Volumes Flex（基於 VSA）</block>
+  <block id="22f833d182b55e822d49c4653379f9fd" category="cell">ONTAP 內部部署，從 ONTAP 9.10.1 版本開始</block>
+  <block id="794cb725c5631ad99b5b7c000307f0df" category="cell">SnapMirror</block>
+  <block id="69d3f0557e159c698c32cd983f1ca43e" category="cell">NetApp 資料移轉工具</block>
+  <block id="4e1d49925714fc3fcf8ddb989185740d" category="cell">ONTAP 內部部署適用於 ONTAP 9.9.1 及更早版本</block>
+  <block id="06930da74633647dc9ffd97e66c59fdf" category="cell">非 NetApp 儲存系統和陣列</block>
+  <block id="c6eda4849238a13e10ad30b61ba38e0c" category="cell">Cloud Volumes ONTAP 從 ONTAP 9.10.1 版本開始</block>
+  <block id="1e9e2d61cf256f6b3c097649a62e0fba" category="cell">Cloud Volumes ONTAP 適用於 ONTAP 9.9.1 及更早版本</block>
+  <block id="e681a3b45989b468533c4b90ee960bf9" category="cell">不適用</block>
+  <block id="54feccc54fd794221a8e7c7fc4ed0916" category="cell">在沒有權限的情況下移轉資料</block>
+  <block id="30f60d67f457bb040dffde52197a54da" category="paragraph-title">相關資訊</block>
+  <block id="d384359ca03c8d46191c719c57744679" category="inline-link-macro">SnapMirror Volume 複寫</block>
+  <block id="0e974cc21b70af7eb7830a9dc59aa564" category="paragraph">瞭解 <block ref="26620ccf6b7fdf51f477f8c8c903c95c" category="inline-link-macro-rx"></block></block>
+  <block id="bb22576f9b122fdf9d78825d5814f73f" category="summary">了解如何安裝 NetApp Data Migrator 控制平面和工作虛擬機器。</block>
+  <block id="021d971a688b59f55f1e01248ea81da6" category="doc">為 NetApp Data Migrator 部署控制平面和 Linux 工作虛擬機</block>
+  <block id="9866e84bbeb7aaf31c785c41e852e87f" category="paragraph">使用 AWS、Azure 或 Google Cloud 服務或 Open Virtual Appliance (OVA) 範本部署 NetApp Data Migrator 的控制平面虛擬機器 (VM) 和 Linux 工作虛擬機器。Linux 工作虛擬機器支援 NFS 資料遷移。</block>
+  <block id="9c093f14319e8253b8c9b37290597239" category="inline-link-macro">NetApp 支援網站</block>
+  <block id="5ff33b6501cd191d29481875867dc11b" category="paragraph">從 <block ref="a806f88fd14897065f93f1191bd5b7da" category="inline-link-macro-rx"></block> 下載 NetApp Data Migrator 映像：</block>
+  <block id="9b1b30bfc99bb38f9a91517b1b946684" category="list-text">選擇 *NetApp Data Migrator*。</block>
+  <block id="310e86f89904e335507c6ff6e454da6c" category="list-text">請依照 NetApp Data Migrator 下載頁面上的說明存取 NetApp Data Migrator 映像。</block>
+  <block id="6820fbb635251b795c3ca1ae5b5a14ba" category="paragraph">根據您的部署選項，選擇 AWS 、 Azure 、 Google Cloud 標籤或 OVA 標籤。</block>
+  <block id="4847e034bb0a55fcbc8a3380d6a3ab80" category="open-title">AWS</block>
+  <block id="f05dd74ad3da01a9f48b2d86f4af7eb5" category="paragraph">針對控制平面和 Linux 工作節點 Amazon Machine Images（AMI）重複下列步驟。</block>
+  <block id="8a7c82213ea8664f9ac9e76f2d387dad" category="list-text">使用提供的 AMI ID 在您的 AWS 帳戶的 *EC2* &gt; *AMIs* &gt; *Private images* 下尋找 AMI。</block>
+  <block id="4a59adb91b8cbd1ec196267ece562b92" category="list-text">將 AMI 複製到您的帳戶：</block>
+  <block id="77b81ba333662cf81c9cffca4a89b540" category="list-text">選擇 AMI、然後選擇 *Actions* &gt; *Copy AMI*</block>
+  <block id="5524123b1f421314e42f44a3e9355071" category="list-text">選擇目標區域（如有需要）。</block>
+  <block id="df85c361bc998759474a38526dc6cbed" category="list-text">啟用加密並選擇您自己的 KMS 金鑰。</block>
+  <block id="38afc902108550083704c07a10fbf3c4" category="list-text">等待 AMI 狀態顯示為 *Available* 。</block>
+  <block id="3a580f142203677f1f0bc30898f63f53" category="open-title">Azure</block>
+  <block id="bef67488f76ed50fa89b0374cc4bbe98" category="paragraph">針對控制平面和 Linux 工作節點 VHD 重複下列步驟。</block>
+  <block id="b5a8ceaee1ddcc3af956fdb72e6625ee" category="list-text">將 VHD 檔案複製到 Azure Blob Storage：</block>
+  <block id="27ed0419ae22a65be6278fa30e3f3efa" category="list-text">從複製的 VHD 檔案建立新的 Azure 映像：</block>
+  <block id="56ef2682280ac110060b881925a87b80" category="open-title">Google Cloud</block>
+  <block id="b0cd7667098b2a3439c52ba1f9334faa" category="inline-link-macro">Google Cloud 文件</block>
+  <block id="ad4b43323f8ef856a64cd26d51392bb5" category="list-text">請確認匯入映像以及部署控制平面和工作虛擬機器所需的 Google Cloud API 已啟用。如需詳細資訊，請參閱 <block ref="bfa780cd02afd09e0ae67653ce85251d" category="inline-link-macro-rx"></block>。</block>
+  <block id="30707131dbf59729287b7e529822cd05" category="list-text">如果 Google Cloud Storage 儲存區尚不存在，請建立一個。此儲存區用於在匯入作業期間儲存映像歸檔檔案（.tar.gz）。</block>
+  <block id="d4eb04c604e1ccd8dbab299acccd9e05" category="inline-link-macro">建立 Google Cloud Storage 儲存貯體</block>
+  <block id="7b17753aef730d74210418828eb10056" category="paragraph">了解如何<block ref="f7495b27f797bd79dd14cf7bcb9d8554" category="inline-link-macro-rx"></block>。</block>
+  <block id="a37144001748f9dc94b0fb22e656531d" category="list-text">設定 IAM 角色和權限。這可確保 VM 移轉 API 擁有所需的存取權限，且 VM 移轉服務可以存取 Google Cloud Storage 儲存區並建立映像。</block>
+  <block id="e068d5e55435058d8d80b438cbfedc6e" category="list-text">將服務帳戶 objectViewer 存取權限指派給目標 Cloud Storage 儲存貯體：</block>
+  <block id="c813aaa1c28525e28180006c1c7b9550" category="paragraph">服務帳戶需要 roles/storage.objectViewer 權限，才能在移轉過程中從您的 Cloud Storage 儲存貯體讀取 VM 映像檔案。</block>
+  <block id="dc36632e376a444fbc3f974928f6c693" category="paragraph">啟用 VM Migration API 後，Google Cloud 會自動佈建格式如下的服務帳戶：</block>
+  <block id="1e043504778da0aa7bcf3436ddeef0e1" category="paragraph"><block ref="5df0b69b601a351abdf7499d42281325" prefix="" category="inline-code"></block></block>
+  <block id="68dbee6ed219fb61e0a1f2d7c0052a2b" category="list-text"><block ref="0a9fe612dd3aeeb522b085a5dc743836" prefix="" category="inline-code"></block> 是 Google Cloud 服務帳戶</block>
+  <block id="c286a0934a11b3f2ec2cf08dd231cf8e" category="list-text"><block ref="3e3a9b04a7e76246f14a93ea417e1a4b" prefix="" category="inline-code"></block> 是 VM Migration 服務識別碼</block>
+  <block id="03a45e0dc9af4eead77f83ecbd640307" category="list-text"><block ref="79c170c716ea5fca869039d6a032f2a5" prefix="" category="inline-code"></block> 是 Google Cloud 服務帳戶的標準網域</block>
+  <block id="f67b849d8be2722918b033f359ddf17d" category="list-text">將自己設定為 <block ref="3e3a9b04a7e76246f14a93ea417e1a4b" prefix=" " category="inline-code"></block> 服務的管理員使用者：</block>
+  <block id="e2e1100dd49a5c31e3fd0e5fd00eba78" category="paragraph">這將賦予您在專案層級的 VM 遷移管理權限。</block>
+  <block id="89ef81b9ebe20a41b8624f6ea1d76320" category="list-text">取得並上傳映像檔案：</block>
+  <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link-macro">NetApp 支援網站</block>
+  <block id="e1389ed07e342a8ff8ddcbc4f7ffe46e" category="list-text">從<block ref="49b4f755ae136a93a19c82bfba9113cf" category="inline-link-macro-rx"></block>下載控制平面<block ref="d6f1afa70d6145a212d9dc6bc8a2fa64" prefix=" " category="inline-code"></block>映像檔案以及 Linux worker<block ref="d6f1afa70d6145a212d9dc6bc8a2fa64" prefix=" " category="inline-code"></block>映像檔案。</block>
+  <block id="8ba0f284cbf3541ca311f101e602751d" category="list-text">將 <block ref="d6f1afa70d6145a212d9dc6bc8a2fa64" prefix=" " category="inline-code"></block> 檔案上傳到您的 Google Cloud Storage 儲存桶。</block>
+  <block id="b582743a436eee96f743d05a2fa25f16" category="list-text">將映像歸檔檔案上傳到 Google Cloud Storage 後，使用 VM Migration Service 建立 VM 映像，方法是對每個映像（控制平面和 Linux 工作節點）執行下列命令。</block>
+  <block id="d2b78890db7dd247ce5f92bfd2ec15ae" category="paragraph">此指令會根據提供的歸檔檔案在指定區域中建立新的 Google Cloud Platform VM 映像。</block>
+  <block id="b3ab2f208f13f715b7d869c9a6ac16c7" category="list-text">列出映像匯入作業並確認完成：</block>
+  <block id="586ba478b7ebec665f3df120799b6c2e" category="open-title">OVA</block>
+  <block id="48c7c41b72e1d678923ce3571aa65b2d" category="paragraph-title">步驟</block>
+  <block id="58402979642aceba3c4d2702ee126f81" category="paragraph">從<block ref="49b4f755ae136a93a19c82bfba9113cf" category="inline-link-macro-rx"></block>下載控制平面<block ref="8d8b01a4d628953e7a2225813c8edb3f" prefix=" " category="inline-code"></block>映像檔案以及 Linux worker<block ref="8d8b01a4d628953e7a2225813c8edb3f" prefix=" " category="inline-code"></block>映像檔案。</block>
+  <block id="7c1d6f695f65dc9c5c8094228402786f" category="inline-link-macro">建立控制平面和工作節點 VM</block>
+  <block id="9145b83b060f34d93aca59652a91a807" category="paragraph">在了解如何部署控制平面虛擬機器和 Linux 工作虛擬機器之後，您可以<block ref="47786182e0e58028f57398173f17bd15" category="inline-link-macro-rx"></block>。</block>
+  <block id="bcb2ecbda52b8430d09e5b500c31ebaf" category="summary">尋找有關 NetApp Data Migrator 連線錯誤、身份驗證失敗、協定問題和權限錯誤的常見問題的答案。</block>
+  <block id="e5ed113c1ded1caf2a576bed0e9ba546" category="doc">NetApp Data Migrator 常見問題解答</block>
+  <block id="f2b5ba066982e7109b5388b3ff7eb1a4" category="paragraph">如果您在使用 NetApp Data Migrator 時遇到問題，可以透過查看其他使用者的常見問題解答（FAQ）來快速解決問題。</block>
+  <block id="de9260bac8b4a0876297b14616b686fc" category="paragraph-title">什麼原因會導致 NT_STATUS_IO_TIMEOUT / NT_STATUS_ACCESS_DENIED / NT_STATUS_HOST_UNREACHABLE / NT_STATUS_UNSUCCESSFUL 錯誤？</block>
+  <block id="e9d95e80289abf082e671d4fa2fb5f2d" category="paragraph">如果您輸入了錯誤的主機資訊，則可能會出現此錯誤。請確保伺服器主機名稱或 IP 位址正確，且伺服器可存取。如有需要，請驗證您的網路連線以及 DNS 解析是否正常。</block>
+  <block id="e88e5ad7a31e0b44558421733b15b562" category="paragraph-title">什麼原因會導致「憑證錯誤 - NT_STATUS_LOGON_FAILURE」錯誤？</block>
+  <block id="507074f3caa0748776e1f1724a4bd703" category="paragraph">使用者名稱或密碼輸入錯誤會導致身份驗證和登入失敗。請確保您已輸入正確的登入資訊。</block>
+  <block id="dcbd40a236212d4b7c40f2ebd29accf4" category="paragraph-title">不支援的 NFS 或 SMB 通訊協定版本是什麼意思？</block>
+  <block id="5f9db7e47823b993e74e350b503bc0a7" category="paragraph">這表示檔案伺服器使用的傳輸協定版本不受支援。請檢查傳輸協定版本的相容性，並視需要升級或設定檔案伺服器。</block>
+  <block id="04c0fe8373d936550342e615841a94f2" category="paragraph-title">什麼原因會導致「無效匯出路徑」錯誤？</block>
+  <block id="660c71ce45b8d06eb462fda8e6b726da" category="paragraph">請確保匯出路徑輸入正確且存在於伺服器上。</block>
+  <block id="2d3cf36868e8ecba40d8329def6db3b3" category="paragraph-title">什麼原因會導致「無效的工作目錄」錯誤？</block>
+  <block id="cbb858a114f3445ffa109f7630f3128c" category="paragraph">請檢查您是否已為所選匯出路徑輸入正確的工作目錄。</block>
+  <block id="d3795f5dcf68afb12396dfb622c6c2f9" category="paragraph-title">為什麼我在工作目錄上會收到「寫入權限」錯誤？</block>
+  <block id="d80ce1c87712e8ebb10558acf165c002" category="paragraph">當指定了正確的匯出路徑和工作目錄，但未授予必要的寫入權限時，就會發生此錯誤。如果沒有正確的寫入存取權，檔案伺服器預先檢查將失敗，使用者將無法執行作業。請檢查出現此錯誤的使用者是否具有所需的寫入存取權。</block>
+  <block id="e5f0109a3dde59ac6cf199ab61c19ca6" category="summary">產生並下載 NetApp Data Migrator 支援套件組合，其中包含診斷記錄、錯誤報告和用於疑難排解的組態資料。</block>
+  <block id="8f1ffc521357732dac238b9425def2a4" category="doc">產生 NetApp Data Migrator 支援套件</block>
+  <block id="0a42ec79a244c6ee75a271fa0c580a0e" category="paragraph">NetApp Data Migrator 可讓您產生支援套件，以協助疑難排解您遇到的任何問題。此套件包含診斷資訊，例如記錄檔、錯誤報告和組態資料。</block>
+  <block id="524e19d4432374f072a17171bd0ca65a" category="list-text">在導覽列中選擇 *Help* ，然後選擇 Support Bundle 選項。</block>
+  <block id="03a6f1336ad934049840287e05f10276" category="list-text">選擇 *Date* 。輸入您希望包含在支援包中的日期範圍。</block>
+  <block id="33948633d6071c4d0484f351943a6270" category="list-text">選取 *Other Metrics* 。輸入您要納入支援套裝組合的其他指標。</block>
+  <block id="3bed06e0ce3fbaf775b37b3da5d9e2e9" category="list-text">選擇 *Generate Support Bundle* 。當套裝組合準備就緒時， *Download Report* 會變為作用中。</block>
+  <block id="469a7bf2f3568f3b68a254686e5b6814" category="list-text">選擇 *Download Report* 。</block>
+  <block id="f62d71a1ded699b7fb0c38f8ce0af42c" category="summary">查看 NetApp Data Migrator 的已知問題和因應措施。</block>
+  <block id="62916486516b8dbc26f0bb701ab57521" category="doc">NetApp Data Migrator 的已知問題</block>
+  <block id="c1503592c3e849fb2d907f73e4d1afab" category="paragraph">已知問題列出了可能妨礙您成功使用此版本產品的問題。請仔細閱讀這些已知問題。</block>
+  <block id="254f642527b45bc260048e30704edb39" category="section-title">組態</block>
+  <block id="4b37e73c31564685029fce3f1a4738be" category="section-title">使用 SID 對應時出現存取權限不符的情況</block>
+  <block id="6c70e3a7104c035a65c1599364b71d51" category="paragraph">NetApp Data Migrator 在使用 SID 映射時可能會報告<block ref="eb58858952016d39ec11469eac8673b5" prefix=" " category="inline-code"></block>錯誤。此錯誤表示來源系統和目標系統之間存在存取權限不匹配，因為 SID 映射未在根層級執行。</block>
+  <block id="7aebfa1e2291377e040de92d7f7f335f" category="paragraph-title">因應措施</block>
+  <block id="c7986c712421d8df849726dce73cd527" category="paragraph">請提供來源和目標 SID 的 CSV 對應，如下列兩種情境所示：</block>
+  <block id="d42e8fbcf79f7de1303918aafa7d9fa7" category="open-title">案例 1</block>
+  <block id="c897209a556eb1f19c2b5b80b1c05813" category="paragraph">對於從來源 Active Directory 中刪除或移除的使用者或群組，請在 CSV 對應表中提供 SID，如下列範例所示：</block>
+  <block id="dc653ba9bdc8b868470860cba81bbaee" category="cell">sid_source</block>
+  <block id="f7a4e3e3ddae7d9c5ab63f1bbeb306f8" category="cell">sid_target</block>
+  <block id="ecb0cb0505beead739f4fabe35a2e606" category="cell">S-1-5-21-2444020195-1862089444-1769087368-1000</block>
+  <block id="c02cbf8ceed03b1004d2cc4c5cd6075b" category="paragraph">S-1-5-21-3481156262-2863848796-4292454742-512</block>
+  <block id="3d2b891e87f58587dcf56e520915afef" category="open-title">情境 2</block>
+  <block id="a4184dbffce276225dbcafdccdd7aa1c" category="paragraph">對於 Active Directory 中的活動使用者或群組，請在 CSV 對應表中僅以小寫字母提供使用者名稱或群組名稱。請包含網域前綴（domain\username），如下例所示：</block>
+  <block id="dd327b583130801a32a1b129bff3e4d0" category="cell">rootdomain\user1</block>
+  <block id="6c04b4bbf59f5066acee4e6ed09c5dd6" category="paragraph">rootdomain\user2</block>
+  <block id="6ea0a168e5d3bbf94b8d8fe5cfb247b4" category="section-title">同一層級目錄的大量移轉限制</block>
+  <block id="20c3b97b71c3684f352d558a861b21d2" category="paragraph">使用批次遷移功能時，您無法為來源目錄和目標目錄階層中位於相同層級的目錄建立多個遷移作業。例如，來源和目的地在同一共用作業中的同層級資料夾。嘗試將此類目錄包含在單一批次遷移組態中會導致作業建立失敗。</block>
+  <block id="a2c333272f46004f3ef1cfc8252173dd" category="paragraph">針對同一層級的目錄，一次建立一個移轉工作，而不是將它們合併在一起。</block>
+  <block id="cc8e07243d878faa42f02f7109b06bb7" category="section-title">目錄層級移轉繼承權限標記</block>
+  <block id="e4269a3a8e42488cdd191d6d6cf2d67d" category="paragraph">在目錄層級移轉中，所選根目錄上的繼承權限不會標記在目的地上。由於 NetApp Data Migrator 不會為根目錄套用繼承權限，因此依賴繼承的子目錄和檔案也不會收到繼承權限。</block>
+  <block id="1729636cbc1eab5530748517eadd4934" category="paragraph">此問題僅影響從根目錄繼承的權限傳播。NetApp Data Migrator 在遷移過程中能夠正確地標記直接在檔案和目錄上設定的明確權限（非繼承權限）。</block>
+  <block id="56da33b90db856267177acb3019846bc" category="paragraph">遷移完成後，請手動重新套用或重設目標根目錄的繼承權限。這樣可以確保正確的繼承權限傳播到所有子目錄和檔案</block>
+  <block id="daa5744d6f527fe7acd18cfd5528f943" category="section-title">驗證在 NFS 中手動上傳 UID 和 GID 對應</block>
+  <block id="a456a3e26016ded4ebb0591163ab2835" category="paragraph">在 NFS 遷移過程中，如果 UID 和 GID 對應 CSV 檔案中包含目標系統中不存在的數位使用者 ID 或群組 ID，NetApp Data Migrator 會直接套用（標記）這些值。NetApp Data Migrator 不會驗證指定的 UID 或 GID 是否存在於目標系統中，也不會在使用者介面中報告任何錯誤或警告。這可能導致檔案遷移後所有權錯誤。您需要提供正確的 UID 和 GID 映射。</block>
+  <block id="2c94902f5356a0ce8b41f5916d00c1b4" category="paragraph">在開始遷移之前，請確保在映射 CSV 檔案中指定的所有 UID 和 GID 值與目標系統中有效且存在的使用者和群組相對應。手動驗證目標系統中使用者和群組的存在性，以避免 NetApp Data Migrator 在遷移過程中套用錯誤的歸屬資訊。</block>
+  <block id="bf0b2c984c4d54786aecad82bf097945" category="section-title">遷移預先檢查顯示錯誤的空間不足警告</block>
+  <block id="54d6aecd02acff9afca2814e66b08be2" category="paragraph">在遷移預先檢查期間，即使目的地有足夠的空間，您也可能會看到以下警告：</block>
+  <block id="515dbddec69ff95926b82bbb6c1645d4" category="paragraph">如果您跳過探索步驟，並且 NetApp Data Migrator 使用讀取整個區塊裝置大小而非實際資料集大小的一般命令，就可能發生這種情況。</block>
+  <block id="32b4201214ec3341bfbfb21a5c166bc3" category="paragraph">在執行 Migration 之前先執行 Discovery。這可確保磁碟使用資訊可用於預先檢查作業。如果您仍看到警告：</block>
+  <block id="f26640a35d40fda1bb53a833683f920d" category="list-text">確認探索已完成。</block>
+  <block id="c31db1ba1e7d7f06493231db4bcb5a9e" category="list-text">手動驗證目的地磁碟區是否有足夠的空間。</block>
+  <block id="80e7b4e8a2f64aba0a835af7bea38382" category="list-text">如果空間足夠，您可以安全地進行資料移轉。</block>
+  <block id="c5562ce2e22a86c247849904ecef3dc8" category="section-title">報告</block>
+  <block id="657d83655ccf03c78f0b1e1da7e5e1de" category="section-title">Excel 在 COC 報表檔案中顯示不正確的權限</block>
+  <block id="8a4bf032b3bc48536ab98ef05266b337" category="paragraph">在 Microsoft Excel 中開啟監管鏈 (CoC) 報告 CSV 檔案時，某些檔案或資料夾權限可能會顯示為 #NAME?，例如 -rwxrwxrwx，而不是實際值。</block>
+  <block id="568b061903521b9a60de817b45d28672" category="paragraph">這是因為 Excel 會錯誤地將某些權限字串（以 - 或 = 開頭）視為公式，從而導致顯示錯誤。CSV 檔案本身是正確的，這只是一個顯示問題。</block>
+  <block id="8662727eb6c935b631672de39ba6b9bd" category="paragraph">若要查看正確的檔案和資料夾權限，請使用下列應用程式之一開啟 CSV 檔案：</block>
+  <block id="151e01f3003c3e664c667b52d14e68ba" category="list-text">Google Sheets</block>
+  <block id="9bd4720204865dac67eacee4e442252a" category="list-text">Apple Numbers</block>
+  <block id="f050748415c203054a93560cccc808d1" category="list-text">線上 CSV 檢視器</block>
+  <block id="a13a188adc0eaf6d51830b29451165af" category="list-text">文字編輯器，例如 Notepad++</block>
+  <block id="54db985f913144c787158f7add91748b" category="section-title">當大量探索工作因網路問題而失敗時，不會顯示錯誤訊息</block>
+  <block id="6c9d39afa306ace9174ff84fe9b247ab" category="paragraph">如果在批次發現作業期間主機或目標伺服器發生故障，NetApp Data Migrator 可能不會顯示錯誤訊息。這可能會讓人誤以為作業仍在正常運作。</block>
+  <block id="47d7d58d9ad56ca23c4efd68abab5840" category="paragraph">探索工作每 30 秒重新整理一次。如果您發現檔案計數、目錄計數或資料大小沒有更新，這可能表示網路問題。</block>
+  <block id="2eeab39f4c8bccb8799b59448abd4e67" category="list-text">檢查網路連線：</block>
+  <block id="763b55d6b57ada5f191dbe1d453fb4e9" category="list-text">開啟工作 VM 終端機。</block>
+  <block id="0b1ff5526b3ce57f6cdef5a2ca187021" category="list-text">Ping 目標伺服器的 IP 位址。</block>
+  <block id="b4498002ad3a5cc65873420897a3d927" category="paragraph">如果沒有回應，則目的地可能無法連線。</block>
+  <block id="96c062181b6272cc19b038c0dc348ebc" category="list-text">還原網路介面：</block>
+  <block id="00c218cc4fa765576eb8711709c2be7f" category="list-text">使用 SSH 連線至目的地伺服器：</block>
+  <block id="d1cf99a451d22528426c7b9174fe3ec6" category="list-text">尋找介面名稱，例如 eth0：</block>
+  <block id="ea6d56b631ec1e7c86f702d930d13f3f" category="list-text">將網路介面恢復上線：</block>
+  <block id="1022113d018618f6df153a81c5431b02" category="list-text">如果需要，請對來源伺服器重複步驟 1 和 2 。</block>
+  <block id="6903d6be924852b94479ff4d93e61720" category="section-title">無法在 Windows 工作進程中切換使用者</block>
+  <block id="9bbf5ea7158d30ccde501993f371e149" category="paragraph">在 Windows 工作進程中切換到其他使用者帳戶可能會因網路連線已存在而失敗。這可能會導致無法存取檔案伺服器。</block>
+  <block id="679f1af118183388367e1893446337ef" category="list-text">透過在 Windows 工作電腦上開啟命令提示字元並執行以下命令來移除先前的連線：</block>
+  <block id="fad6c75e7990357649e31d8e64811a5c" category="list-text">切換至新使用者帳戶並存取檔案伺服器。</block>
+  <block id="13148717f8faa9037f37d28971dfc219" category="section-title">驗證</block>
+  <block id="c65ad157bcef575fc6e77be4bed0671a" category="section-title">即使計數相符，移轉後檔案大小也可能不同</block>
+  <block id="41cbb89da6f46df5956f3e4d6f577ea3" category="paragraph">資料遷移完成後，檔案總數正確，但部分檔案的大小可能與原始來源檔案不同。這可能是由於網路中斷或檔案傳輸過程中伺服器發生問題所造成的。</block>
+  <block id="9ff17605d2620785a38e650c22cba077" category="list-text">檢閱移轉 COC 報告，以識別標記為錯誤的檔案。</block>
+  <block id="06fb3b35613c23293fedc2afbf8be0c2" category="list-text">重新執行移轉，直到錯誤解決為止。</block>
+  <block id="e6b088db24ebe67ed0e9567d309387ec" category="section-title">工作流程</block>
+  <block id="a72f133a28599315abd569299ae23a0d" category="section-title">工作暫停或停滯超過 20 分鐘</block>
+  <block id="56956901d261a8f832a2ce939a5ca220" category="paragraph">當您發現網路連線問題、來源磁碟區或目標磁碟區穩定性問題，或兩者兼有時，可能需要介入。作業可能處於「已暫停」或「執行中」狀態，但沒有任何可見的進展。如果來源或目的地服務停止運作，或工作服務發生停機，就可能發生這種情況。</block>
+  <block id="1bb92114e129b650c205357603175f79" category="list-text">檢查來源和目的地。</block>
+  <block id="51646b02bfd7b304b553b56b9a9c2a00" category="paragraph">如果它們離線，請重新啟動以恢復連線。</block>
+  <block id="e2ca3baa3b53e03140b8ab14e48ff5d3" category="list-text">檢查 worker 狀態。</block>
+  <block id="67da1988b6c6b0e16b8ba0cc9119efe1" category="paragraph">如果工作進程離線，請使用 SSH 連線至虛擬機器並執行下列命令：</block>
+  <block id="36030760aa6bb566f66def470d0a61ca" category="list-text">重新啟動 VM：</block>
+  <block id="cfef28508469868243046a6959dac427" category="paragraph">如果問題仍然存在，請重新啟動工作虛擬機器。</block>
+  <block id="ef26eabbde6e5c4e3bc5c615c7bd61e0" category="section-title">當發生錯誤時，工作執行狀態令人困惑</block>
+  <block id="a429bf35127410ec5f4d949442157aa3" category="paragraph">某些 Migration 作業執行過程中會遇到錯誤，並顯示「已完成」或「已出錯」狀態。這可能會導致在解讀 Migration 作業執行狀態時產生混淆。</block>
+  <block id="a3c457a84026992324446fd6583431b1" category="paragraph">狀態定義：</block>
+  <block id="b687695b7aa46cba05850e1055f90ff5" category="list-text">已完成：工作執行已完成，但可能包含錯誤。</block>
+  <block id="77849c06b19d72db99630258ba5abf53" category="list-text">錯誤：由於嚴重問題，工作執行失敗。</block>
+  <block id="b0cbd53c2b4c14cf03d03f8a36437a89" category="paragraph">請檢查作業執行詳細資料，確認是否有任何錯誤，尤其是在狀態為「已完成」的情況下。在解決此問題之前，請勿僅依賴狀態標籤。</block>
+  <block id="6f755f551df327972c1c0586d6dbf96a" category="summary">了解 NetApp Data Migrator 的已知限制，有助於提高遷移活動的效率。</block>
+  <block id="b4d33ef2255bd395c7da4f1389260343" category="doc">NetApp Data Migrator 的已知限制</block>
+  <block id="31bcefd7b2e407d65b441fdb99e6c50b" category="paragraph">此版本中 NFS 和 SMB 遷移的限制以及無法正常運作或無法良好運作的功能列於此。請仔細閱讀這些限制。</block>
+  <block id="d68b89dd902e3f97ffcbe45b9253727c" category="section-title">NFS 和 SMB 探索與移轉限制</block>
+  <block id="1d1a594959ec615f56516f5d0f5e8ddb" category="cell">NFS</block>
+  <block id="b4fdd997b1f33e0d4c6964444c2bf399" category="cell">SMB</block>
+  <block id="86312caa3236e6ae5b9a65f669b1066e" category="cell">可同時執行的匯出路徑數量</block>
+  <block id="a87ff679a2f3e71d9181a67b7542122c" category="cell">4</block>
+  <block id="c81e728d9d4c2f636f067f89cc14862c" category="paragraph">2</block>
+  <block id="dcec8cdc08cb7e4cd8fb7a0e71bb395e" category="cell">目錄中的檔案數量上限</block>
+  <block id="2db45ec60dc8fbc6790cd1635c3631c8" category="cell">100 萬</block>
+  <block id="3beef9799317c76997e3617607152343" category="cell">工作節點大小調整</block>
+  <block id="6c32c0a50fee2547d04985b9809ab710" category="cell">4 核心 CPU、16 GB 記憶體</block>
+  <block id="088a5810a16bb6c24e3341f2c5fa2d73" category="paragraph">16 核心 CPU、64 GB 記憶體</block>
+  <block id="6e04bfbe41dd9efa03508c62bfbb5289" category="cell">控制平面大小調整</block>
+  <block id="859d60e155b084cc8fec2afaa990d650" category="cell">8 核心 CPU、64 GB 記憶體</block>
+  <block id="ea23cc0f55e0aed279872c97a88f0902" category="cell">匯出路徑中的檔案數量上限</block>
+  <block id="ef1997b6268da0a36b2e83e6ab4d629f" category="cell">2000 萬</block>
+  <block id="2d8de156a2fe58f4bc72def40f6e3367" category="section-title">功能限制</block>
+  <block id="b7a95c6586d57b909e3a9973bf21cccf" category="cell">限制</block>
+  <block id="a489743b49b773f34b68d114c2c75fa3" category="cell">主動目的地支援</block>
+  <block id="bbb7d6c5745e324c58df02d8fe1afbac" category="paragraph">NetApp Data Migrator 不支援主動目的地（當目標儲存設備在完全移轉之前正在主動使用或寫入時）。</block>
+  <block id="0a41e976047863adc102a40b90194b6c" category="cell">區分大小寫的檔案</block>
+  <block id="f32cd4bbb333a061bc4da346b5067769" category="paragraph">對於 SMB，NetApp Data Migrator 只會遷移資料夾中使用 NFS 建立的兩個區分大小寫的檔案中的一個，而另一個檔案則會被錯誤處理。這是因為 SMB 無法同時接受這兩個檔案。您可以使用 NFS 執行探索來識別這些區分大小寫的檔案。</block>
+  <block id="25ca3b2ba76c0c307a5c119237d049ef" category="cell">網路存取能力</block>
+  <block id="987372dac6ae2c5a90d8cda91225cbca" category="paragraph">NetApp 建議在私有網路中使用 NetApp Data Migrator。</block>
+  <block id="2e062cbaa8431af4f347e37d78f2a40a" category="cell">NFSv4 ACL</block>
+  <block id="19eb0024de75d5b1255d7cbefe5f45e5" category="paragraph">NetApp Data Migrator 不會在存取控制清單（ACL）中新增 NFSv4 標識，它只會在目的地套用基本權限。這種行為與 NFSv3 類似。</block>
+  <block id="32a1afbb4b32dfb91328e638a205fca3" category="cell">傳輸協定移轉 - 類型</block>
+  <block id="50469d9b587f6abe43789ac222b4504c" category="paragraph">不支援跨傳輸協定移轉，例如從 NFS 移轉至 SMB。</block>
+  <block id="5eeb3d7ba5fcdaa21e7fc840025f3d02" category="cell">傳輸協定移轉 - 版本</block>
+  <block id="d2348e46cc37a0c98d5854b788d516b9" category="paragraph">不支援相同傳輸協定內的跨版本移轉，例如從 NFSv3 移轉到 NFSv4。</block>
+  <block id="875b1186e66d74049a4f658d9a66050e" category="cell">SMB 權限</block>
+  <block id="54e433dcdb78732b33d7a50b9396a035" category="paragraph">NetApp Data Migrator 不支援遷移 SMB 系統存取控制清單（SACL）（稽核權限）。</block>
+  <block id="7ed1d6e1f5c8da01556946a0677197c8" category="cell">帶有尾隨空格的 SMB 檔案</block>
+  <block id="a84e64c214f3fa59046f95c07160331d" category="paragraph">透過 SMB 遷移時、 NetApp Data Migrator 會將名稱包含尾端空格的檔案標示為錯誤、因為 SMB 不允許這些檔案名稱。</block>
+  <block id="0eaa207812ba22f6f3daff9796f335e4" category="cell">SMB 特殊檔案</block>
+  <block id="ac3066f76b85b1cffabc4e124eab7c5f" category="paragraph">NetApp Data Migrator 會發現重新導向（符號連結、硬連結、連接點、備用資料串流 (ADS) 和磁碟區掛載點），並在探索後回報。不支援移轉 ADS、疏鬆檔案和 SMB 重新導向。</block>
+  <block id="2fae32629d4ef4fc6341f1751b405e45" category="cell">安全性</block>
+  <block id="9847e6d484ae3e6e36fdee16b8afe572" category="paragraph">NetApp Data Migrator 使用自簽名憑證透過 SSL/TLS 加密網路流量。</block>
+  <block id="9538c5cf26eaaf40bf9eec9037fd444b" category="cell">疏鬆檔案</block>
+  <block id="a4a70ca82952469ee02c51e291c4944c" category="paragraph">稀疏檔案在移轉時會變成完整大小的檔案、NetApp Data Migrator 不會保留稀疏性。您需要額外的儲存空間來存放這些檔案。</block>
+  <block id="04b527818cf9fecc4774f6c7fe7f2fa2" category="cell">系統檔案</block>
+  <block id="c097c0a9c28aba83d32633abec6f06f0" category="paragraph">NetApp Data Migrator 無法遷移來源擁有的系統產生檔案。</block>
+  <block id="214d236fbb08786d43f7158b9d8342db" category="cell">使用者介面</block>
+  <block id="ba51a65395cacae515cfcae7a55ef605" category="paragraph">NetApp Data Migrator 針對使用 1920 x 1080 螢幕解析度的 Google Chrome 和 Firefox 瀏覽器進行了最佳化；不支援行動顯示器。</block>
+  <block id="0b20f4864ab708844e7bf15ac671f208" category="cell">Windows 工作節點部署</block>
+  <block id="cbb41e2de478d3e73506229830402c2d" category="paragraph">Windows 工作進程必須與目的地屬於同一根網域。</block>
+  <block id="d153354d6e549f2ce2428ee5e0df75cb" category="summary">NetApp Data Migrator 是一款企業級多雲資料遷移軟體應用程式，可簡化將非結構化檔案資料從內部部署或第三方儲存系統遷移到由 NetApp 提供的公有雲儲存服務的過程。</block>
+  <block id="973a0711d933afa94661190c0a60889c" category="doc">了解 NetApp Data Migrator</block>
+  <block id="927c9d97c996662556fdb6ba986a768c" category="paragraph">NetApp Data Migrator 是一款企業級多雲資料遷移軟體應用程式，可簡化將非結構化檔案資料從內部部署或第三方儲存系統遷移到由 NetApp 提供支援的公有雲儲存服務。NetApp Data Migrator 是一款獨立應用程式，可在使用者管理的虛擬機器上執行，無需複雜的自訂指令碼和分散的工具。</block>
+  <block id="e1e76fe67d707ea981efa366c519c298" category="paragraph">您可以使用 NetApp Data Migrator 來探索現有的儲存環境、快速產生檔案清單，並建立計畫將資料從來源儲存伺服器遷移至 NetApp 雲端儲存服務。資料遷移開始後，您可以使用 UI 監控遷移工作。您也可以產生使用檢查碼的監管鏈（CoC）報告，以協助驗證資料遷移作業。</block>
+  <block id="ecdeca0570624de17bfe89fecf2ba4a8" category="paragraph">NetApp Data Migrator 支援 NFS 和 SMB 檔案傳輸協定。您可以在環境中部署工作節點，以在遷移過程中保持控制和安全性。工作節點支援並行資料傳輸，從而提高效能和可擴充性。NetApp Data Migrator 包含預先檢查和遞增同步等功能，可實現平滑且有效率的遷移，並將停機時間降至最低。您可以在大部分遷移過程中保持來源系統運作，並在準備好後執行最終轉換。NetApp Data Migrator 還提供強大的記錄和錯誤處理功能，使您能夠疑難排解問題並從中恢復，而無需重新啟動整個遷移過程。</block>
+  <block id="e3159b3092b0b21bb84c1cd901f70e91" category="paragraph">在開始使用 NetApp Data Migrator 之前，最好先熟悉一些關鍵術語。</block>
+  <block id="650717c72d7a99e6505592f83821e4ed" category="list-text">控制平面</block>
+  <block id="d81c63c3badd6a7dc722b94681ae1cb8" category="list-text">控制平面可讓您存取移轉活動。透過控制平面、您可以執行下列工作：</block>
+  <block id="8a6b346a09a2b1628c7598534f17a06c" category="list-text">管理專案、使用者、工作和檔案伺服器。</block>
+  <block id="73a27e2a76a1b25cb1ef1dd410206549" category="list-text">排程工作執行並分派至可用的工作節點。</block>
+  <block id="090340525208390b7ea4c4a450671720" category="list-text">監控工作執行、收集記錄並報告狀態。</block>
+  <block id="c0cd63f6ba3e8e80020e2a91e356948d" category="list-text">強制執行存取控制和使用者權限。</block>
+  <block id="fd727b180cfda5092d3aa1c2498f35c5" category="list-text">設定 SMTP 電子郵件伺服器以進行即時通知。</block>
+  <block id="4ea2a6c39b10b3e3076f976f58a861d1" category="list-text">轉換</block>
+  <block id="cd40ac72de344011a1bb18a710d44e12" category="list-text">Cutover 作業是遷移的最後一個步驟。這是來源系統和目的地系統之間最終同步所必需的。Cutover 作業會執行下列動作：</block>
+  <block id="1a39c5fc749d14d70869781c34b7e750" category="list-text">停止所選路徑正在進行的移轉工作</block>
+  <block id="51724b17cea9878dcaa14d91edc2c7e1" category="list-text">執行最終同步以確保資料一致</block>
+  <block id="f37c08c2a1b66fad6e41b4684e0373ec" category="list-text">產生用於驗證的監管鏈（CoC）報告</block>
+  <block id="bb2579f63798da141270558a208e917c" category="list-text">需要您批准才能將移轉標記為已完成</block>
+  <block id="abfc3a65538a6ec86502b2b498b6b4a6" category="list-text">探索</block>
+  <block id="ae77f53f24e0d7c58f9281e66ef6d07e" category="list-text">Discover 作業會掃描並清點來源或目的地檔案伺服器上的資料。它會產生一份報告，其中包含來源或目的地檔案伺服器中所選匯出路徑內檔案和目錄的詳細資訊，協助您在開始移轉之前瞭解資料的範圍和複雜性。Discover 作業會執行下列動作：</block>
+  <block id="b0ae3e473a496b601593b3600db02c79" category="list-text">分析匯出路徑的結構和內容</block>
+  <block id="eac223159fb36915ec9597c50a543152" category="list-text">收集檔案名稱、大小、權限和時間戳記等中繼資料</block>
+  <block id="3abf35c596895c8861a7ab7bb148f4d9" category="list-text">產生詳細的報告和長條圖，以供規劃和稽核之用</block>
+  <block id="26bb75685d9cc4fc3ba18a7d475a16ca" category="list-text">匯出路徑</block>
+  <block id="63fcab2c31b90e7a4458dfdd840cd426" category="list-text">匯出路徑代表要包含在探索、移轉或完全移轉作業中的資料位置。匯出路徑是任何移轉工作流程中複製資料的基本單位，具有以下特性：</block>
+  <block id="d98e0647aa731019d0842a0808443ea6" category="list-text">通訊協定專屬（NFS 匯出或 SMB 共用）</block>
+  <block id="72eaa9947ffba75acb9f7deed08a4b5d" category="list-text">已驗證存取權限</block>
+  <block id="c12f33a027e7d15b52590848b58fc0b6" category="list-text">用作建立工作 （ Discovery 、 Migrate 、 Cutover ） 的輸入</block>
+  <block id="cf51066f49e517f274b8173cc265c60b" category="list-text">工作</block>
+  <block id="96682415c21866b279c271dfc7afe212" category="list-text">作業是資料移轉任務的邏輯結構。它指定了要執行的操作、執行地點、執行方式。您可以重複使用作業，並手動排程或觸發它們。</block>
+  <block id="267cce210aba45f9e7f8d181ba9dac87" category="paragraph">工作包含兩個主要元件：</block>
+  <block id="1bc16d2d6f7b6097c5ec022e06a5b58a" category="list-text">*工作定義*：預先定義的步驟順序，例如掃描、同步或報告。</block>
+  <block id="7fc4183a775e9fc2623c555af09b964b" category="list-text">*工作組態*：使用者定義的參數，例如來源或目的地路徑、排除規則和排程。</block>
+  <block id="40cb748aa11d95182311babc8f68a0ee" category="paragraph">NetApp Data Migrator 支援三種主要工作類型：</block>
+  <block id="d39b3e43b99a57133feb9f0e3d7984ae" category="list-text">探索工作：清查並分析來源和目的地資料。</block>
+  <block id="283fcea42629eed5e9a5deb585685d92" category="list-text">遷移工作：將資料從來源傳輸到目的地。</block>
+  <block id="87416148f4233e11ec53069e45f952b2" category="list-text">切換作業：完成移轉並切換至目的地系統。</block>
+  <block id="ccdbfd57aa071d33ef13df58fbbb05de" category="list-text">工作執行</block>
+  <block id="0ee52cbd8e7ec80300a6b996b252afc1" category="list-text">工作執行是工作的單一執行執行個體。工作執行可讓您即時監控、管理及疑難排解移轉工作的執行。工作執行包含下列詳細資料：</block>
+  <block id="99b2bedd2558a3d27f6af1965a24c2d3" category="list-text">具有唯一的時間戳記和執行 ID</block>
+  <block id="72d9676ef084c6962713dbd9ff46ec71" category="list-text">可以處於以下幾種狀態之一：Ready、Running、Paused、Stopped、Errored、Blocked 或 Completed</block>
+  <block id="b4406e0d94260c53bbb1c2168630f66e" category="list-text">產生記錄、指標和工作層級詳細資料</block>
+  <block id="10b5b21ed1ee90eca305b558caf7d03b" category="list-text">移轉</block>
+  <block id="bf8528fc4573b909958a424bcb883904" category="list-text">Migrate 工作會將您的資料從來源檔案伺服器安全、有效率地遷移到目的地檔案伺服器,並將中斷降至最低。它具有以下功能:</block>
+  <block id="f3b478b10567aeb71136b3b052cde6ee" category="list-text">執行基準移轉（初始完整複本）</block>
+  <block id="fba346b65875eb6fe2aed32d4427d33f" category="list-text">支援遞增同步（根據變更進行更新）</block>
+  <block id="aaa16c227304602626cb8c6e9eaef4fd" category="list-text">允許您設定排除模式、權限重新對應和存取時間保留等選項</block>
+  <block id="5f9e38761d5cf254c4837cbc33254c15" category="list-text">包括權限、容量和連線能力的預先檢查</block>
+  <block id="9e727fdd3aec8274f46685441900280d" category="list-text">專案</block>
+  <block id="c3bbcda9a9e6443cf992359a1c2395e1" category="list-text">專案是一個邏輯工作區，包含與特定資料遷移活動相關的所有元件和活動。它是 NetApp Data Migrator 中的頂級組織單元。專案具有以下特徵：</block>
+  <block id="ec0f6ad2acc83eafbeb1ecdb12f9dfa2" category="list-text">獨特的名稱和說明</block>
+  <block id="1f80d699b9a5f2a60107136993a938e7" category="list-text">具有已定義角色的相關使用者（Project Admin、Project Viewer）</block>
+  <block id="d4c048b4e416c3efa72f61aea1c57435" category="list-text">連結的檔案伺服器、工作、工作進程和組態</block>
+  <block id="1a5942d1cfe9ca5d02626f17f82f7b73" category="paragraph">專案有助於隔離移轉工作，讓您更輕鬆地同時管理不同團隊、部門或客戶的多個移轉作業。</block>
+  <block id="e308fa902e5ec44079ec002261dba5a5" category="list-text">儲存伺服器（檔案伺服器）</block>
+  <block id="27dd42f0cc80271fa54aca0b1ce3fa0d" category="list-text">儲存（檔案）伺服器是移轉工作流程中的關鍵元件。它儲存要移轉的資料，或作為移轉資料的目的地。</block>
+  <block id="c179c901e73aa8de6751bb79d800c648" category="list-text">NetApp Data Migrator 支援 NFS 和 SMB 檔案伺服器</block>
+  <block id="b52d03d507c855b3ee069b4f391c0c35" category="list-text">每個檔案伺服器都設定了以下詳細資訊：</block>
+  <block id="912d3773ff61119391317c91d5d75fd0" category="list-text">名稱和伺服器類型</block>
+  <block id="42539ddb3cc40a1f37029c8c071bb42b" category="list-text">驗證認證資料</block>
+  <block id="f6e9b90ee0f13a5ce6fb084244a940ba" category="list-text">執行移轉工作的相關工作人員</block>
+  <block id="f9aae5fda8d810a29f12d1e61b4ab25f" category="list-text">使用者</block>
+  <block id="712743ded405b3185eedac19629f791f" category="list-text">使用者管理資料移轉活動。App Admin 使用者（管理員）為其他使用者指派角色，以決定其存取和控制層級。</block>
+  <block id="877d7366f970216e8e3c2473b327292f" category="paragraph">NetApp Data Migrator 支援三種使用者角色：</block>
+  <block id="199cf513bb9c311565990ce4e9db84b6" category="list-text">*App Admin*：提供完整的管理權限，讓您管理其他使用者、專案和系統設定</block>
+  <block id="3d15851b94e3a8ec2c4060b9bbb68752" category="list-text">* 專案管理員 *：提供管理特定專案以及設定、建立和監控作業的權限</block>
+  <block id="9a4be99bb5663d8e664ea156e39e58d5" category="list-text">*專案檢視器*：提供唯讀存取權限，以檢視專案詳細資料、工作狀態和報告</block>
+  <block id="694dda55d497c6c7a7d25df1dffa732f" category="paragraph">您可以使用電子郵件和密碼進行身份驗證，角色型存取控制 (RBAC) 會管理您的權限。這可確保對敏感資料和作業進行安全且符合角色的存取。NetApp Data Migrator 使用 RBAC 來管理權限，並有助於保護資源存取的安全。</block>
+  <block id="62efb9ec331e364b96efe68c8b03ca20" category="list-text">工作節點</block>
+  <block id="7b8ee8e83cbc30b725856b1b704a937e" category="list-text">工作節點是執行實際資料操作的虛擬機器，例如將資料從來源複製到目的地。</block>
+  <block id="790c2d55485f02ae3e5797fa47b2c1cd" category="list-text">工作者負責執行掃描目錄、複製檔案和同步中繼資料等工作。</block>
+  <block id="2408c06092cdd4422aa91e7aa12f428e" category="list-text">工作節點支援分散式處理，使 NetApp Data Migrator 能夠有效率地擴展到大型資料集和多個環境。</block>
+  <block id="0c12f5552633e320ca5d9dc75702a615" category="list-text">工作節點會將有關資料移轉的高階統計資訊轉送至控制平面。</block>
+  <block id="e967df1b4afbc72731b044aad2ad462d" category="list-text">您可以使用 NetApp Data Migrator 安裝並註冊工作進程。</block>
+  <block id="b301c2b39947d2e05e52525b699c1669" category="list-text">每位工作者均具有以下特徵：</block>
+  <block id="037e6d60574e122c7ed4c6bab4efe2e3" category="list-text">與一個或多個檔案伺服器相關聯</block>
+  <block id="937a136871c813f0759a6b0ba2c684fa" category="list-text">向控制平面報告系統指標，例如 CPU、記憶體和狀態（線上或離線）</block>
+  <block id="89f91ef6d84571698659ccd06150de6c" category="list-text">向控制平面報告有關資料移轉的高階統計資訊</block>
+  <block id="415b97a9b0a182511672ae3883302822" category="inline-link-macro">決定是否使用該軟體進行資料移轉作業</block>
+  <block id="38638155b7eb32979bd49efbc4ecd3ea" category="paragraph">了解 NetApp Data Migrator 之後、您可以<block ref="32beaf1b333cdebcd418e0f9b4a6d185" category="inline-link-macro-rx"></block>。</block>
+  <block id="362dc8eb929965a4aa87ffed37b3d617" category="doc">了解如何安裝 NetApp Data Migrator</block>
+  <block id="155fa94b7bca3977ba7c200909e43cc8" category="paragraph">若要使用 NetApp Data Migrator 執行 NFS 和 SMB 遷移作業，您需要安裝控制平面和工作節點。</block>
+  <block id="8c0d588cf4ae3c3963c70ead4a5ca7e3" category="list-text">*控制平面*：控制平面充當中央管理和控制層。您需要將控制平面部署在 Linux 虛擬機器（VM）上，然後再部署工作進程。</block>
+  <block id="c037928a4b33f55ae64d96e1796c0cb1" category="list-text">*Workers*：Workers 是執行實際資料遷移的虛擬機器。您可以根據規模和需求部署多個 Workers。Worker 類型取決於傳輸協定：</block>
+  <block id="dcb958e16173d580dffd4bdeb217206a" category="list-text">Linux 工作者支援 NFS 移轉。</block>
+  <block id="d2ac9b54e6beae65495d2457cf8c1f40" category="list-text">Windows 工作進程支援 SMB 移轉。</block>
+  <block id="76827502fd8d3d0d06e450c23346942e" category="paragraph">首先，您可以使用 AWS、Azure 或 Google Cloud 服務，或使用 Open Virtual Appliance (OVA) 範本來部署控制平面虛擬機器 (VM) 和 Linux 工作虛擬機器。您可以從 NetApp 支援網站下載部署所需的 NetApp Data Migrator 映像。</block>
+  <block id="a2b65d24cfdab17e100dd5d9903bafad" category="paragraph">部署完成後，您需要建立控制平面虛擬機器和工作虛擬機器以存取 NetApp Data Migrator。您可以使用已部署的映像來建立控制平面虛擬機器和 Linux 工作虛擬機器。您可以使用從 NetApp 支援網站下載的 Windows Worker Installer 來建立 Windows 工作虛擬機器。</block>
+  <block id="0176a7764147384d95bf0b96717c78d3" category="inline-link-macro">註冊帳戶</block>
+  <block id="35884a7c97792b73e76d939f06c4c52c" category="paragraph">了解如何安裝 NetApp Data Migrator 後、您可以<block ref="d2c5c3692974708954412d809af17919" category="inline-link-macro-rx"></block>。</block>
+  <block id="7e56090ee48c15842893dcf89da7a382" category="summary">NetApp Data Migrator 的法律聲明、版權、商標和開源許可資訊。</block>
+  <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律聲明</block>
+  <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">法律聲明提供版權聲明、商標、專利等資訊的存取權限。</block>
+  <block id="6016a2b341113bf496b719905398ecd2" category="section-title">版權</block>
+  <block id="52009bb7ee17227f566cd26a02caee56" category="inline-link-macro"><block ref="52009bb7ee17227f566cd26a02caee56" category="inline-link-rx"></block></block>
+  <block id="a1a9afcf552a769c282769271829889a" category="paragraph"><block ref="a1a9afcf552a769c282769271829889a" category="inline-link-macro-rx"></block></block>
+  <block id="126a02652da6de02962cf1b654fd6376" category="section-title">商標</block>
+  <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NETAPP、NETAPP 標誌以及 NetApp 商標頁面上所列的標記均為 NetApp, Inc. 的商標。其他公司和產品名稱可能是其各自所有者的商標。</block>
+  <block id="f99aa604031e5049799e73b5c3748a98" category="inline-link-macro"><block ref="f99aa604031e5049799e73b5c3748a98" category="inline-link-rx"></block></block>
+  <block id="5d545fe5152641e2ebe654e336e520e5" category="paragraph"><block ref="5d545fe5152641e2ebe654e336e520e5" category="inline-link-macro-rx"></block></block>
+  <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">專利</block>
+  <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">目前 NetApp 擁有的專利清單可在以下網址找到：</block>
+  <block id="88e5eabd3917048b6927c42496b98f86" category="inline-link-macro"><block ref="88e5eabd3917048b6927c42496b98f86" category="inline-link-rx"></block></block>
+  <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
+  <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">隱私權政策</block>
+  <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
+  <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">開放原始碼</block>
+  <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知文件提供有關 NetApp 軟體中使用的第三方版權和授權的資訊。</block>
+  <block id="e3eb04459e5968e61173ba53f95bb097" category="inline-link-macro">NetApp Data Migrator 注意事項</block>
+  <block id="85107cda01ac5e8d2ab6e2fb5b79cb6e" category="paragraph"><block ref="85107cda01ac5e8d2ab6e2fb5b79cb6e" category="inline-link-macro-rx"></block></block>
+  <block id="30448d39662748517771a9714d6d41c7" category="summary">使用 NetApp Data Migrator 新增、設定和編輯使用 NFS 或 SMB 傳輸協定的檔案伺服器。</block>
+  <block id="50e1eea5e6dfb404eaad83143adef1b2" category="doc">新增和管理檔案伺服器</block>
+  <block id="9ab33165725a4ff45da757a30431ab45" category="paragraph">您可以使用 NetApp Data Migrator 來新增、設定和編輯使用 NFS 或 SMB 協定的檔案伺服器。</block>
+  <block id="c866395ca8d6403ba4c16dcfe1cb5bf7" category="section-title">新增檔案伺服器</block>
+  <block id="1440ea134aebbfbeddcad4b896434f11" category="paragraph">新增新的 NFS 或 SMB 檔案伺服器並配置工作虛擬機器。</block>
+  <block id="f6bb4278fd00bda59d9b22730ebc4ac0" category="paragraph">根據您的系統組態，使用 Other NAS 或 Dell Isilon 工作流程選項。</block>
+  <block id="061f1cdddd0d16713b25b1f6c0e1ca40" category="open-title">其他 NAS</block>
+  <block id="a313328b40722f10ddcf9cd4c26fe3d7" category="list-text">在左側導覽面板中，選取 *Storage Servers* 。</block>
+  <block id="7dcb33ad4b606d60559d47ef6e33b0a8" category="list-text">選取 *File Servers* &gt; *+Add*。</block>
+  <block id="16d5edd9c5ec17c1d90f4e89745270da" category="paragraph">「*檔案伺服器*」頁面隨即開啟，接著是「*伺服器類型*」頁面。</block>
+  <block id="b51aa62f83aa8410bb7be5af66b90a55" category="list-text">輸入伺服器名稱，然後選取 *Server Type* 為 Other NAS 。</block>
+  <block id="2f85dfe27ff9af179bfe9dc6153f0207" category="paragraph">*憑證* 頁面隨即開啟。</block>
+  <block id="3a9b543b047a34c149d5d4330d09707d" category="list-text">輸入 NFS 或 SMB 伺服器的 *Host Name*（或 IP 位址）。</block>
+  <block id="2b0cb233806b893646bf5b9b2da12d74" category="list-text">如果您使用的是 *NFS* 檔案伺服器：</block>
+  <block id="4e8237f0df807eafdaa31107b4e21b6d" category="list-text">請輸入用於存取 NFS 檔案共用的 *Username* 。</block>
+  <block id="e18ef375dcc3ab1a6584eb99050fd3d9" category="list-text">（選用）輸入 *Password*。</block>
+  <block id="6e07454a6f4eb4754b4205930356fc42" category="list-text">選擇 NFS 的 *Protocol Version*。</block>
+  <block id="2f93d9bc0543dc153ffb8604c6e54367" category="list-text">在 *Export Paths Retrieval Mechanism* 面板中選取 *Auto Discover* 或 *Manual Upload* ：</block>
+  <block id="83e78e8d2dc52fc82da28cb7a6d2f179" category="paragraph">*Auto Discover* 會自動探索匯出路徑。</block>
+  <block id="fa46aaa4f59f0c110d38ecc0b53002ea" category="inline-xref">您需要手動上傳匯出路徑</block>
+  <block id="c0530e1ad8f41f48d9b18f2380f94003" category="paragraph">*手動上傳* 指的是手動上傳匯出路徑，或在不支援 *自動探索* 的環境中使用，例如 Google Cloud NetApp Volumes（GCNV）Flex 服務。新增檔案伺服器後，<block ref="1b65c60f8f427559cc3c71263f4d9263" category="inline-xref-macro-rx"></block>。</block>
+  <block id="fb633e9ae6ea78f60185ba5f7673543c" category="list-text">如果您使用的是 *SMB* 檔案伺服器：</block>
+  <block id="a4a98f2a60286dde7e4c629215bdc630" category="list-text">請輸入用於存取 SMB 檔案共享的 *Username*。</block>
+  <block id="555000d937f00fc7af1616933a58be66" category="list-text">輸入 *Password*。</block>
+  <block id="7719f5ebdd80d795ffb088f6f9a96c3f" category="list-text">選擇 SMB 的 *Protocol Version*。</block>
+  <block id="d3f151c47d8025982b418167de2e4076" category="list-text">選取 *Workers* 分頁。</block>
+  <block id="cefc9fa3d55cd2e93cddd06177bff189" category="list-text">在 *Associated* 欄中、選取您要與伺服器建立關聯的一或多個工作人員旁的切換按鈕。</block>
+  <block id="a38a6d1da3fe71902166a2267478d600" category="list-text">選擇 *Proceed* 以啟動預先檢查作業，測試所選的一個或多個工作進程是否與 NetApp Data Migrator 有連線。</block>
+  <block id="b6fa9602185f08ac7e72f5c937d068e5" category="list-text">預檢查完成後，您應該解決所有標記的錯誤。（有關如何解決錯誤的詳細資訊，請參閱檔案伺服器常見問題（FAQ））。</block>
+  <block id="8356febdfd411149082fd9f5fc6c5fb1" category="paragraph">如果預先檢查完成且沒有錯誤，請選取 *Job Config* 標籤，然後選取 *Finish*。您的 File Server 名稱會顯示在 *File Servers* 清單下。</block>
+  <block id="eb0355f26f0fcb3a136cdd63c25a8c2b" category="paragraph">檔案伺服器的狀態列在 *File Servers* 表格的 *Status* 欄中。狀態類型包括：</block>
+  <block id="7a04e6e21c09557e46bd39fdb8e2524f" category="list-text">*Active*：沒有錯誤，所有細節均已驗證。</block>
+  <block id="4b95ab50254e22736bd44f5fcaaf8e85" category="list-text">*進行中：* 伺服器驗證進行中。</block>
+  <block id="74b474dda207ef6b31fa094e154cbcbb" category="list-text">*草稿*：沒有工作人員與檔案伺服器建立關聯。</block>
+  <block id="6d1ad994439c6c71c5fa295653fd39b4" category="list-text">*錯誤*：權限有問題、沒有可用路徑，或匯出路徑只有 /。如果在建立檔案伺服器時選擇 *Auto Discovery* 匯出路徑，則可能會出現這些問題。</block>
+  <block id="fff4714787fd02da5b8effd425481e60" category="open-title">Dell Isilon</block>
+  <block id="7ede989749b2b83a61ca18e3533f7779" category="list-text">請輸入 Isilon 檔案伺服器的 *Configuration Name* （設定名稱）。</block>
+  <block id="5f33dfa03f667c2212c142f035f18f86" category="list-text">從 *Server Type* 下拉式選單中選擇 *Dell Isilon*。</block>
+  <block id="e26ac623ca109291209c8a8745c8a292" category="paragraph">*Management Console* 部分開啟：</block>
+  <block id="e62b8ed2a0b779aaa6723a8cfd4a47f3" category="list-text">輸入 *Management Host*（Isilon 管理主控台的主機名稱或 IP 位址）。</block>
+  <block id="4a715ac88096cacf3efad7bdeb2ff046" category="list-text">輸入用於存取 Isilon 管理 API 的 *Username*。</block>
+  <block id="591b019dd8cad5ead810ed727a6f7884" category="list-text">輸入 *Password*。</block>
+  <block id="4252ae4fd88320349b3c2c1cd45ce6e2" category="list-text">選擇 *Proceed* 以從 Isilon 叢集擷取 TLS 憑證。</block>
+  <block id="b3358fb4cc90b8562534214340f1483f" category="list-text">請查看彈跳窗中顯示的 *TLS 憑證* 詳細資料：</block>
+  <block id="924932478b247f31fd54eb71772dfa7a" category="list-text">驗證憑證核發者、有效日期和指紋。</block>
+  <block id="42eb74b406abff7f73fe77af1e141e01" category="list-text">選取 *Accept* 以信任憑證並繼續。</block>
+  <block id="199fcebf78b56320fe2257f80ad41c5d" category="list-text">如果您不信任該憑證，請選擇 *Reject* 以取消。</block>
+  <block id="49ddb02773da2521aeb35f68bd283ab0" category="list-text">*Zone Credentials* 頁面開啟：</block>
+  <block id="a293365e4bf0499540b02cc73618f7ea" category="list-text">從已發現的可用區域中選擇一個或多個 *Access Zones* 。</block>
+  <block id="b680716c14e7cbf0172e65e23ab2306d" category="list-text">針對每個選定的區域，設定傳輸協定認證資料：</block>
+  <block id="3e92e6c57bdcda23ca11d2521e37ddfb" category="list-text">從下拉式選單中選取 *NFS IP 位址*。</block>
+  <block id="cc8c648ffadd97f0a67b9603ed15adb1" category="list-text">請輸入用於存取 NFS 匯出路徑的 *Username* 。</block>
+  <block id="e975121c3fa61c0861efe13dc728bc76" category="list-text">請輸入 *SMB IP 位址*。</block>
+  <block id="4529f88bed086ab3546a25cbb64dff56" category="admonition">如果在 Isilon 叢集上設定了 SmartConnect 服務 IP（SSIP），您可以從「IP 位址」下拉清單中選擇 SmartConnect 區域網域名稱。使用啟用 SSIP 的網域名稱時，Isilon SmartConnect 基礎架構會管理連線負載平衡並在儲存層進行解析。NetApp Data Migrator 在此組態中不會執行額外的負載平衡。</block>
+  <block id="e3ca436a78e69a18e95717ec2f400984" category="list-text">*Workers* 索引標籤隨即開啟：</block>
+  <block id="a4914c52fba6dcb7874b1267afb8c90c" category="list-text">針對每個區域和協定組合，分配工作進程：</block>
+  <block id="749a9275aee7219a017a5d75c5d7eb8b" category="paragraph">在 *Associated* 欄中，選取您要建立關聯的一或多個工作者旁的切換按鈕。</block>
+  <block id="b3c358ada53be4cdb65195dedf62915e" category="list-text">選擇 *Proceed* 以啟動預先檢查作業，測試一或多個選定的工作人員是否與 NetApp Data Migrator 和 Isilon 檔案伺服器有連線。</block>
+  <block id="8f7df24644d794e564d2db58c772b2e5" category="list-text">預先檢查完成後，請解決所有標記的錯誤。</block>
+  <block id="0fe54530ff7b453c5e0bba3e943a89f3" category="paragraph">如果預先檢查完成且沒有錯誤，您的檔案伺服器名稱會顯示在檔案伺服器清單下。顯示的檔案伺服器下拉式清單會顯示已設定的區域。</block>
+  <block id="07cb0967e7293a347fac687a381955a5" category="section-title">手動上傳匯出和目錄路徑</block>
+  <block id="1132f2d9d6c8243388bd238a3921aabe" category="paragraph">NetApp Data Migrator 可讓您手動上傳匯出路徑和目錄路徑，以便在 NFS 協定的資料遷移操作中使用。此功能在無法自動偵測 NFS 匯出路徑的環境中非常有用。例如，當與 GCNV Flex 服務一起使用，或遷移目錄路徑而不是整個匯出路徑時。如果您在「匯出路徑擷取機制」面板中選擇「手動上傳」，則需要在建立檔案伺服器後下載並填寫 NetApp Data Migrator 提供的範本檔案。</block>
+  <block id="51be508b7111443f67b7d70122772066" category="admonition">當您需要在目錄層級設定移轉時，請使用此選項。如果移轉涉及特定目錄而非整個匯出，請直接在 Excel 試算表中輸入目錄路徑。這樣可以確保移轉工作流程單獨處理每個目錄，而無需匯出層級的輸入。</block>
+  <block id="cc9db883e6208917ec02b1cc6f122a40" category="list-text">選擇 *File Servers* 。</block>
+  <block id="f90dbedacb122ecf97b6830d76fc2df2" category="list-text">選取 *Click here to Upload Export Paths* 。</block>
+  <block id="f6611b52a69a0749e6dde410ebb9d202" category="list-text">選擇 *Download Template* 以下載 CSV 檔案模板。</block>
+  <block id="1909c6f6ba7aa237b4a6322e40d710d7" category="list-text">將匯出路徑和目錄路徑儲存到 CSV 檔案中。</block>
+  <block id="e5c5212dc6860279e78a71f2aae11175" category="list-text">選擇 *Click here to Upload Export Paths*，然後選擇包含匯出路徑和目錄路徑的 CSV 檔案。</block>
+  <block id="a711807ae13ebab3475c8850bd469580" category="paragraph">匯出路徑和目錄路徑會顯示在 *Paths* 下。</block>
+  <block id="7d98b3cc240f80ad12ef8d8b309048c5" category="list-text">如果需要新增更多匯出路徑或目錄路徑，請將其新增至檔案中，然後選擇 *重新上傳匯出路徑*。</block>
+  <block id="1725899abdbe44463a53694fdc2de15d" category="paragraph">上傳完成後，匯出路徑和目錄路徑可以具有以下幾種狀態類型之一：</block>
+  <block id="3ad17efd32ab7ef580731eb97a9e0fb0" category="list-text">*有效*：路徑已成功上傳，您可以掛載和卸載此路徑。</block>
+  <block id="96b069a94d9dee2d028eb1e1d1fe5b25" category="list-text">*無效*：路徑上傳失敗。</block>
+  <block id="46c719ec3542636c4581d51316372ba5" category="list-text">*已停用*：路徑可用，但不在您上傳的檔案中。</block>
+  <block id="19e9b23283c98b6a6539c6dca9cc4aa4" category="section-title">編輯檔案伺服器詳細資料</block>
+  <block id="7c6a70263b6766a9e16e5586351b97b0" category="paragraph">如有需要，您可以對先前設定的檔案伺服器進行變更。</block>
+  <block id="e487e639afe7aeec99ca210dcd776398" category="paragraph">使用 Other NAS 或 Dell Isilon 工作流程選項編輯檔案伺服器詳細資訊。</block>
+  <block id="429d167516808f8c7d5056c56a4ff30a" category="list-text">選擇要編輯的 File Server 旁的操作選單。</block>
+  <block id="0952ccb1cc436bfc6c1f73fa071c8a46" category="list-text">選擇 *Edit File Server* 。如果您為 *Upload Export Path Retrieval* 選擇了 *Manual Upload* 選項，則只會顯示有效路徑。</block>
+  <block id="0411c429b267479d4162de2f0a7e5b97" category="list-text">選取 *Server Type* 標籤、進行所需的編輯，然後選取 *Proceed*。</block>
+  <block id="014b4d783a46c7f790a52ba13bc075a7" category="list-text">選擇 *Credentials* 選項卡，進行任何必要的編輯，然後選擇 *Proceed*。</block>
+  <block id="f420b3ff7e0de967d2596c3f21d6b7d0" category="list-text">選取 *Workers* 標籤，進行任何必要的編輯，然後選取 *Submit*。</block>
+  <block id="634f2613312c50034cab7074eb0fc644" category="list-text">選擇要編輯的 Parent File Server 旁的操作選單。</block>
+  <block id="c2304f920f0ce42a4d3a45f95cb449fe" category="list-text">選取 *Edit File Server*。</block>
+  <block id="c673e863a2bb835bd78defb2019a416f" category="list-text">選擇 *Server Type* 標籤：</block>
+  <block id="4fd7731ec8e10aaa8879c4f56e5a1647" category="list-text">如有需要，請更新 *Configuration Name*。</block>
+  <block id="624e797c77d3edeaa0c651e9cb4e7a96" category="list-text">如有需要，請更新 *Username* 或 *Password*。</block>
+  <block id="8cb15ce6c54092a253bd2c552317ad39" category="list-text">選擇 *Proceed*。</block>
+  <block id="0f7d7aa78a1549c2dc72ca57c5f84820" category="admonition">您無法變更 *Server Type*（Dell Isilon）和 *Management Host*。</block>
+  <block id="b581066510802cba6f2634fb91bd1ea7" category="list-text">選取 *Zone Credentials* 標籤：</block>
+  <block id="86ceee48e971b9baa262713ab3566f9f" category="list-text">從可用清單中選擇其他區域，即可新增區域。</block>
+  <block id="b0d3121acd66e57f6bf71d9fd1ab9007" category="list-text">更新每個區域的傳輸協定認證資料：</block>
+  <block id="62a2d21a8924af81cee064e4a5d2acf3" category="paragraph">視需要更新 *NFS IP 位址*、*使用者名稱* 或 *密碼*。</block>
+  <block id="0900f1414e7784bce9ad7e4f242436d2" category="paragraph">根據需要更新 *SMB IP 位址*、*使用者名稱* 或 *密碼*。</block>
+  <block id="f2e1ee0da6aa0320ed2aa2a6648f7aa2" category="list-text">選擇 *Workers* 選項卡：</block>
+  <block id="b6b637036aed9b864f8f9a4467d28788" category="list-text">透過在 *Associated* 欄中開啟或關閉 worker，更新每個區域和通訊協定的 worker 指派。</block>
+  <block id="34ce963f139995c19018586d22ee168d" category="list-text">選擇 *Proceed* 以對任何新指派的工作節點執行預先檢查驗證。</block>
+  <block id="1164d10996d24fd3288b7937b9ec0530" category="list-text">選擇 *Job Config* 標籤：</block>
+  <block id="fd6cf1ea66a217ef1c4d0a41152a1277" category="list-text">如有需要，請更新 *Working Directory* 。</block>
+  <block id="560e42e6da9452e07ba03414df4da014" category="list-text">選擇 *Finish* 。</block>
+  <block id="2154189ceab3b15e68c45f609b0ec689" category="summary">使用 NetApp Data Migrator 中的作業管理功能來啟動和追蹤探索、移轉和轉換作業及作業執行。</block>
+  <block id="96e2d76177d54eadc3a852e22adeaaec" category="doc">在 NetApp Data Migrator 中管理作業和作業執行</block>
+  <block id="d3a5c51f4c2d63b6a4ee92f4de5513c8" category="paragraph">使用 NetApp Data Migrator 中的作業管理功能來啟動和追蹤您的 *Discovery*、*Migration* 和 *Cutover* 作業和作業執行。</block>
+  <block id="47ce163a337b400a299b167005e1ff76" category="admonition">請勿同時執行遷移和切換作業。確保一次只有一個作業處於作用中狀態。</block>
+  <block id="f913cb8eaf501d9d95f4100d1850c243" category="section-title">檢視工作組態清單</block>
+  <block id="a80fdfd04f65f93bdbbc91f6f9e100ed" category="paragraph">* 工作組態清單 * 頁面提供所有移轉相關工作的完整總覽。使用此頁面監控和管理 * 探索 *、* 移轉 * 和 * 完全移轉 * 工作的狀態和進度。</block>
+  <block id="205effb87fb92bf5acccba67f732a0f2" category="list-text">選擇 *Jobs* &gt; *Job Config List*。</block>
+  <block id="a51ba51aea6fd46bd6354129d8dc8da5" category="paragraph">*Jobs Listings* 表格隨即顯示，其中包含以下資訊：</block>
+  <block id="712f0bb5849fb5220b239bef32349467" category="list-text">*來源*：來源檔案伺服器的位置。</block>
+  <block id="8c3f852153315e0200b7dd5ccd60097b" category="list-text">*目標位置*：遷移作業的目標檔案伺服器和匯出路徑詳細資料。</block>
+  <block id="eb7c1024ed75720e4618e2f59a0c29a4" category="list-text">*傳輸協定*：工作使用的傳輸協定（NFS 或 SMB）。</block>
+  <block id="d211e5012fe610811b996152df247e6a" category="list-text">*下次排程*：下次排程執行時間（如適用）。</block>
+  <block id="f275311b9080a619b83ce5490ae50392" category="list-text">*執行次數*：工作已執行的次數。</block>
+  <block id="59a8dd452a829f2516fecf824e882da1" category="list-text">*類型*：工作類型（探索、移轉或完全移轉）。</block>
+  <block id="57578fa471857bb13e307e088ca9d179" category="list-text">*狀態*：作業的目前狀態可以是「活動」或「非活動」。使用無效或已停用狀態的手動匯出路徑的作業會自動變為非活動狀態。如需更多詳細資料，請參閱 <block ref="ae773d97768ced1963187e2ee61ebb05" category="inline-link-macro-rx"></block>。</block>
+  <block id="de14b7f5bd8601d16bfb30193a03bf45" category="list-text">*Updated On*：工作更新時間戳記。</block>
+  <block id="5509a44201941ec9a71cfef8981f936d" category="paragraph">使用手動匯出路徑或匯出路徑檔案的作業稍後會被重新上傳。任何先前執行與現已無效或已停用路徑相關聯的作業都會自動變為非作用中狀態。</block>
+  <block id="998e5d7021559bae26394870386865fd" category="list-text">選取 *Filters* 可對 Jobs Listings 表中的工作進行排序。您可以根據以下選項選擇篩選條件的組合：</block>
+  <block id="f31bbdd1b3e85bccd652680e16935819" category="list-text">來源</block>
+  <block id="12007e1d59f4d09c87dbe2c438256244" category="list-text">目的地</block>
+  <block id="888a77f5ac0748b6c8001822417df8b6" category="list-text">傳輸協定</block>
+  <block id="a1fa27779242b4902f7ae3bdd5c6d508" category="list-text">類型</block>
+  <block id="ec53a8c4f07baed5d8825072c89799be" category="list-text">狀態</block>
+  <block id="98aa39a0a9a6d9d1c55c11b38ad87210" category="list-text">選取 *Clear all* 可移除已套用至工作清單的篩選條件。</block>
+  <block id="2dd41f302a47a8149c5161c4aeefc4aa" category="section-title">啟用或停用工作</block>
+  <block id="ce0a276551bf4e1a882ffd3ee9d9a7f9" category="paragraph">從「工作清單」表格中，您可以啟用或停用工作。</block>
+  <block id="8f07bd4c7af698058475bbfc2664d860" category="list-text">啟動工作：</block>
+  <block id="44ec342136c9004af13735656c4940dd" category="list-text">在「Job Listings」（職位清單）表中，選取您要啟動的工作旁的動作功能表。</block>
+  <block id="485649400ce84e211b02fc75f1b1f188" category="list-text">選取 *Activate* 。工作狀態會變更為 Active 。</block>
+  <block id="12bc8776b55f177f1ad58658dab8fa43" category="list-text">停用工作：</block>
+  <block id="6e7aff1bcdb70833ba4187e058f15b01" category="list-text">在「Job Listings」（職位清單）表中，選取要停用的職位旁的動作功能表。</block>
+  <block id="b86808629c5c1324556ad4ecbd8b6af4" category="list-text">選擇 *Deactivate* 。工作狀態會變更為 Inactive （非使用中），執行會停止，直到您重新啟動工作為止。</block>
+  <block id="ae8dcf3ca2ef18f6fe33e4c4328fc599" category="section-title">編輯工作組態</block>
+  <block id="404c654f597e28ba11d197566003a457" category="inline-xref">開啟工作詳細資料頁面</block>
+  <block id="5555a6f5f4aca1505ff1d1848b7ad938" category="list-text"><block ref="6a2946a61080b667da5372186ff3b47a" category="inline-xref-macro-rx"></block> 您要編輯的工作。</block>
+  <block id="14ffa952adc249e88d00125b89c972ed" category="list-text">選取 *View/Edit Configuration*。</block>
+  <block id="b45ff17e7dc18dd05d918205c7de7ec2" category="list-text">編輯工作組態：</block>
+  <block id="cba03cf49470128a249e5865702b7822" category="open-title">探索工作</block>
+  <block id="ccf6288220eaa9d9a99974191e03c8c5" category="list-text">新增或移除排除路徑模式</block>
+  <block id="0f8f20d1794986cf0102ed43d162164a" category="list-text">排程工作執行</block>
+  <block id="025d7fa93526a3d9816f06ae4ae9ff0f" category="open-title">移轉工作</block>
+  <block id="0b5201fb7463eb0191e74b974d36281d" category="list-text">編輯任何工作選項</block>
+  <block id="05246f19c5a8851dd405f2006644a274" category="list-text">新增或移除對應</block>
+  <block id="065e4149f2c960a6fd0d116ee9a54b08" category="list-text">選取 *Save* 。新組態會影響未來的工作執行。</block>
+  <block id="f65f1b468917996b88c7346038ee11d0" category="admonition">例如，在基準遷移完成後變更組態（例如停用保留權限）可能會導致後續遷移期間狀態不一致。您應該刪除目前工作並啟動新工作，而不是變更組態。</block>
+  <block id="6534a65c691c4c1cbbfa3759a0dee99d" category="section-title">重新執行錯誤的檔案和目錄</block>
+  <block id="5269abdae82f8db3eb64603f3ab515b4" category="paragraph">如果遷移作業執行因網路逾時或權限問題等暫時性問題而出現錯誤，您可以使用重試功能僅重新處理失敗的項目，而無需重新執行整個遷移。</block>
+  <block id="4138f3df411b91cf271a5cbc680395b7" category="list-text">在 *Job Listings* 表格中，選取有失敗項目的工作旁的動作功能表。</block>
+  <block id="c7dc5b2281e34424f9ab4a5db40addce" category="list-text">選擇 *Details* &gt; *Retry Recent Errors* &gt; *Proceed with Retry* 以開始重試操作。</block>
+  <block id="01858923ecef5a9cd865759e77a8da9c" category="section-title">刪除工作</block>
+  <block id="b81e917b7641062733aef3dc42f84a12" category="list-text">在 *Job Listings* 表格中，選取您要刪除的工作旁邊的動作功能表。</block>
+  <block id="c6530dc69a45197349feade40127bf9e" category="list-text">選擇 *Delete* &gt; *Delete* 。</block>
+  <block id="a03e225303aed19847ec882e7f96942b" category="admonition">只有當沒有正在執行的作業時，才能刪除該作業。</block>
+  <block id="ab7386fc80b478b3cd494da3d0899567" category="section-title">檢視工作詳細資料</block>
+  <block id="1c99e4180f5d9aa00aabccdaf025437b" category="paragraph">從 *Job Config List* 頁面，您可以存取 *Job Details* 頁面，查看有關各個作業的更多詳細資訊，例如：</block>
+  <block id="df1a158216da9a5f7abcc98dc35f8a35" category="list-text">工作類型 （Discovery、Migration 或 Cutover）</block>
+  <block id="51c996d15f57724f95ca8565526b24cf" category="list-text">發現的檔案和目錄數量</block>
+  <block id="9dbddb48e79793d127f9858cc8b7f53a" category="list-text">經過時間</block>
+  <block id="22313435ded59e8144be54e10eec2e79" category="list-text">發現的資料</block>
+  <block id="217e2a88c8ac49f62ecfc885e1a0830c" category="list-text">工作組態</block>
+  <block id="e1bcd2f1f15f4e88ad9058efc1f8af32" category="list-text">在 *Job Listings* 表格中，選取工作旁的動作功能表，然後選取 *Details* 。</block>
+  <block id="541e5713ff6b340d5232e0399e4bd235" category="section-title">檢視工作執行歷程記錄</block>
+  <block id="a0c259a239887e102dd3de5bffd3c9bb" category="paragraph">在 *Job Details* 頁面上，*Run History* 表格提供您先前工作執行和工作狀態的相關資訊。</block>
+  <block id="4d3681fbd312ed8436e3e7e66ccab275" category="paragraph">遷移和探索工作狀態類型包括：</block>
+  <block id="e4474066ad8d7a943295b43bf3c44d09" category="list-text">*Ready*：工作已排程執行。</block>
+  <block id="e2ad9fb4361cb316a5abd24e68ff7637" category="list-text">*執行中*：工作處於執行狀態。</block>
+  <block id="666df6f166d243bc8f6b95f3b7f1dc98" category="list-text">*已暫停*：作業執行已被手動或由 NetApp Data Migrator 暫停。例如，如果作業執行時某個工作行程發生故障，則該作業可能處於暫停狀態。</block>
+  <block id="b6206c641feb14001bd6f35c2eabd7ac" category="list-text">*已完成*：工作已完成。</block>
+  <block id="d57d07642a15a951f0a39f42f5ed0e81" category="list-text">*出錯*：工作執行觸發嚴重錯誤。</block>
+  <block id="f3ba2db7739a5eed3c8c5f158e665f42" category="list-text">*失敗*：如果工作進程在工作執行時離線，工作可能會進入失敗狀態。</block>
+  <block id="4af757090978bb1837cccd8e6b855f5f" category="paragraph">轉換工作狀態類型包括：</block>
+  <block id="77216ccec67e98a1f2f20935225b1cf6" category="list-text">*已封鎖*：工作正在等待使用者回應。</block>
+  <block id="ef9bf5af6e6aef5955bed44b0bc3d98d" category="list-text">*已拒絕*：工作已由使用者審查並拒絕。</block>
+  <block id="60bb34077de28c008aacceef19e2cd9f" category="list-text">*已核准*：工作已由使用者審查並核准。</block>
+  <block id="8b801c7723cbb89b1bedf5b1fff9eaa2" category="list-text">*已停止*：工作已停止執行。</block>
+  <block id="a334d1fa23df3c8e0c3e054c3bcd2151" category="section-title">管理工作執行作業</block>
+  <block id="9fd05e30d8e60695261f8bda97ec8679" category="paragraph">從 *Job Details* 頁面，您可以管理作業的 *Start*、*Stop*、*Pause* 和 *Resume* 操作。使用 *Pause* 功能可以暫時停止正在執行的作業，而不會取消它。之後，您可以從暫停的位置恢復作業。在需要釋放系統資源或疑難排解問題而不遺失進度的情況下，此功能非常有用。</block>
+  <block id="033c34f89029a741f4b7eedbd0b7f6b3" category="list-text">在 *Job Details* 頁面的 *Run History* 表格中，選擇正在執行的作業旁的操作選單。</block>
+  <block id="6d2a4423a605589c4c52f375063111bf" category="list-text">暫停或繼續工作執行：</block>
+  <block id="549087ff6c78cd133e60eae091dcb474" category="list-text">選擇 *Pause* 。</block>
+  <block id="8dfafb7fdcc2e7100bb2fff576bd4950" category="list-text">若要繼續執行工作，請選取 *Resume* 。</block>
+  <block id="b5c64d21f4fc1c55112eca1b81a21870" category="paragraph">作業狀態變更為 *Running*，作業會從暫停的步驟繼續執行。</block>
+  <block id="45a97dad2a0cfbd9c4cb1c1038ab3dbf" category="list-text">停止或啟動工作執行：</block>
+  <block id="5cac5305a454aadc875c8ef5267815c3" category="paragraph">您可以使用停止選項永久終止正在進行的工作執行。當不再需要執行某個工作時、此動作非常有用。您無法恢復已停止的工作執行、但可以選擇從頭開始啟動新的工作執行。</block>
+  <block id="41ec3e9db7129b498fd1766a3be57b1d" category="list-text">選擇 *Stop* 。</block>
+  <block id="267e953dc65e3be15dba6fcddc04753a" category="paragraph">工作執行狀態會變更為 *Stopped* 。</block>
+  <block id="69d47dade61c818baa831f37c527299e" category="list-text">若要啟動新的工作執行，請選擇 *Adhoc Run*。</block>
+  <block id="925e35e75855bc45582e31fd64f6c648" category="paragraph">工作執行狀態變更為 *Running* 。</block>
+  <block id="e1b7dc9d96984cfec96bda0a314c4877" category="section-title">存取工作執行詳細資料</block>
+  <block id="9140e7de3992891cae0f9151d7a59966" category="paragraph">從 *Run History* 表格中、存取 *Job Run Details* 頁面、您可以在其中檢視有關工作執行的其他詳細資料。</block>
+  <block id="65b75d688d5649ea6c984ecb72f23aaa" category="list-text">在 *Job Details* 頁面的 *Run History* 表格中、選取工作執行旁的動作功能表。</block>
+  <block id="1a4175bd61e76b171f3ce25c259e9a6e" category="list-text">選取 *Details* 以檢視 *Job Run Details* 頁面，其中包含下列資訊：</block>
+  <block id="20a65bd60e1be339c198475a1f403898" category="list-text">*Discovery/Migration*：工作執行類型和狀態。</block>
+  <block id="3ab8c86d2d67e41891e4ba9e2d4a6c97" category="list-text">*檔案*：探索程序期間找到的檔案數量。</block>
+  <block id="e45ddb684019ab3673b0abd2eec135b6" category="list-text">*目錄*：在探索過程中找到的目錄數量。</block>
+  <block id="f6b320e5c8b8991e218ac80aa02952f8" category="list-text">*經過時間*：探索程序所需的時間。</block>
+  <block id="78a8155415c0cc8fc6dba8bc25cdad69" category="list-text">*已發現資料*：已發現檔案的總大小。</block>
+  <block id="9cd0c86c045159394bdec4f11bf5ab92" category="list-text">*Workers*：指派給工作的工作者數量。</block>
+  <block id="4282beca24b6cd8dc9f26a914545d7c1" category="list-text">*任務*：正在執行的任務數。</block>
+  <block id="627ffb473a1ba153efdddf4a1d9c7725" category="list-text">*任務狀態指標*：</block>
+  <block id="33d518c5f1e12f7612cfe43eaff10266" category="list-text">*待處理*：等待執行的任務數。</block>
+  <block id="eb922cc8784bb18bbe64d773f203e011" category="list-text">*執行中*：目前正在進行的任務數量。</block>
+  <block id="aafeb85852b1a0709a1c9cd2db22d721" category="list-text">*已完成*：已成功完成的任務數。</block>
+  <block id="72112f6b81b43281052c630630964215" category="list-text">*錯誤*：執行期間發生問題的工作數量。</block>
+  <block id="f1b6e0a3410272cf98a95c6f9b468e0b" category="list-text">*工作名稱*：指派給該工作的名稱。</block>
+  <block id="73c0d1f0d57b45d29afb9883aab3f404" category="list-text">*來源路徑*：用於資料探索的檔案路徑。</block>
+  <block id="5a38cf20be01022658577fb7e875ca62" category="list-text">*通訊協定*：用於探索的通訊協定（NFS 或 SMB）。</block>
+  <block id="45e1f81450b527f60d13ceac489731eb" category="paragraph">*Job Run Details* 頁面右下角的圖塊列出了移轉過程中發生的錯誤數量（如有）。選擇 *View All* 可存取 *Errors* 頁面，您可以在該頁面找到有關這些錯誤的更多詳細資訊。</block>
+  <block id="a4fa7fb1718892ffb244695136c023eb" category="list-text">產生詳細報告，深入瞭解工作執行指標，包括檔案數量、狀態、錯誤和執行時間。您可以將這些報告用於審查或稽核用途。</block>
+  <block id="d9ce67afe8e6b7ab92c26f3c439e0036" category="list-text">選取 *Discovery Report* &gt; *Preview* 以檢視工作報告資料的長條圖。</block>
+  <block id="d14ffbc2c337f58f1b30581b1bc352f0" category="list-text">選擇 *Download as CSV* 以匯出 CSV 格式的報告，您可以使用試算表應用程式對其進行分析。</block>
+  <block id="e5f2eae53ea7e10f32cc02e6573a770e" category="list-text">選擇 *Download as PDF* 。此選項非常適合文件共用。</block>
+  <block id="d32bb76799fd7706709b46488f8ec310" category="list-text">選擇 *View Logs* 以使用 Grafana 檢視或下載日誌檔案。</block>
+  <block id="029216502476b4f943aba394a6edc484" category="section-title">檢視移轉活動</block>
+  <block id="a939cd7a0172dd7e2b0ea10c28fd28fb" category="paragraph">「遷移活動」頁面顯示目前正在遷移的十個最舊的檔案。它還顯示正在進行遷移的檔案總數，並提供下載包含這些檔案完整清單的 CSV 檔案的選項。</block>
+  <block id="87cf8c517abf58b119aa4a2538fb5787" category="list-text">從 *Run History* 表格中、選取執行中工作的 *Job Run Details* 。</block>
+  <block id="8a06b7008bed1925e88b6e0c34eebf81" category="list-text">選擇 *Migration Activity* 。</block>
+  <block id="ac44d6d0b1105a6a9fe50a35ee88c5f1" category="section-title">產生工作錯誤報告</block>
+  <block id="38a53f3622c396951fc61e42cc05fea8" category="paragraph">您可以為狀態為 *Errored* 的作業或先前的作業執行產生錯誤報告。錯誤報告可以幫助您了解錯誤發生的原因。</block>
+  <block id="49ace83a8cfc3a8d7a01785f4b3db9f9" category="list-text">為狀態為 *Errored* 的工作產生錯誤報告：</block>
+  <block id="796d0ad977aafb8ed49902677507dd65" category="list-text">在 *Job Details* 頁面的 Errors 窗格中，選取 *View All*。</block>
+  <block id="a9ca1cb0bb50a37841b5560367196c20" category="list-text">選擇 *Generate Error Report* 以下載有關最近一次工作執行中錯誤的詳細資訊。</block>
+  <block id="06c5b9f3a44a55aac89df0194019df52" category="list-text">產生先前工作執行的錯誤報告：</block>
+  <block id="1fb2f609fbdc947e6fbb85c3477c71b9" category="list-text">在 *Job Details* 頁面的 *Run History* 表格中，選擇要為其產生錯誤報告的工作執行旁邊的操作選單。</block>
+  <block id="522aeaf73b031c733a2277fe9eadd494" category="list-text">選取 *Details* 。</block>
+  <block id="5bf3f51ad0b247db20c059cc3f279839" category="list-text">在 *Job Details* 頁面的 *Errors* 面板中，選擇 *View All*。</block>
+  <block id="9d418074d0953bed63f88da1f4be14c1" category="list-text">選擇 *Generate Error Report* 以下載有關所選工作執行中錯誤的詳細資訊。</block>
+  <block id="80ce2938ca2937b11bc52b5527c178f1" category="summary">使用 NetApp Data Migrator 控制平面中的「專案」標籤來建立、編輯專案或在專案之間切換。</block>
+  <block id="53b124f1313dc46b158fbc2056cf3fff" category="doc">在 NetApp Data Migrator 中建立和管理專案</block>
+  <block id="0ae471ea6c5379bf2db089c8721b6289" category="paragraph">您可以使用 NetApp Data Migrator 控制平面中的「專案」標籤來建立、編輯專案或在專案之間切換。</block>
+  <block id="b2a1727d96eeb50bd9543486e0a34973" category="paragraph">App Admin 使用者可以在 NetApp Data Migrator 中建立新專案，並將具有已定義角色的使用者指派給該專案。</block>
+  <block id="6a6235e26cbae4e7bc5a888e95ad5626" category="list-text">選擇 *Settings* &gt; *Projects* 以檢視現有專案清單。</block>
+  <block id="cf8b76f0f51b9afc7c33b3917ceed6e2" category="list-text">選取 *Add Project* ，隨即出現新視窗。</block>
+  <block id="ecd282d0b7d7115b80f78b486d3c9a70" category="list-text">輸入您的 *Project Name* 和 *Project Description (optional)*。</block>
+  <block id="0e62f4bf3970597bbe61bdbc23c4143d" category="list-text">將使用者新增至您的專案：</block>
+  <block id="a162c0719a4705494d45765a402543cb" category="list-text">從下拉清單中選擇 *User*。</block>
+  <block id="bdcf956d77ad9f0e32e4248bec6dd7f4" category="list-text">為使用者指派 * 角色 * （ *App Admin* 、 *Project Admin* 或 *Project Viewer* ）。</block>
+  <block id="6525cb7efe51d7936793356117826c43" category="list-text">選取 *+Add*。</block>
+  <block id="0b07e96722e5fc41e66e0c37ed512dcc" category="list-text">選取 *Save and Confirm* 。</block>
+  <block id="03e701daac8d82b67d29127111db0419" category="list-text">選擇 *Submit*，將出現一條確認訊息，表示專案已成功建立。</block>
+  <block id="83879b61fc6dcf133f90392c69f25d38" category="section-title">編輯專案</block>
+  <block id="ad286effb217ad2bc61c8b02e3923f27" category="paragraph">如果需要更新，您可以快速編輯專案的詳細資料。</block>
+  <block id="10cd70236841320dcfe4792268945964" category="list-text">在頂端導覽列中選取 *Settings* 。</block>
+  <block id="2dbdae1b30b7ad025949ced667ce9906" category="list-text">選取 *Projects* 標籤以檢視現有專案清單。</block>
+  <block id="fa23ef17aae42b82ca311335fd9059a4" category="list-text">選擇要編輯的專案詳細資料旁邊的 *(⋮)*，然後從下拉式選單中選擇 *Edit Project*。</block>
+  <block id="1a186f5c2b6dab4af1aca77b3e50ed9e" category="list-text">根據需要更新專案名稱、專案說明或新增使用者。</block>
+  <block id="90356872f7dbf03852aac44afd841d89" category="list-text">選取 *Submit* 以儲存變更。</block>
+  <block id="94b85a1c5a643296b6d5ecd3976a9159" category="section-title">在專案之間切換</block>
+  <block id="a2fc5daa14d7c4022c060f00a90c9d5c" category="paragraph">如果您同時監控多個專案，您可以快速在它們之間切換。</block>
+  <block id="5d98ed6215494e4aa14fb285ce1169de" category="list-text">從頂端導覽列中選取 *專案* 下拉式功能表、</block>
+  <block id="082933186fc992406ed182d4c98643ba" category="list-text">選擇目前專案名稱以開啟 *Project Selection* 選單，並顯示可用專案清單。</block>
+  <block id="3eae8ae7857d0643bc1fe6183b0fa970" category="list-text">使用 *Search Projects* 列快速找到您要切換到的專案。</block>
+  <block id="265577e48e5be8f0a8166a0aed077dee" category="list-text">選取要切換到的專案名稱旁的核取方塊。</block>
+  <block id="592c2b6d50736a27b740318f57914f62" category="list-text">選擇 *Switch* 以載入選定的專案。</block>
+  <block id="f5a8277c0645fc0b5fd63ec70af2aed7" category="summary">使用角色型存取控制來新增和管理 NetApp Data Migrator 使用者，包括建立帳戶、指派角色以及啟用或停用存取。</block>
+  <block id="67a2d18f754e8a27ae430afd0b60f614" category="doc">在 NetApp Data Migrator 中新增和管理使用者</block>
+  <block id="721796b1cb3468f0daf819180184d460" category="inline-link-macro">角色型存取控制（RBAC）</block>
+  <block id="be3481b001dfc961f9b6dc2ea7bd48b0" category="paragraph">NetApp Data Migrator 使用 <block ref="8e624225acfcd6a8ecfa1725f2c4fb0d" category="inline-link-macro-rx"></block> 來提供安全且有效率的資料遷移活動管理。設定控制和工作虛擬機器（VM）後、App Admin 使用者可以建立角色並指派給新使用者。這可讓新使用者根據其權限登入、檢視或管理專案、以及執行其他遷移活動。</block>
+  <block id="2d702c4fb4e2ee857b27bfaf6afb6c6a" category="paragraph">您需要以應用程式管理員身分登入才能新增使用者、啟用或停用現有使用者或重設使用者密碼。</block>
+  <block id="08ec0f7654cccad69821337b3c47af67" category="section-title">新增使用者</block>
+  <block id="f99b3afc4544204da080503be14bac58" category="paragraph">建立新使用者並分享臨時密碼。</block>
+  <block id="a17989ec1a730c3e46947a170da354db" category="list-text">選取 *Settings* &gt; *Users* 以檢視已註冊使用者的清單。</block>
+  <block id="676095a409ad8766387c886d7d991fc4" category="list-text">選擇 *Add User* 。</block>
+  <block id="228d4916befec775c2876ce6bf2a864f" category="list-text">輸入新使用者的 *First Name* 、 *Last Name* 和 *Email* 地址。</block>
+  <block id="f2e2dda1ecf6756e927187c510824aae" category="list-text">如果新使用者需要管理員權限，請選取 *App Admin* 核取方塊。</block>
+  <block id="b623e6ded9a852f4e7cd9765578d0c08" category="list-text">選擇 *Submit* 。</block>
+  <block id="f1edf93a4d5a29b75ec1774129ecd7fc" category="list-text">選擇 *Copy* 連結（密碼欄位旁）以複製臨時密碼，該密碼以遮罩格式顯示。</block>
+  <block id="4a553bf9ebe9a32a6743c78be912cfbc" category="list-text">選取 *Close* 。</block>
+  <block id="d78b694533f39c65b66b65c35a10bf0b" category="list-text">將複製的臨時密碼分享給新使用者，新使用者即可使用該密碼登入。首次登入時，系統會提示他們變更密碼。</block>
+  <block id="dd213906dd3536a2f53f6d1d90ad7f00" category="section-title">停用現有使用者</block>
+  <block id="a31ad814959eb6b2bf59b6d8053df005" category="paragraph">停用其他使用者對 NetApp Data Migrator 的存取。此操作會阻止使用者登入，但不會刪除使用者資料、先前的遷移作業或與該使用者關聯的日誌。</block>
+  <block id="e90d90ae21434579022ce1f486fb9f8e" category="list-text">在導覽列中選取 *Settings* 圖示。</block>
+  <block id="04af43c52e17eb6751c04be11b2d5693" category="list-text">選取 *Users* 索引標籤以檢視已註冊使用者的清單。</block>
+  <block id="77de8217dc441c66b5718dd9171f1c5f" category="list-text">選擇要停用的使用者詳細資料旁邊的 *(⋮)* 圖示，然後從下拉式選單中選擇 *停用存取*。</block>
+  <block id="a349e082f32200581489c69af967aba9" category="paragraph">使用者狀態從 *Active* 變更為 *Inactive*，且無法登入 NetApp Data Migrator。</block>
+  <block id="dca65931ea86e9cd516608586fce163e" category="section-title">啟用使用者</block>
+  <block id="f379b00b4de3672400873c2c797ff493" category="paragraph">恢復已停用使用者對 NetApp Data Migrator 的存取，允許他們登入並根據其指派的權限執行操作。</block>
+  <block id="a6633641751edf7097f20ad998a976e5" category="list-text">在導覽列中選取 *Settings* 圖示。</block>
+  <block id="1dff5b5a4611449501cf6bfc4f5e3f0d" category="list-text">選擇要啟用的使用者詳細資料旁邊的 *(⋮)* 圖示，然後從下拉式選單中選擇 *Enable Access*。</block>
+  <block id="89f1d8bb92b2ab28b6be940b81b7ce20" category="paragraph">使用者狀態從 *非使用中* 變更為 *使用中*。使用者現在可以登入 NetApp Data Migrator。</block>
+  <block id="e65bf26548c66193bfe805a327f0fc24" category="section-title">重設使用者密碼</block>
+  <block id="081c98b18eac7f88302b50e7c895e5f0" category="paragraph">重設現有使用者的密碼。</block>
+  <block id="bc5300321d2483155f30679b9490dc16" category="admonition">當沒有其他 App Admin 可用時，若要重設 App Admin 使用者的密碼，請聯絡 ng-ndm-downloads@netapp.com 以取得密碼重設指令碼。</block>
+  <block id="c764172de6677224d540853d024c0982" category="list-text">選擇需要重設密碼的使用者詳細資料旁邊的 *(⋮)* 圖示，然後從下拉式選單中選擇 *Reset Password*。</block>
+  <block id="d287b6a0007284d3b673633024331b58" category="paragraph">畫面會顯示一則訊息，確認密碼重設已成功。</block>
+  <block id="8c80aa6f5c4a56ba63ac80facdf87e21" category="list-text">選取 *Copy* 連結（密碼欄位旁）以複製以遮罩格式顯示的臨時密碼。</block>
+  <block id="cf5ac14c923e217f8621f7578c85d0fe" category="list-text">與使用者分享複製的臨時密碼。</block>
+  <block id="63a9b59d9eeaa83e38c4e663bd9e7900" category="summary">NetApp Data Migrator 的網路需求，包括控制平面和工作區通訊所需的 TCP 和 UDP 連接埠。</block>
+  <block id="b310edaf82f204e9718085669d590c51" category="doc">在 NetApp Data Migrator 中驗證 NFS 和 SMB 網路存取</block>
+  <block id="83dd90d354af338509d82491d3562ce5" category="paragraph">您需要確保控制平面和工作節點的 IP 位址和子網路都已新增至儲存系統的匯出原則。這是為了支援使用 NetApp Data Migrator 進行 NFS 和 SMB 遷移。</block>
+  <block id="d42785ca0c7a8353fd3af0404f7f76ec" category="section-title">驗證 NFS 存取</block>
+  <block id="a4a5f9d92ece1da457590abead01c800" category="paragraph">對於 NFS、控制平面和工作節點需要以 root 用戶端身分存取儲存系統的權限。</block>
+  <block id="dc1b12a3f0273d08d2bef65121eb1dc9" category="list-text">從工作節點執行手動掛載以驗證磁碟區存取能力：</block>
+  <block id="e444418f6335877aa994afd33d95f14c" category="list-text">確保已啟用 root 存取、方法是驗證匯出原則規則是否允許超級使用者存取。如有必要、請修改匯出原則規則以啟用 root 存取（no root squash）。</block>
+  <block id="7c743f89091b4b8112d5fee57902a619" category="section-title">驗證 SMB 存取</block>
+  <block id="8b6f62968f51d6a991260460c4a46be8" category="paragraph">對於 SMB 存取，控制平面節點和工作節點需要獲得使用 SMB 憑證存取儲存系統的權限。SMB 使用者必須是備份操作員群組和管理員群組的成員。</block>
+  <block id="6d45427fa10981ce1f7403d67b49a7fc" category="summary">NetApp Data Migrator 的連接埠需求，包括控制平面和工作通訊所需的 TCP 和 UDP 連接埠。</block>
+  <block id="73a306c3efc59e9f206073a424a7e4e9" category="doc">NetApp Data Migrator 的連接埠要求</block>
+  <block id="02a023a8374ed334497bb8bc31550f9b" category="paragraph">您需要確保某些 TCP 連接埠已開啟，以便在 NetApp Data Migrator 中控制平面虛擬機器（VM）和工作 VM 之間進行通訊。</block>
+  <block id="a674202c1ad83cdb3fdcdb1b115c4b25" category="section-title">控制平面連接埠</block>
+  <block id="c2ba7e785c49050f48da9aacc45c2b85" category="cell">服務</block>
+  <block id="a93bcb5a82072c389a3b8a73489512f7" category="cell">TCP 連接埠</block>
+  <block id="5da618e8e4b89c66fe86e32cdafde142" category="cell">從</block>
+  <block id="e12167aa0a7698e6ebc92b4ce3909b53" category="cell">至</block>
+  <block id="5da09289c454b8fb0d2ae81efe01e26a" category="cell">Temporal Server</block>
+  <block id="90f59abb89fa736f0be80a63a864f030" category="cell">7233 或 7234</block>
+  <block id="060428837aa1bdeae6e1204f55df044b" category="cell">工作者和用戶端</block>
+  <block id="7e1251b01a19502493e461f843d6e284" category="cell">Temporal UI</block>
+  <block id="d4a973e303ec37692cc8923e3148eef7" category="cell">8080</block>
+  <block id="34ee8ff3f2c16d8758d1a9c1424014ac" category="cell">預設連接埠（如果已啟用）</block>
+  <block id="1110484ce835edb1d96d44f5d094aa8a" category="cell">PostgreSQL （Temporal 資料庫）</block>
+  <block id="2e92962c0b6996add9517e4242ea9bdc" category="cell">5432</block>
+  <block id="dbacec538ed33a36fc4f901a63177337" category="cell">Temporal Services（來自控制平面）</block>
+  <block id="e111446745a1825b862f8727ae63bce4" category="cell">Redis</block>
+  <block id="92c3b916311a5517d9290576e3ea37ad" category="cell">6379</block>
+  <block id="6dffc2d6b8f8f54efdc637e4c8e124da" category="cell">工作節點或控制平面服務</block>
+  <block id="c06025dd19f6e0cb028d8bc3b98e26bc" category="cell">API 或 UI 入口 （您的應用程式）</block>
+  <block id="8f30ebd9cc2f99b7d91400cf19955f28" category="cell">80 或 443</block>
+  <block id="6881c17f4cf6149a0519a4ae1f3d4d4d" category="cell">瀏覽器或任何外部用戶端</block>
+  <block id="13d976ec915aee59afabcef6291764b8" category="cell">Grafana</block>
+  <block id="e93028bdc1aacdfb3687181f2031765d" category="cell">3000</block>
+  <block id="ef15fd2f45e6bb5ce57587895ba64f93" category="cell">瀏覽器</block>
+  <block id="6ce0c3ae03134ce5b0f181ee6fbb6d8a" category="section-title">工作者連接埠</block>
+  <block id="cf2f8733eabc17ed9298656b087af7f1" category="cell">輸出至控制平面</block>
+  <block id="012a91467f210472fab4e11359bbfef6" category="cell">7233</block>
+  <block id="bb3f41988e376dcfc782af81bfb2e750" category="cell">控制平面中的服務</block>
+  <block id="72f374619a9bb397e4c8584ebc6f9cb2" category="paragraph">Temporal 前端</block>
+  <block id="a11ba87073e84d545fc147559305fa76" category="paragraph">API 或 UI （如果您這麼稱呼它的話）</block>
+  <block id="4ca3ac99649e5fe5a93b2d985a709990" category="cell">傳出至儲存設備</block>
+  <block id="06b1338ba02add2b5d2da67663b19ebe" category="cell">2049</block>
+  <block id="8a568ad9efb130b5a037e35e698344d5" category="paragraph">NFS 伺服器</block>
+  <block id="19960e9df5971a6ec983f726863d8693" category="paragraph">*注意*：如果您需要遠端程序呼叫的 portmapper 服務，請包含 TCP 或 UDP 連接埠 111。</block>
+  <block id="67f7fb873eaf29526a11a9b7ac33bfac" category="cell">445</block>
+  <block id="b3157537e23e2a5955e1291ccb55cb09" category="paragraph">SMB 伺服器</block>
+  <block id="d15d1086c5b0bbcbbce6297b5276b710" category="summary">要開始使用 NetApp Data Migrator，您需要使用 AWS、Azure、Google Cloud 或 Open Virtual Appliance（OVA）範本設定控制平面和工作虛擬機器。</block>
+  <block id="dfd0a398806c78aac4a5783a3e801847" category="doc">NetApp Data Migrator 快速入門</block>
+  <block id="a7c368425f45c98265b1d2e8d029fddc" category="paragraph">開始使用 NetApp Data Migrator 需要幾個步驟。</block>
+  <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">一</block>
+  <block id="c5d849ac7dae713c474e6d10dc6cc2a2" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block>了解 NetApp Data Migrator</block>
+  <block id="1aad8b9362e4b8c3885d8db9a88d18f0" category="paragraph">NetApp Data Migrator 支援 NFS 和 SMB 檔案傳輸協定。請確認 NetApp Data Migrator 是否符合您的資料遷移需求，並選擇適合您環境的部署選項：</block>
+  <block id="21979bfea7dd1751a92060597b2ec017" category="list-text">Google Cloud 服務</block>
+  <block id="0862233707b48de2f150ca8e726c6abd" category="list-text">Open Virtual Appliance (OVA) 範本</block>
+  <block id="9251700e586dc1a410f2e755a8643751" category="inline-link-macro">網路需求</block>
+  <block id="2bf577e3ba4de34a09af5c8868044c19" category="paragraph">審查 <block ref="132a4252d8dab891f29e77b7b5f68e5e" category="inline-link-macro-rx"></block> 和 <block ref="238a191c4340745369e9fea191c6bd8b" category="inline-link-macro-rx"></block>。</block>
+  <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">二</block>
+  <block id="5fde5220f592469d6ce84d6ec33efd29" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block>安裝與設定</block>
+  <block id="63394b5dac0402e2937e6cf6472579c9" category="paragraph">NetApp Data Migrator 使用控制平面和工作節點。首先，您需要根據遷移需求部署控制平面虛擬機器和工作虛擬機器。對於 NFS，您需要部署一個 Linux 工作節點；對於 SMB，您需要部署一個 Windows 工作節點。您可以選擇使用 NFS 或 SMB，也可以同時使用兩種協定。部署完成後，您可以建立控制平面虛擬機和工作虛擬機，並存取 NetApp Data Migrator 使用者介面。</block>
+  <block id="fdf38dbedd6ef008d823cad4e13b85c0" category="paragraph"><block ref="fdf38dbedd6ef008d823cad4e13b85c0" category="inline-link-macro-rx"></block></block>
+  <block id="f2f0a9701c56855f618d101c11bc4ab7" category="paragraph">瞭解如何：</block>
+  <block id="d118c036240df442039d6ae9fea3b2ae" category="inline-link-macro">部署控制平面 VM 和 Linux 工作 VM</block>
+  <block id="01a0e48108b30daf070e2b81d02113da" category="list-text"><block ref="01a0e48108b30daf070e2b81d02113da" category="inline-link-macro-rx"></block></block>
+  <block id="b20a042da068838dad65bb1c10123862" category="inline-link-macro">建立控制平面 VM 和工作 VM</block>
+  <block id="ea13f3986a07d09af3093352c0b03a5b" category="list-text"><block ref="ea13f3986a07d09af3093352c0b03a5b" category="inline-link-macro-rx"></block></block>
+  <block id="299852c7a036ff00ace6cbde94137abf" category="list-text"><block ref="299852c7a036ff00ace6cbde94137abf" category="inline-link-macro-rx"></block></block>
+  <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">三</block>
+  <block id="23cb61fc78e3feaec6eb9f95ae5a433e" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block>設定及管理</block>
+  <block id="bbe5469d33ce93c2f28586f9a9debf56" category="paragraph">首先，您需要使用預設憑證以管理員身分登入，並更新您的使用者名稱和密碼。然後，您可以建立您的第一個專案並新增檔案伺服器以啟動移轉工作流程。</block>
+  <block id="83b9a73283224c028b35f767e10e1a03" category="list-text"><block ref="83b9a73283224c028b35f767e10e1a03" category="inline-link-macro-rx"></block></block>
+  <block id="2dc5f7f7f6c5786ed5b37141589adae2" category="list-text"><block ref="2dc5f7f7f6c5786ed5b37141589adae2" category="inline-link-macro-rx"></block></block>
+  <block id="5b46d94ae861e93c8d77f043ac734952" category="summary">如果您是新 NetApp 客戶，則需要建立 NetApp 帳戶並完成註冊流程。</block>
+  <block id="512ce7e8c3858266467efa17d62d0051" category="doc">註冊 NetApp Data Migrator 帳戶</block>
+  <block id="4daa456be51251ffd988f63c8657d64c" category="paragraph">如果您是新 NetApp 客戶，則需要建立 NetApp 帳戶並完成註冊流程。如果您已有 NetApp 帳戶，則可以繼續 <block ref="2e1fdd8a20f38dacfbef503dc81b8d7d" category="inline-link-macro-rx"></block>。</block>
+  <block id="5f4293a5c5c507db807ae703a9d9c3dc" category="admonition">您的新 NetApp 支援網站帳戶從 *Guest access* 升級到 *Full access* 可能需要最多一個工作天。</block>
+  <block id="d27c2a770a38edcade142626ac440af3" category="list-text">使用您的企業電子郵件在 <block ref="5a9b9821ca062d5154356de0071c8b9f" category="inline-link-macro-rx"></block> 上註冊帳戶。</block>
+  <block id="8fd3c7eb5b3f94dd265f8f05e2041a61" category="list-text">輸入傳送至您電子郵件的一次性密碼，以驗證註冊啟動。</block>
+  <block id="3c1b2d3eff4d0d793fec12d931950535" category="list-text">在註冊完成頁面上，提供所需的詳細資訊：</block>
+  <block id="7791648a4ad04186aa19998453ada0e5" category="list-text">對於使用者存取層級，請選擇 *NetApp 客戶 / 最終使用者 *。</block>
+  <block id="02c1d36603e1a99049c8f634aafa2740" category="list-text">在「序號」欄位中、輸入<block ref="287425a09a304fc331acddbb00301457" prefix=" " category="inline-code"></block>。</block>
+  <block id="d19ae8a05482c09ceb57bd6646f47a20" category="list-text">選擇 *Submit* 。畫面會出現確認視窗，指出使用者註冊已成功提交。</block>
+  <block id="ad37dc3c075bf7b317966de5f62bcccd" category="inline-link-macro">開啟支援服務單</block>
+  <block id="84a47c359421f223a73e00cd39c636e9" category="paragraph">如果您在註冊過程中遇到任何問題，或想要查看您的註冊狀態，<block ref="46c9f6df8da0e8a4589d015c1fa7570a" category="inline-link-macro-rx"></block>。</block>
+  <block id="280ee01b354c1393d16006a43f7470fa" category="inline-link-macro">部署控制平面和 Linux 工作虛擬機器</block>
+  <block id="af3d7c589d0f8ea600cddada47479d8c" category="paragraph">了解如何註冊帳號後，您可以<block ref="738ec4cd3729066a364fa774c0622676" category="inline-link-macro-rx"></block>。</block>
+  <block id="8ccd754a002a22ea169145da97be9cad" category="summary">註冊您的 NetApp Data Migrator 產品即可存取 NetApp 支援網站。</block>
+  <block id="80cf6b37f816fb470815854897483562" category="doc">註冊 NetApp Data Migrator 支援</block>
+  <block id="db729189c53fa99bdc9f58f33fd77194" category="list-text">在 NetApp Data Migrator 主頁上，選取 *說明（？）*&gt; *關於* &gt; *序號*</block>
+  <block id="4cb56db1a789c4f4e932d664ca1879ce" category="list-text">在「關於 NDM」對話方塊中，記錄 NetApp Data Migrator 執行個體 ID。</block>
+  <block id="c0fc849d32dbbc779b1e95ec1196b32b" category="paragraph">這是一個 20 位數的號碼，以 975 開頭。</block>
+  <block id="0bfc0e9653a7195acce2223fb3187822" category="inline-link-macro">NetApp 支援網站註冊頁面</block>
+  <block id="205ebb64be7cdbdfb8dad6344e5095aa" category="list-text">前往 <block ref="583d19e36ff27be52d23b0b9a7306b4f" category="inline-link-macro-rx"></block>。</block>
+  <block id="0786589eb7392bc413e898e8782cef99" category="list-text">選取 *I am not a registered NetApp Customer* 。</block>
+  <block id="9421d4188db409ce16d73b19394af0f7" category="list-text">請填寫所需的產品註冊詳細資料：</block>
+  <block id="0baa9b69ccf61d4c2f40815008c37583" category="list-text">請將 *NetApp Reference SN* 欄位留空。</block>
+  <block id="df3bada97110c620f3c47190892439c5" category="list-text">從產品線下拉式選單中、選取 *NDM*。</block>
+  <block id="213959876c5ef7b5193259742db93245" category="list-text">從「計費提供者」下拉式選單中，選擇 *NetApp*。</block>
+  <block id="23cbb51cbd945ba966e1923c7241feb1" category="admonition">本產品不收取費用。</block>
+  <block id="d46416825d782adfabd5a23836d6a4f8" category="list-text">在 *NDM 序號* 欄位中輸入 20 位數的 NetApp Data Migrator 執行個體 ID。</block>
+  <block id="b90e1b78fc3c96f7eb9205766af1bcc6" category="list-text">完成其餘必填欄位，然後選取 *Submit* 。</block>
+  <block id="5c2b6a41071a32807a21286bcfab52d2" category="list-text">提交後，您將收到一封註冊確認電子郵件。請依照電子郵件中的說明確認註冊。</block>
+  <block id="f36e76abe5ae0248baefe53af0f8beed" category="summary">了解 NetApp Data Migrator 對功能、檔案伺服器和協定的支援情況。</block>
+  <block id="a9d476a7219bdadc2d30cfe1e6a35b93" category="doc">NetApp Data Migrator 對功能、檔案伺服器和傳輸協定的支援</block>
+  <block id="f53b749f25c6f2b7750f2d05c7619660" category="paragraph">NetApp Data Migrator 支援某些功能、檔案伺服器和傳輸協定。</block>
+  <block id="7bbf5ab918d58918d0e368104edfbb6c" category="section-title">支援與不支援的功能</block>
+  <block id="33db9dbce1d1546e2de49685c7fb0d9a" category="paragraph">NetApp Data Migrator 支援多種 NFS 和 SMB 遷移功能。但部分功能不受支援。</block>
+  <block id="f6d7a1a39c7e76b0a2ad7044af130caf" category="section-title">支援的功能</block>
+  <block id="21298d143668090cafcc05c986edb03b" category="cell">支援的功能</block>
+  <block id="cd854b7cdf41fe438b47e8c88f23478c" category="cell">權限和稽核處理</block>
+  <block id="9d4d27d23ccb602f59058f1d14e69577" category="list-text">監管鏈報告</block>
+  <block id="b88578ec13cd22bdb1db4f08a2ee40f1" category="list-text">自主存取控制清單（DACL）</block>
+  <block id="696fd58d4cc5a9b51aac0396db67542b" category="list-text">保留存取控制清單（ACL）</block>
+  <block id="249895594993c7cf4ec8ae3b41e6e745" category="list-text">使用者識別碼（UID）和安全性識別碼（SID）重新對應</block>
+  <block id="b5335ac0bcef831d052c4177adf2c1af" category="cell">檔案系統物件和連結</block>
+  <block id="ef01000bd712ee471329380c356ac9fb" category="list-text">硬連結處理</block>
+  <block id="25ed30a72c238cd22082f5faeadac1b9" category="paragraph">NetApp Data Migrator 將物件和連結作為單獨的檔案進行遷移。</block>
+  <block id="2d359cd78cebe7cbc5bc2bc9ba5387a5" category="list-text">符號連結</block>
+  <block id="768fd13457c0f45708ef9e3ee33e3d5b" category="paragraph">*注意*：支援 NFS 遷移</block>
+  <block id="6aee8d4153c452fa801a440427df5c0c" category="cell">檔案中繼資料保留</block>
+  <block id="9f9682f86756c391472e1d7c3c454e18" category="list-text">保留存取時間</block>
+  <block id="e9523618bc75e9f8bb8897f8c554a179" category="list-text">保留建立時間</block>
+  <block id="be6d2d88d8c4ef54c483dab9e4c8de45" category="list-text">保留修改時間</block>
+  <block id="7464fe14fb40250ffa16fa93d37a7fa0" category="cell">遷移行為和資料一致性</block>
+  <block id="d040607ebc5067103928874a30ad758f" category="list-text">刪除傳播</block>
+  <block id="290a79bbb71aaece535e1c983c60ad44" category="list-text">漸進式移轉</block>
+  <block id="c389cf88403679eea843d652f8d0d63f" category="list-text">支援開啟的檔案</block>
+  <block id="563f44302dc418a5c399a7644f611963" category="list-text">切換支援</block>
+  <block id="5f706fa208d539e8e3e10661b051999a" category="cell">移轉控制與執行</block>
+  <block id="6c242d21822c600c9ea6b4520ae159cc" category="list-text">檔案模式排除</block>
+  <block id="40deb43407eb053b72103696ca87a6a7" category="list-text">遷移排程</block>
+  <block id="c40f016d6141c65a8e7a7ea0b5573496" category="section-title">不支援的功能</block>
+  <block id="e3e175437a8dc81e2ccdee969b153919" category="cell">不支援的功能</block>
+  <block id="65142ee7648d38689e0a89c4b020dda9" category="paragraph">系統存取控制清單 (SACL)</block>
+  <block id="563a21e2715a0261d01e7ebb65dac9bd" category="paragraph">*注意*：不支援 SMB 遷移</block>
+  <block id="53374836b447770c1c71cf5f2f9e9cab" category="list-text">遵循 NTFS 連接點</block>
+  <block id="9a543d3e60f7c017a776cb917f8ac114" category="list-text">替代資料串流</block>
+  <block id="b080519fa506e5b7fdcc497d91c25eab" category="paragraph">NetApp Data Migrator 可以探索但無法移轉替代資料串流。</block>
+  <block id="cbef3ea78406a33eba3fba99fa7b5f90" category="paragraph">選擇性檔案屬性</block>
+  <block id="3a5b45c6454117314695c78fc44c416e" category="paragraph">快照遷移</block>
+  <block id="d2c5bc381aeab330b1f9cbe415b2a659" category="section-title">支援的檔案伺服器</block>
+  <block id="6940dd2377e852433e526254bac2f100" category="paragraph">NetApp Data Migrator 支援某些檔案伺服器作為資料遷移的來源和目標。</block>
+  <block id="5a5b71fa1c966e808f9e26c4c6757658" category="cell">支援的檔案伺服器</block>
+  <block id="ab4edc0dddb3d87260b3734f2e87bddb" category="paragraph">任何 NAS 伺服器，例如 Dell Isilon、ONTAP、Vanilla Linux、Windows、Cloud Volumes ONTAP</block>
+  <block id="216385e83be486e7f450fcf05b70160b" category="paragraph">Azure NetApp Files（ANF）、Google Cloud NetApp Volumes（GCNV）、Amazon FSx for NetApp ONTAP（FSxN）、Cloud Volumes ONTAP 的所有服務層級</block>
+  <block id="142d4a6df8e2204dd38fcc92e455f53f" category="section-title">支援 NFS 和 SMB 遷移傳輸協定</block>
+  <block id="773bd0262710a528f1c192a207cdfffe" category="paragraph">NetApp Data Migrator 支援特定 NFS 和 SMB 傳輸協定版本進行資料遷移。</block>
+  <block id="2e5d14f7919ff3c6138e7845aec4f915" category="cell">支援的版本</block>
+  <block id="f03a982fafc6cf0a4c953010016538a8" category="paragraph">4.1 、 3.0</block>
+  <block id="9ec5fc688b825fea64e64fc6e921cec4" category="paragraph">3.1、3.0、2.0</block>
+  <block id="9afb2e3de0846b56ea0de72d7a82cac0" category="summary">使用疑難排解步驟和參考命令來協助疑難排解 NetApp Data Migrator 問題。</block>
+  <block id="ce11a54bbdfbf7b696417fedfed1fb5e" category="doc">NetApp Data Migrator 疑難排解</block>
+  <block id="bf7fec096c0ab262e5995f83dc935f0b" category="paragraph">如果您在使用 NetApp Data Migrator 時遇到問題，下列故障排除步驟和參考命令可能會有所幫助。</block>
+  <block id="eb3aa33f8815aaa1e260636b0d4dd179" category="section-title">使用主機名稱時 SMB 掛載失敗</block>
+  <block id="d4be5cabf4a67f06067eeff5ddb3d1dc" category="paragraph">設定目錄級遷移時，如果 SMB 檔案伺服器主機名稱以 URL 形式提供，則 SMB 掛載可能會失敗。這種情況可能發生在控制平面虛擬機器（VM）沒有正確的 DNS 配置來解析 SMB 檔案伺服器主機名稱時。掛載失敗可能會出現類似如下的錯誤<block ref="7156bd8ef0fe01d50739ef7593758cc0" prefix=" " category="inline-code"></block>。</block>
+  <block id="af56d196beb1f0a7fa9144e09566b381" category="paragraph">您可以透過在遷移配置中使用 SMB 檔案伺服器的 IP 位址而不是主機名稱來解決此問題。</block>
+  <block id="58759ab3b2c6a56acf6c6ef84809a555" category="list-text">將主機名稱解析為 IP 位址：</block>
+  <block id="a0c6ee9fb7b27d8c995a3ea1e4fa28f5" category="list-text">使用解析後的 IP 位址設定 SMB 檔案伺服器主機名稱欄位。</block>
+  <block id="cc266ba70a475f43229a49eb374998d0" category="list-text">重試目錄層級移轉組態。</block>
+  <block id="fe5466fefec39dc0429c43aed73d0031" category="paragraph">切換到 IP 位址後，掛載作業應該會成功。</block>
+  <block id="5c1bec19c06844c3ebc3cd30178ba64a" category="section-title">疑難排解應用程式存取</block>
+  <block id="89878006f1bf7425969bf3ac0d2e04d9" category="paragraph">所有認證資料均在 OpenBao 中進行管理。</block>
+  <block id="e61ebe92a25b4e567291874fefddb3e9" category="paragraph">在下列步驟中、將<block ref="cb6cc98d922bd655bd126e22843182b7" prefix=" " category="inline-code"></block>替換為虛擬機器（ VM ）的 IP 位址。</block>
+  <block id="3e4b761721c609fc299a36e4f8f917ec" category="list-text">擷取 OpenBao 根權杖。使用 SSH 從 Azure 入口網站的 Bastion connect 連線到控制平面伺服器：</block>
+  <block id="e91645aa74bee9c696ade11f7145c742" category="list-text">登入 OpenBao UI ：使用<block ref="8774d4e7cde57d2bd28971c1676ffe76" prefix=" " category="inline-code"></block>並輸入根權杖進行登入。</block>
+  <block id="59e92182b9c9d55715bdfcb4ffc6ddd4" category="list-text">瀏覽至密碼。</block>
+  <block id="804cc9d77c1684dbb2d090c7b22c3cf9" category="list-text">Keycloak UI ：<block ref="3eead5968c067668e4c00693b9dd2f0e" prefix=" " category="inline-code"></block></block>
+  <block id="84921077c0b44dd46b207a701d11f6e9" category="list-text">NetApp Data Migrator UI：<block ref="b7587bde8ae301555c122d1f37d5f4fe" prefix=" " category="inline-code"></block></block>
+  <block id="dce953468a78c8093727e6d2d5805316" category="paragraph">使用預設使用者名稱和密碼登入 NetApp Data Migrator UI。</block>
+  <block id="70f945aacc8ce8ec8e08324fcc188e25" category="list-text">Temporal UI：<block ref="628585291ec481d413f681d7f0db5e1c" prefix=" " category="inline-code"></block></block>
+  <block id="426062de96319e4b09d9181f6cfae680" category="list-text">Postgres 連線：使用 multipass IP 位址連接到 Postgres 資料庫。從 OpenBao 取得使用者名稱和密碼。</block>
+  <block id="6edfc4416544409f7802ae44212df10c" category="paragraph">金鑰：POSTGRES_DMADMIN_USER 和 POSTGRES_DMADMIN_PASSWORD</block>
+  <block id="c85d5480a419bba83b3bdf33017c6d25" category="section-title">使用 "kubectl" 參考命令</block>
+  <block id="37d4e253277646318c09c82c1d8f3294" category="list-text">若要取得 datamigrator 命名空間中的 Pod：</block>
+  <block id="77a88ce3c322c1e1a70a09edf8dd16e6" category="list-text">若要取得 datamigrator 命名空間中 pod 的日誌：</block>
+  <block id="68c53c46b938439cce5e1a5d67624fed" category="list-text">若要描述 datamigrator 命名空間中的 pod：</block>
+  <block id="b7ee5c05647a856bb20d6374a13be6c4" category="list-text">取得所有命名空間：</block>
+  <block id="7efdcf29117d08315ba30ea319ed6310" category="list-text">若要取得任何命名空間中的 Pod：</block>
+  <block id="1d2f9c6c98d406c897ef9722de76a559" category="section-title">啟封 OpenBao</block>
+  <block id="3cbe7534b7126d0502077e2bbea49bd4" category="paragraph">如果遇到 OpenBao 密封問題、請依照以下步驟解封。</block>
+  <block id="4b3853e7a075277a771c61db1da66734" category="list-text">使用 SSH 透過 Bastion connect 連線至控制平面伺服器。</block>
+  <block id="51cb11ec18cc254ea1b2852707109628" category="list-text">將 OPENBAO_UNSEAL_KEY 替換為您的金鑰：</block>
+  <block id="0ea2c4190760406be10d7a92dfd53891" category="section-title">疑難排解 Azure VM 存取</block>
+  <block id="2d01bf47f59d8ac13267b22cf4d406a0" category="paragraph">您應該能夠成功建立並連接到您的 Azure VM 。但是，如果您遇到問題，請嘗試重新啟動虛擬機器或重設 SSH 組態。</block>
+  <block id="88f024551eacf610d1c1eb40672f4ee4" category="list-text">重新啟動虛擬機器</block>
+  <block id="abefa2dc49ec0b0d5efdd872ea60f194" category="list-text">導覽至您的 Azure Portal 。</block>
+  <block id="750248f8a2ad02d68bb5b7d5cf8356c8" category="list-text">導覽至您的 VM 並選取 *Restart* 。</block>
+  <block id="519d1fcaee8d396737178a5b40fe3bb5" category="list-text">重設 SSH 組態</block>
+  <block id="a7f74982d7f21457d3daf83b9de2973b" category="inline-link-macro">Microsoft 疑難排解參考</block>
+  <block id="9086e47c07c59091e3cca7792a2519c6" category="paragraph">首先請參考此處提供的說明 <block ref="047967f12364f0e06b1490fed639050d" category="inline-link-macro-rx"></block>。但是，有時開啟 SSH Bastion 入口網站時可能會出現問題，您或許可以透過以下方式解決。</block>
+  <block id="6d5a19e9950fa1679c6315481c5e6420" category="list-text">導覽至您的 Azure VM 控制平面。</block>
+  <block id="b1479d009bd58d01f48a9d23d88a9040" category="list-text">選擇 *Help* 。</block>
+  <block id="3930015dcc2810869591e35a2b5d714b" category="list-text">選取 *Reset password* 。</block>
+  <block id="b7e728f9349754993c1b677897dc087c" category="list-text">從 Mode 中,選擇 *Add SSH Public Key*。</block>
+  <block id="547183eaf9ddd9ea03c16b370e296825" category="list-text">針對使用者名稱，請輸入 ubuntu。</block>
+  <block id="696c3cc8a575adf6caf5f61250686600" category="list-text">對於公開金鑰來源，請選擇 *Use existing key stored in Azure*。</block>
+  <block id="a78efe158d6c39e1c0378dc35ab36c58" category="list-text">對於 Stored Key，請選擇 *Select your existing created key*。</block>
+  <block id="35165f9b14f6cde03fa7f6f9b03732ba" category="list-text">選擇 *Update* 。</block>
+  <block id="e7a7492c34643ab2b6a3b1498a928aa4" category="section-title">Windows 工作進程無法在 SMB 檔案伺服器上切換使用者</block>
+  <block id="6353b96662dc78fdb911fb1862bffc65" category="paragraph">當 Windows 工作進程嘗試使用與先前用於相同檔案伺服器的認證不同的認證集連線至 SMB 檔案伺服器時,可能會出現下列錯誤訊息:</block>
+  <block id="78fdbb539d1614030d8251a0dd33a894" category="paragraph"><block ref="7a19aaf85ff30d38cadb89aa9fa575cc" prefix="" category="inline-code"></block></block>
+  <block id="f7d88e838adcdd3b28c8cd215932791e" category="paragraph">這是因為 Windows 不允許使用不同的認證資料同時連線至相同的網路資源。即使先前的連線處於非作用中狀態，系統仍可能快取或保留該連線。</block>
+  <block id="80baf28031b5267805fff0b32ea02823" category="paragraph">請依照下列步驟解決此問題：</block>
+  <block id="fedbf51251a26c9f789dd8ad59afe5d2" category="list-text">列出現有的 SMB 連線：</block>
+  <block id="36a7a47ab64bdea2de3fa77dfaf3b521" category="list-text">刪除與目標伺服器的任何現有連線：</block>
+  <block id="7442ab758764daa3ef1c3c077c1be35e" category="list-text">重新開機以清除任何剩餘的快取認證資料或工作階段。</block>
+  <block id="e6f55308c76691b59cf3cc71a22c3393" category="list-text">使用您所需的認證資料重新連線。</block>
+  <block id="f3f87dab644cb196071699648b46cdf9" category="summary">在 NetApp Data Migrator 中升級控制平面、Linux 工作進程或 Windows 工作進程。</block>
+  <block id="49fd6656cc4103be93b9ce19d203aa22" category="doc">升級 NetApp Data Migrator 中的控制平面和工作節點</block>
+  <block id="5bf1af3b7a01852a25170ff5fc4c2fc2" category="paragraph">您可以在 NetApp Data Migrator 中升級控制平面、Linux 工作節點或 Windows 工作節點。</block>
+  <block id="dbb52fade9198a014f77e1044c6c5d08" category="list-text">停止所有工作執行，並將所有工作設為非作用中狀態。</block>
+  <block id="141c047fc7b2738f238db2239959a6f2" category="list-text">從 NetApp 支援網站下載升級套件（tar.gz 檔案），並將其儲存到本機目錄中。</block>
+  <block id="dd810f7c3d223a3304c4d08bceac8d41" category="list-text">確認正在使用的 worker 處於線上狀態。升級期間離線的 worker 將不會升級。</block>
+  <block id="8c07dca9bafbe8b17426c9f1b62653dc" category="section-title">步驟 1：上傳升級套件</block>
+  <block id="c67542965f357b9f02fb1bdc77a17fd7" category="paragraph">從本機目錄上傳升級套裝組合。</block>
+  <block id="48355db077d6060bb3bb66d6fc7c622e" category="list-text">登入 NetApp Data Migrator UI，然後導覽至首頁。</block>
+  <block id="7cfd11173a1aae56cb9a7516ec43af20" category="list-text">選取右上角的說明圖示。</block>
+  <block id="72c04be85d293b7c73a491d3afb7d01d" category="list-text">選取 *Upgrade* 標籤。</block>
+  <block id="28443e13d8671460f09de9b1d4d7ad52" category="list-text">選擇 *Select file*，然後選擇升級套件 tar.gz 檔案。</block>
+  <block id="9d06999c07ddf6da8aa9b935c1a49040" category="list-text">選取檔案後，選取 *Upload* 。</block>
+  <block id="ceb1569e1ec88726ff976a638f13abfd" category="paragraph">等待出現確認上傳和驗證完成的訊息。</block>
+  <block id="da8d447e6d96522a8119a0abc43045e6" category="list-text">您也可以選擇 *Start Over* 來上傳其他檔案，從而再次啟動該程序。</block>
+  <block id="7e369fdc4341c17ed675a99a57fbf563" category="section-title">步驟 2：升級控制平面和工作節點</block>
+  <block id="b909660301eb1c9a652b64eedc8c469b" category="paragraph">先升級控制平面，然後升級 Linux 工作節點或 Windows 工作節點。</block>
+  <block id="f37e21ff91a6c2d6d96634176a100c77" category="list-text">選擇 *Upgrade* 。系統開始升級控制平面。此過程大約需要五到十分鐘。</block>
+  <block id="e7d0b6f442cb81685a2dac783531538d" category="paragraph">在升級期間，UI 可能會暫時無法使用，因為應用程式正在使用新版本重新啟動。當 UI 再次可存取時，請重新登入。</block>
+  <block id="ef76cf2ac7637f392f77c5730eaafb14" category="list-text">升級完成後，返回 *Upgrade* 頁面。</block>
+  <block id="858d36f04caea869353055c5e61e18df" category="list-text">確認升級狀態為 *Success* 。</block>
+  <block id="4dc72547f86664ecaab4d3ef8cf7ad78" category="list-text">控制平面升級成功後，所有線上工作節點將自動開始升級。</block>
+  <block id="97efc0d0fa5955efec56be8c32acbe6f" category="admonition">線上工作進程會自動安裝新版本並重新啟動。離線工作進程不會升級。</block>
+  <block id="1e43fad7b5c0b6dbcb40f50b94e0c7bf" category="list-text">如果 worker 升級沒有自動啟動、請使用 SSH 連線至 worker 並啟動升級：</block>
+  <block id="151009baa5be292e15005b9abf127581" category="open-title">Linux 工作節點</block>
+  <block id="7baba0eeaf44fee5eb63fd36b4955831" category="open-title">Windows 工作節點</block>
+  <block id="79ad013bb393036c81c8989a1fa3f296" category="section-title">步驟 3：檢視記錄並進行疑難排解</block>
+  <block id="3e7427947c4804b1a62f9bcea238d4f4" category="paragraph">檢視虛擬機器記錄以支援疑難排解升級期間遇到的問題。</block>
+  <block id="0f3e71f3ec5d62354e5da1ab0dcc94d6" category="list-text">使用 SSH 連線至控制平面 VM 並執行下列命令以檢視記錄：</block>
+  <block id="1ecb42527b56fbfe0b680658687c4c61" category="list-text">使用 SSH 連線至 Linux worker 或 Windows worker VM、並使用下列路徑檢視記錄：</block>
+  <block id="77f9e995a0fc8365d6925b92fccb9e35" category="list-text">如果升級失敗，系統會自動回復到先前的版本，UI 會將升級狀態顯示為 *Failed* 。</block>
+  <block id="2278e2cc17d70372f4c96b75c5e965fb" category="paragraph">檢閱 Ansible 日誌，然後聯絡 NetApp 支援並將 Ansible 日誌附加至您的通訊內容。</block>
+  <block id="51709d52335098615f6504e2daf27594" category="summary">（選用）透過檢查服務狀態、日誌和 Pod 健康狀況來驗證 Google Cloud 上的控制平面 VM 部署。</block>
+  <block id="7bc002d3a69fd18563cd5eaa25020fa1" category="doc">（可選）驗證 NetApp Data Migrator 的控制平面 VM 部署</block>
+  <block id="a3ef8d550203154b5a288b2f0303fb14" category="paragraph">（選用）驗證 NetApp Data Migrator 的控制平面 VM 部署。</block>
+  <block id="eb9cae3a6ab37870fcaa1116612194a9" category="list-text">使用 SSH 連線至控制平面伺服器：</block>
+  <block id="11eb787b328a77491d92a2ce4497cf32" category="list-text">檢查開機服務的狀態和記錄：</block>
+  <block id="1f831c5878a762ec0963fd7b96127bc9" category="paragraph">（選用）檢查開機服務記錄：</block>
+  <block id="8689268a435101ff0211b2d1734523b7" category="paragraph">如果設定完成，您會在日誌中看到<block ref="7d9465f9a64b1f922a55bc11a51fcb14" prefix=" " category="inline-code"></block>。</block>
+  <block id="432d212d797d16c62fa96e0ec1e3c736" category="list-text">確認所有 Pod 都已啟動並執行：</block>
+  <block id="1e9dd46f61a201cc2b86879d26a9c48c" category="inline-link-macro">存取 NetApp Data Migrator UI</block>
+  <block id="5615f0657330552866b623eca261abdf" category="paragraph">了解如何驗證控制平面虛擬機器後，您可以<block ref="be3bcec36ca8095627c0973264f63ac3" category="inline-link-macro-rx"></block>。</block>
+  <block id="daad4dadeda8cd86f01c8ad7f2a30465" category="summary">了解此文件網站的最新內容。</block>
+  <block id="2755dc4f192cb17cab8eba8e536ab485" category="doc">NetApp Data Migrator 新增功能</block>
+  <block id="3a9821361199b11d3443525a500ce59c" category="paragraph">了解 NetApp Data Migrator 的新功能。</block>
+  <block id="a959999504dd5e5c5e9317184218dd6d" category="section-title">2026 年 4 月 22 日</block>
+  <block id="419999866af355dbf15c6d0b0d7487e9" category="paragraph">NetApp Data Migrator 2026.04.0 提供了一個全新的資料檔案遷移解決方案。您可以使用 NetApp Data Migrator 將資料從內部部署或第三方儲存系統遷移到 NetApp 雲端儲存服務。NetApp Data Migrator 支援 NFS 和 SMB 檔案傳輸協定。</block>
+  <block id="01269e6b8e933b0912b14ef3b796a52c" category="inline-link-macro">深入瞭解 NetApp Data Migrator</block>
+  <block id="9952b3c384f35ba7e05205c71ded5556" category="paragraph"><block ref="9952b3c384f35ba7e05205c71ded5556" category="inline-link-macro-rx"></block></block>
+  <block id="0c48a4cb50024b2bd18d3e1141bc7269" category="sidebar">NetApp Data Migrator 說明文件</block>
+  <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">開始使用</block>
+  <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">版本資訊</block>
+  <block id="06ad314b340900d226b1196e1fe289e9" category="sidebar">快速入門</block>
+  <block id="4bb0d52dd99e9abe73777d970f78ba6a" category="sidebar">安裝並使用 NetApp Data Migrator</block>
+  <block id="b177fa56a4007d4890780071cd15e376" category="sidebar">安裝 NetApp Data Migrator</block>
+  <block id="6549bde9a228face8486f23231bfa15b" category="sidebar">升級控制平面和 worker</block>
+  <block id="fed0c8b9858a6a8d6e52d9710ba68e43" category="sidebar">建立和管理專案</block>
+  <block id="2897453bd8211b947d356171a22ba0ff" category="sidebar">使用 NetApp Data Migrator</block>
+  <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">更多資源</block>
+  <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="sidebar">取得協助</block>
+  <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">常見問題</block>
+  <block id="617944a2b75183d164245750577ed1de" category="sidebar">NetApp Data Migrator 文件</block>
+  <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新增功能</block>
+  <block id="097269d68dda9a5a6965173c16acef55" category="sidebar">支援對照表</block>
+  <block id="95dc0391ce7b396d7dd5622284e8fc3e" category="sidebar">已知問題</block>
+  <block id="482723983a4f2af954e36ff41e567451" category="sidebar">已知限制</block>
+  <block id="6dd5c811b278e22ffab2e2908a5119ba" category="sidebar">驗證網路存取</block>
+  <block id="76841410d8f9a6881e0b96f150e9cedf" category="sidebar">連接埠需求</block>
+  <block id="20d4d7b9936154505ade9240689b5770" category="sidebar">安裝、設定和升級</block>
+  <block id="d45294caa04dc2a59a6a9779ecb261e1" category="sidebar">註冊帳戶</block>
+  <block id="6123c876fc64f935493949f2d38cb132" category="sidebar">部署控制平面和 Linux 工作節點</block>
+  <block id="bb9446a722eaef2a4bb375ba6944269a" category="sidebar">建立控制平面和工作節點虛擬機器</block>
+  <block id="bbb1fe796625a1fdac44293c0ddcd410" category="sidebar">驗證控制平面和 worker 部署</block>
+  <block id="a880f6626bb1bd248b4ec73a32a7e581" category="sidebar">存取 NetApp Data Migrator UI</block>
+  <block id="1b4fcfaacbd0ae3e24bc82f8d7a82211" category="sidebar">管理使用者</block>
+  <block id="350a0b3f3d7d2ed49156ce7626fcfbcb" category="sidebar">新增和管理使用者</block>
+  <block id="bfd01df950913d32f23067f9a2ddafa8" category="sidebar">管理存取控制</block>
+  <block id="48b558d1320127761431a66158b427c2" category="sidebar">設定即時通知</block>
+  <block id="b32f4338f541df01e94b1e873cd1578e" category="sidebar">管理移轉選項</block>
+  <block id="26bddf6d4b393b265322f78d679e9266" category="sidebar">規劃資料移轉</block>
+  <block id="c9bcd1a558d4f57c98e7d5dfd28b21d2" category="sidebar">設定大量移轉</block>
+  <block id="0d06f54a8c8e8ffe21d3f3d60ee20e32" category="sidebar">設定大量切換</block>
+  <block id="8c7ec871b4b79058adc1095fa346bf62" category="sidebar">管理工作和工作執行</block>
+  <block id="d8d50c12bd11a2109a7a384f43b0930a" category="sidebar">產生支援服務組合</block>
+  <block id="42748df9eaa0be17ddc5cc1593cf57ab" category="sidebar">註冊以取得支援</block>
+  <block id="d60c463bb4096f3ed4bd1618626dfe10" category="sidebar">疑難排解</block>
+</blocks>

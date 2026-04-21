@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: register-for-account.html 
+keywords: netapp, data, migrator, new, support, register, account 
+summary: 如果您是新 NetApp 客戶，則需要建立 NetApp 帳戶並完成註冊流程。 
+---
+= 註冊 NetApp Data Migrator 帳戶
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您是新 NetApp 客戶，則需要建立 NetApp 帳戶並完成註冊流程。如果您已有 NetApp 帳戶，則可以繼續 link:deploy-control-plane-and-linux-workers.html["為 NetApp Data Migrator 部署控制平面和 Linux 工作虛擬機"]。
+
+
+NOTE: 您的新 NetApp 支援網站帳戶從 *Guest access* 升級到 *Full access* 可能需要最多一個工作天。
+
+.步驟
+. 使用您的企業電子郵件在 link:https://mysupport.netapp.com/site/user/registration["NetApp 支援網站"^] 上註冊帳戶。
+. 選擇 *Submit* 。
+. 輸入傳送至您電子郵件的一次性密碼，以驗證註冊啟動。
+. 在註冊完成頁面上，提供所需的詳細資訊：
++
+.. 對於使用者存取層級，請選擇 *NetApp 客戶 / 最終使用者 *。
+.. 在「序號」欄位中、輸入 `NDMNSSREG`。
+
+
+. 選擇 *Submit* 。畫面會出現確認視窗，指出使用者註冊已成功提交。
+
+
+如果您在註冊過程中遇到任何問題，或想要查看您的註冊狀態，link:https://mysupport.netapp.com/site/help["開啟支援服務單"^]。
+
+.接下來呢？
+了解如何註冊帳號後，您可以link:deploy-control-plane-and-linux-workers.html["部署控制平面和 Linux 工作虛擬機器"]。

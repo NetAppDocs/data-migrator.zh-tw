@@ -1,0 +1,184 @@
+---
+sidebar: sidebar 
+permalink: troubleshoot.html 
+keywords: troubleshooting, kubectl, openbao, application access, diagnostic commands 
+summary: 使用疑難排解步驟和參考命令來協助疑難排解 NetApp Data Migrator 問題。 
+---
+= NetApp Data Migrator 疑難排解
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您在使用 NetApp Data Migrator 時遇到問題，下列故障排除步驟和參考命令可能會有所幫助。
+
+
+
+== 使用主機名稱時 SMB 掛載失敗
+
+設定目錄級遷移時，如果 SMB 檔案伺服器主機名稱以 URL 形式提供，則 SMB 掛載可能會失敗。這種情況可能發生在控制平面虛擬機器（VM）沒有正確的 DNS 配置來解析 SMB 檔案伺服器主機名稱時。掛載失敗可能會出現類似如下的錯誤 `mount failed: Resource temporarily unavailable`。
+
+您可以透過在遷移配置中使用 SMB 檔案伺服器的 IP 位址而不是主機名稱來解決此問題。
+
+.步驟
+. 將主機名稱解析為 IP 位址：
++
+[source, cli]
+----
+nslookup
+----
+. 使用解析後的 IP 位址設定 SMB 檔案伺服器主機名稱欄位。
+. 重試目錄層級移轉組態。
++
+切換到 IP 位址後，掛載作業應該會成功。
+
+
+
+
+
+== 疑難排解應用程式存取
+
+所有認證資料均在 OpenBao 中進行管理。
+
+在下列步驟中、將 `<IP_ADDRESS>`替換為虛擬機器（ VM ）的 IP 位址。
+
+.步驟
+. 擷取 OpenBao 根權杖。使用 SSH 從 Azure 入口網站的 Bastion connect 連線到控制平面伺服器：
++
+[source, cli]
+----
+sudo su - datamigrator
+cat /opt/datamigrator/openbao/cluster-keys.json
+----
+. 登入 OpenBao UI ：使用 `https://IP_ADDRESS/ui/`並輸入根權杖進行登入。
+. 瀏覽至密碼。
+. Keycloak UI ： `https://IP_ADDRESS/keycloak/`
+. NetApp Data Migrator UI： `https://IP_ADDRESS/`
++
+使用預設使用者名稱和密碼登入 NetApp Data Migrator UI。
+
+. Temporal UI： `https://IP_ADDRESS/temporal/ui/`
+. Postgres 連線：使用 multipass IP 位址連接到 Postgres 資料庫。從 OpenBao 取得使用者名稱和密碼。
++
+金鑰：POSTGRES_DMADMIN_USER 和 POSTGRES_DMADMIN_PASSWORD
+
+
+
+
+
+== 使用 "kubectl" 參考命令
+
+* 若要取得 datamigrator 命名空間中的 Pod：
++
+[source, cli]
+----
+kubectl get pods -n datamigrator
+----
+* 若要取得 datamigrator 命名空間中 pod 的日誌：
++
+[source, cli]
+----
+kubectl logs <podname> -n datamigrator
+----
+* 若要描述 datamigrator 命名空間中的 pod：
++
+[source, cli]
+----
+kubectl describe <podname> -n datamigrator
+----
+* 取得所有命名空間：
++
+[source, cli]
+----
+kubectl get ns
+----
+* 若要取得任何命名空間中的 Pod：
++
+[source, cli]
+----
+kubectl get pods -n <NAMESPACE>
+----
+
+
+
+
+== 啟封 OpenBao
+
+如果遇到 OpenBao 密封問題、請依照以下步驟解封。
+
+.步驟
+. 使用 SSH 透過 Bastion connect 連線至控制平面伺服器。
+. 將 OPENBAO_UNSEAL_KEY 替換為您的金鑰：
++
+[source, cli]
+----
+sudo su - datamigrator
+export OPENBAO_UNSEAL_KEY=`jq -r ".unseal_keys_b64[]" /opt/datamigrator/openbao/cluster-keys.json`
+kubectl exec openbao-0 -n openbao -- bao operator unseal $OPENBAO_UNSEAL_KEY
+kubectl exec openbao-1 -n openbao -- bao operator unseal $OPENBAO_UNSEAL_KEY
+kubectl exec openbao-2 -n openbao -- bao operator unseal $OPENBAO_UNSEAL_KEY
+----
+
+
+
+
+== 疑難排解 Azure VM 存取
+
+您應該能夠成功建立並連接到您的 Azure VM 。但是，如果您遇到問題，請嘗試重新啟動虛擬機器或重設 SSH 組態。
+
+重新啟動虛擬機器::
++
+--
+.步驟
+. 導覽至您的 Azure Portal 。
+. 導覽至您的 VM 並選取 *Restart* 。
+
+
+--
+重設 SSH 組態::
++
+--
+首先請參考此處提供的說明 link:https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/troubleshoot-ssh-connection["Microsoft 疑難排解參考"^]。但是，有時開啟 SSH Bastion 入口網站時可能會出現問題，您或許可以透過以下方式解決。
+
+.步驟
+. 導覽至您的 Azure VM 控制平面。
+. 選擇 *Help* 。
+. 選取 *Reset password* 。
+. 從 Mode 中,選擇 *Add SSH Public Key*。
+. 針對使用者名稱，請輸入 ubuntu。
+. 對於公開金鑰來源，請選擇 *Use existing key stored in Azure*。
+. 對於 Stored Key，請選擇 *Select your existing created key*。
+. 選擇 *Update* 。
+
+
+--
+
+
+
+
+== Windows 工作進程無法在 SMB 檔案伺服器上切換使用者
+
+當 Windows 工作進程嘗試使用與先前用於相同檔案伺服器的認證不同的認證集連線至 SMB 檔案伺服器時,可能會出現下列錯誤訊息:
+
+`System error 1219: Multiple connections to a server or shared resource by the same user, using more than one user name, are not allowed.`
+
+這是因為 Windows 不允許使用不同的認證資料同時連線至相同的網路資源。即使先前的連線處於非作用中狀態，系統仍可能快取或保留該連線。
+
+請依照下列步驟解決此問題：
+
+. 列出現有的 SMB 連線：
++
+[source, cli]
+----
+net use
+----
+. 刪除與目標伺服器的任何現有連線：
++
+[source, cli]
+----
+net use <share> /delete
+----
+. 重新開機以清除任何剩餘的快取認證資料或工作階段。
+. 使用您所需的認證資料重新連線。
+

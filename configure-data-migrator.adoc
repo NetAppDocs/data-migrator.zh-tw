@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: configure-data-migrator.html 
+keywords: configure, log, in, project, create, app admin 
+summary: 以 App Admin（管理員）身分使用預設認證登入，並更新您的使用者名稱和密碼。 
+---
+= 設定 NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+安裝 NetApp Data Migrator 後、您需要使用預設使用者名稱和密碼以 App Admin（管理員）身分登入。
+
+
+
+== 登入 NetApp Data Migrator
+
+登入 NetApp Data Migrator，然後變更您的登入憑證並建立您的第一個專案。
+
+.步驟
+. 開啟網頁瀏覽器並造訪 NetApp Data Migrator：
++
+`\https://<private_IP_address>/`
+
+. 在 *Welcome* 頁面上、於 *Username/Email* 中輸入預設使用者名稱。
+. 在 *Password* 中輸入預設密碼。
+. 選取 *Login* 。
++
+*Reset Password* 頁面開啟。
+
+. 請輸入符合以下安全要求的新密碼：
++
+** 至少包含 8 個字元
+** 包含至少一個大寫字母
+** 包含至少一個小寫字母
+** 包含至少一個數字
+** 包含至少一個特殊字元
+
+
+. 選擇 *Reset Password* 。*Your Details* 頁面隨即開啟。
+. 請輸入您的 *First Name*、*Last Name* 和 *Email* 地址。
+. 選擇 *Proceed* 。*Create a New Project* 頁面隨即開啟。
+. 選擇 *Create Project*，然後輸入以下詳細資訊：
++
+** *Project Name*：輸入專案的描述性名稱。
+** *專案說明（選用）*：您可以提供有關專案的其他詳細資料。
+
+
+. 選擇 *Create* 。
++
+新專案會出現在 NetApp Data Migrator 控制平面頂部的通知欄中。
+
+
+
+
+
+== 登出 NetApp Data Migrator
+
+從 NetApp Data Migrator 登出後，下次登入時需要使用新建立的憑證（電子郵件和密碼）。
+
+.步驟
+. 選取 *User* 圖示（位於 *Settings* 旁邊）。
+. 選擇 *Logout* 。*Welcome* 頁面隨即開啟。
+. 在 *Email* 和 *Password* 中，輸入您註冊時使用的電子郵件地址和密碼 <<log-in,已登入>>。
+. 選取 *Login* 。
+
+
+.接下來呢？
+了解如何設定 NetApp Data Migrator 後、您可以link:manage-projects.html["使用 NetApp Data Migrator"]。

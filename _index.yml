@@ -1,0 +1,33 @@
+---
+indexpage:
+  title: NetApp Data Migrator 說明文件
+  summary: NetApp Data Migrator 是一款企業級多雲資料遷移軟體應用程式，可簡化將非結構化檔案資料從內部部署或第三方儲存系統遷移到由 NetApp
+    提供支援的公有雲儲存服務。NetApp Data Migrator 是一款獨立應用程式，可在使用者管理的虛擬機器上執行，無需複雜的自訂指令碼和分散的工具。
+  keywords: netapp, data, migrator, documentation
+  lead: NetApp Data Migrator 是一款企業級多雲資料遷移軟體應用程式，可簡化將非結構化檔案資料從內部部署或第三方儲存系統遷移到由 NetApp
+    提供支援的公有雲儲存服務。NetApp Data Migrator 是一款獨立應用程式，可在使用者管理的虛擬機器上執行，無需複雜的自訂指令碼和分散的工具。
+  tiles:
+  - title: 開始使用
+    links:
+    - title: 版本資訊
+      url: "/whats-new.html"
+    - title: 了解 NetApp Data Migrator
+      url: "/learn-about-data-migrator.html"
+    - title: 快速入門
+      url: "/quick-start.html"
+  - title: 安裝並使用 NetApp Data Migrator
+    links:
+    - title: 安裝 NetApp Data Migrator
+      url: "/learn-about-install.html"
+    - title: 升級控制平面和 worker
+      url: "/upgrade.html"
+    - title: 建立和管理專案
+      url: "/manage-projects.html"
+    - title: 使用 NetApp Data Migrator
+      url: "/manage-users.html"
+  - title: 更多資源
+    links:
+    - title: 取得協助
+      url: "/register-for-support.html"
+    - title: 常見問題
+      url: "/faq.html"

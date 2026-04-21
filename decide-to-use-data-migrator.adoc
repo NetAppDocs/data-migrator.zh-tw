@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: decide-to-use-data-migrator.html 
+keywords: netapp data migrator, snapmirror, data migration, ontap 
+summary: 使用此決策矩陣來確定是否在您的資料遷移案例中使用 NetApp Data Migrator 或 SnapMirror。 
+---
+= 決定是否使用 NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用決策矩陣來決定是否應該使用 NetApp Data Migrator 或 SnapMirror 執行從 ONTAP 內部部署儲存系統的 NFS 和 SMB 資料移轉作業。例如、如果您要將 NFS 和 SMB 檔案從執行 ONTAP 9.12.1 的 ONTAP 內部部署來源移轉到 Google Cloud NetApp Volumes Flex 服務目的地、則應使用 NetApp Data Migrator。
+
+[cols="2,1,1,1,1,1,1a"]
+|===
+| 內部部署或第三方儲存系統來源 | Amazon FSx for NetApp ONTAP | Azure NetApp Files 硬體 | Cloud Volumes ONTAP | Google Cloud NetApp Volumes 硬體 | Google Cloud NetApp Volumes Flex | Google Cloud NetApp Volumes Flex（基於 VSA） 
+
+
+| ONTAP 內部部署，從 ONTAP 9.10.1 版本開始 | SnapMirror | SnapMirror | SnapMirror | SnapMirror | NetApp 資料移轉工具  a| 
+SnapMirror
+
+
+
+| ONTAP 內部部署適用於 ONTAP 9.9.1 及更早版本 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具  a| 
+NetApp 資料移轉工具
+
+
+
+| 非 NetApp 儲存系統和陣列 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具  a| 
+NetApp 資料移轉工具
+
+
+
+| Cloud Volumes ONTAP 從 ONTAP 9.10.1 版本開始 | SnapMirror | SnapMirror | SnapMirror | SnapMirror | NetApp 資料移轉工具  a| 
+SnapMirror
+
+
+
+| Cloud Volumes ONTAP 適用於 ONTAP 9.9.1 及更早版本 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具  a| 
+NetApp 資料移轉工具
+
+
+
+| Google Cloud NetApp Volumes Flex | 不適用 | 不適用 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | 不適用  a| 
+NetApp 資料移轉工具
+
+
+
+| 在沒有權限的情況下移轉資料 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具 | NetApp 資料移轉工具  a| 
+NetApp 資料移轉工具
+
+|===
+.相關資訊
+瞭解 link:https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-disaster-recovery-concept.html["SnapMirror Volume 複寫"^]

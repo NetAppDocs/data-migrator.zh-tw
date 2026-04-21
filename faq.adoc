@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: faq.html 
+keywords: frequently asked questions, troubleshooting, connection errors, authentication, protocol errors 
+summary: 尋找有關 NetApp Data Migrator 連線錯誤、身份驗證失敗、協定問題和權限錯誤的常見問題的答案。 
+---
+= NetApp Data Migrator 常見問題解答
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您在使用 NetApp Data Migrator 時遇到問題，可以透過查看其他使用者的常見問題解答（FAQ）來快速解決問題。
+
+.什麼原因會導致 NT_STATUS_IO_TIMEOUT / NT_STATUS_ACCESS_DENIED / NT_STATUS_HOST_UNREACHABLE / NT_STATUS_UNSUCCESSFUL 錯誤？
+如果您輸入了錯誤的主機資訊，則可能會出現此錯誤。請確保伺服器主機名稱或 IP 位址正確，且伺服器可存取。如有需要，請驗證您的網路連線以及 DNS 解析是否正常。
+
+.什麼原因會導致「憑證錯誤 - NT_STATUS_LOGON_FAILURE」錯誤？
+使用者名稱或密碼輸入錯誤會導致身份驗證和登入失敗。請確保您已輸入正確的登入資訊。
+
+.不支援的 NFS 或 SMB 通訊協定版本是什麼意思？
+這表示檔案伺服器使用的傳輸協定版本不受支援。請檢查傳輸協定版本的相容性，並視需要升級或設定檔案伺服器。
+
+.什麼原因會導致「無效匯出路徑」錯誤？
+請確保匯出路徑輸入正確且存在於伺服器上。
+
+.什麼原因會導致「無效的工作目錄」錯誤？
+請檢查您是否已為所選匯出路徑輸入正確的工作目錄。
+
+.為什麼我在工作目錄上會收到「寫入權限」錯誤？
+當指定了正確的匯出路徑和工作目錄，但未授予必要的寫入權限時，就會發生此錯誤。如果沒有正確的寫入存取權，檔案伺服器預先檢查將失敗，使用者將無法執行作業。請檢查出現此錯誤的使用者是否具有所需的寫入存取權。

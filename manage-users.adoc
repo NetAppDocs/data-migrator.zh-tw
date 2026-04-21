@@ -1,0 +1,85 @@
+---
+sidebar: sidebar 
+permalink: manage-users.html 
+keywords: user management, rbac, app admin, user accounts, access control 
+summary: 使用角色型存取控制來新增和管理 NetApp Data Migrator 使用者，包括建立帳戶、指派角色以及啟用或停用存取。 
+---
+= 在 NetApp Data Migrator 中新增和管理使用者
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Data Migrator 使用 link:access-control.html["角色型存取控制（RBAC）"] 來提供安全且有效率的資料遷移活動管理。設定控制和工作虛擬機器（VM）後、App Admin 使用者可以建立角色並指派給新使用者。這可讓新使用者根據其權限登入、檢視或管理專案、以及執行其他遷移活動。
+
+.關於此任務
+您需要以應用程式管理員身分登入才能新增使用者、啟用或停用現有使用者或重設使用者密碼。
+
+
+
+== 新增使用者
+
+建立新使用者並分享臨時密碼。
+
+.步驟
+. 登入 NetApp Data Migrator 。
+. 選取 *Settings* > *Users* 以檢視已註冊使用者的清單。
+. 選擇 *Add User* 。
+. 輸入新使用者的 *First Name* 、 *Last Name* 和 *Email* 地址。
+. 如果新使用者需要管理員權限，請選取 *App Admin* 核取方塊。
+. 選擇 *Submit* 。
+. 選擇 *Copy* 連結（密碼欄位旁）以複製臨時密碼，該密碼以遮罩格式顯示。
+. 選取 *Close* 。
+. 將複製的臨時密碼分享給新使用者，新使用者即可使用該密碼登入。首次登入時，系統會提示他們變更密碼。
+
+
+
+
+== 停用現有使用者
+
+停用其他使用者對 NetApp Data Migrator 的存取。此操作會阻止使用者登入，但不會刪除使用者資料、先前的遷移作業或與該使用者關聯的日誌。
+
+.步驟
+. 在導覽列中選取 *Settings* 圖示。
+. 選取 *Users* 索引標籤以檢視已註冊使用者的清單。
+. 選擇要停用的使用者詳細資料旁邊的 *(⋮)* 圖示，然後從下拉式選單中選擇 *停用存取*。
++
+使用者狀態從 *Active* 變更為 *Inactive*，且無法登入 NetApp Data Migrator。
+
+
+
+
+
+== 啟用使用者
+
+恢復已停用使用者對 NetApp Data Migrator 的存取，允許他們登入並根據其指派的權限執行操作。
+
+.步驟
+. 在導覽列中選取 *Settings* 圖示。
+. 選取 *Users* 索引標籤以檢視已註冊使用者的清單。
+. 選擇要啟用的使用者詳細資料旁邊的 *(⋮)* 圖示，然後從下拉式選單中選擇 *Enable Access*。
++
+使用者狀態從 *非使用中* 變更為 *使用中*。使用者現在可以登入 NetApp Data Migrator。
+
+
+
+
+
+== 重設使用者密碼
+
+重設現有使用者的密碼。
+
+
+NOTE: 當沒有其他 App Admin 可用時，若要重設 App Admin 使用者的密碼，請聯絡 ng-ndm-downloads@netapp.com 以取得密碼重設指令碼。
+
+.步驟
+. 在導覽列中選取 *Settings* 圖示。
+. 選取 *Users* 索引標籤以檢視已註冊使用者的清單。
+. 選擇需要重設密碼的使用者詳細資料旁邊的 *(⋮)* 圖示，然後從下拉式選單中選擇 *Reset Password*。
++
+畫面會顯示一則訊息，確認密碼重設已成功。
+
+. 選取 *Copy* 連結（密碼欄位旁）以複製以遮罩格式顯示的臨時密碼。
+. 與使用者分享複製的臨時密碼。
+

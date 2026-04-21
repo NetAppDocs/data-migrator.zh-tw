@@ -1,0 +1,115 @@
+---
+sidebar: sidebar 
+permalink: upgrade.html 
+keywords: upgrade, control plane, worker vm, upgrade bundle, version update 
+summary: 在 NetApp Data Migrator 中升級控制平面、Linux 工作進程或 Windows 工作進程。 
+---
+= 升級 NetApp Data Migrator 中的控制平面和工作節點
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在 NetApp Data Migrator 中升級控制平面、Linux 工作節點或 Windows 工作節點。
+
+.開始之前
+* 停止所有工作執行，並將所有工作設為非作用中狀態。
+* 從 NetApp 支援網站下載升級套件（tar.gz 檔案），並將其儲存到本機目錄中。
+* 確認正在使用的 worker 處於線上狀態。升級期間離線的 worker 將不會升級。
+
+
+
+
+== 步驟 1：上傳升級套件
+
+從本機目錄上傳升級套裝組合。
+
+.步驟
+. 登入 NetApp Data Migrator UI，然後導覽至首頁。
+. 選取右上角的說明圖示。
+. 選取 *Upgrade* 標籤。
+. 選擇 *Select file*，然後選擇升級套件 tar.gz 檔案。
+. 選取檔案後，選取 *Upload* 。
++
+等待出現確認上傳和驗證完成的訊息。
+
+. 您也可以選擇 *Start Over* 來上傳其他檔案，從而再次啟動該程序。
+
+
+
+
+== 步驟 2：升級控制平面和工作節點
+
+先升級控制平面，然後升級 Linux 工作節點或 Windows 工作節點。
+
+.步驟
+. 選擇 *Upgrade* 。系統開始升級控制平面。此過程大約需要五到十分鐘。
++
+在升級期間，UI 可能會暫時無法使用，因為應用程式正在使用新版本重新啟動。當 UI 再次可存取時，請重新登入。
+
+. 升級完成後，返回 *Upgrade* 頁面。
+. 確認升級狀態為 *Success* 。
+. 控制平面升級成功後，所有線上工作節點將自動開始升級。
++
+
+NOTE: 線上工作進程會自動安裝新版本並重新啟動。離線工作進程不會升級。
+
+. 如果 worker 升級沒有自動啟動、請使用 SSH 連線至 worker 並啟動升級：
++
+[role="tabbed-block"]
+====
+.Linux 工作節點
+--
+[source, cli]
+----
+sudo /opt/datamigrator/staging/<version>/upgrade.sh <version>
+----
+--
+.Windows 工作節點
+--
+[source, cli]
+----
+ExecutionPolicy Bypass -File C:\datamigrator\staging\<version>\upgrade.ps1 -Version <version>
+----
+--
+====
+
+
+
+
+== 步驟 3：檢視記錄並進行疑難排解
+
+檢視虛擬機器記錄以支援疑難排解升級期間遇到的問題。
+
+.步驟
+. 使用 SSH 連線至控制平面 VM 並執行下列命令以檢視記錄：
++
+[source, cli]
+----
+tail -f /upgrade/upgrade-<version>.log
+----
+. 使用 SSH 連線至 Linux worker 或 Windows worker VM、並使用下列路徑檢視記錄：
++
+[role="tabbed-block"]
+====
+.Linux 工作節點
+--
+[source, cli]
+----
+/opt/datamigrator/upgrade.log
+----
+--
+.Windows 工作節點
+--
+[source, cli]
+----
+C:\datamigrator\upgrade.log
+----
+--
+====
+. 如果升級失敗，系統會自動回復到先前的版本，UI 會將升級狀態顯示為 *Failed* 。
++
+檢閱 Ansible 日誌，然後聯絡 NetApp 支援並將 Ansible 日誌附加至您的通訊內容。
+
+

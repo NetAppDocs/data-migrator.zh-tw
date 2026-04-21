@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: validate-control-plane-vm.html 
+keywords: google cloud, installation, control plane, worker vm, iam roles 
+summary: （選用）透過檢查服務狀態、日誌和 Pod 健康狀況來驗證 Google Cloud 上的控制平面 VM 部署。 
+---
+= （可選）驗證 NetApp Data Migrator 的控制平面 VM 部署
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+（選用）驗證 NetApp Data Migrator 的控制平面 VM 部署。
+
+.步驟
+. 使用 SSH 連線至控制平面伺服器：
++
+[source, cli]
+----
+sudo su - datamigrator
+----
+. 檢查開機服務的狀態和記錄：
++
+[source, cli]
+----
+sudo systemctl status boot-microk8s.service
+----
++
+（選用）檢查開機服務記錄：
+
++
+[source, cli]
+----
+tail -10f /opt/datamigrator/logs/ndm-first-boot.log
+----
++
+如果設定完成，您會在日誌中看到 `Datamigrator Application Setup Complete`。
+
+. 確認所有 Pod 都已啟動並執行：
++
+[source, cli]
+----
+kubectl get pods -n datamigrator
+----
+
+
+.接下來呢？
+了解如何驗證控制平面虛擬機器後，您可以link:access-data-migrator-ui.html["存取 NetApp Data Migrator UI"]。
