@@ -80,8 +80,6 @@
   <block id="531330f2326fb3283c827799b9c4dec0" category="paragraph">出現 *Cutover Confirmation* 彈出方塊。</block>
   <block id="ffc9534ab431605bc11f516d99c43ba5" category="list-text">選擇 *Download CoC Report* 連結。</block>
   <block id="cc5fcd3fba3014c23240ac1c1497d8b7" category="paragraph">檢閱報告以驗證轉換是否成功，以及所有資料是否已成功從來源移轉至目的地。</block>
-  <block id="67116d320a2bb4f66b0bb10629a28264" category="list-text">選取 *I have reviewed and verified the COC document and all other essential information* 旁的核取方塊。</block>
-  <block id="228159fcd8ad29c01efe569a236253d2" category="list-text">如果您對 COC 報告中的資訊感到滿意，請選取 *Confirm* 以核准 *Bulk Cutover*。</block>
   <block id="e15884a19074f86e7c09ab35a649f46a" category="paragraph">狀態變更為 *Complete* 。</block>
   <block id="c7c7190135e9f9b9ece90813a338db20" category="summary">在 NetApp Data Migrator 中配置 Bulk Discover，以便在開始遷移資料之前產生現有儲存容量的概覽。</block>
   <block id="237c9334ef000476a7394e5432d15caa" category="doc">使用批量探索在 NetApp Data Migrator 中規劃資料移轉</block>
@@ -248,11 +246,6 @@
   <block id="3de40160643c4264dfdb435901f88134" category="inline-link-macro">RDP 連線</block>
   <block id="04e35b02091c127ce30a041090d5ae10" category="paragraph">深入瞭解<block ref="413636dc63fc70d1de2995e50bbc28db" category="inline-link-macro-rx"></block>。</block>
   <block id="c8ec5de526848edba89b4cd247a7c82f" category="list-text">在控制平面 VM 上複製並執行 Windows Worker Installer 。</block>
-  <block id="a9058b2b8149aa6459c22839b8f48e7d" category="paragraph">在瞭解如何建立控制平面和工作節點虛擬機器之後、您可以選擇下列其中一個選項：</block>
-  <block id="a729f07fe3c69abdf2c50ebfa113d507" category="inline-link-macro">驗證控制平面 VM</block>
-  <block id="15f42688d57360bf1f9db0b9f31ac5cb" category="list-text">（選用）<block ref="38876e4285448dda0ef37899ea72b3f7" category="inline-link-macro-rx"></block></block>
-  <block id="359f010480b6cb0e4541e04bb0fcc16b" category="inline-link-macro">存取 NetApp Data Migrator UI 並連接到控制平面和工作進程</block>
-  <block id="ca6ab599cc2e4b0485c935f29da44c3b" category="list-text"><block ref="ca6ab599cc2e4b0485c935f29da44c3b" category="inline-link-macro-rx"></block></block>
   <block id="a70f927e90b92e5863f95f3d77a75c40" category="summary">使用此決策矩陣來確定是否在您的資料遷移案例中使用 NetApp Data Migrator 或 SnapMirror。</block>
   <block id="8e92e15e5d350cd28fb679db44bc77d8" category="doc">決定是否使用 NetApp Data Migrator</block>
   <block id="37b72dc4b7827b60200f9714aa7bfaf9" category="paragraph">使用決策矩陣來決定是否應該使用 NetApp Data Migrator 或 SnapMirror 執行從 ONTAP 內部部署儲存系統的 NFS 和 SMB 資料移轉作業。例如、如果您要將 NFS 和 SMB 檔案從執行 ONTAP 9.12.1 的 ONTAP 內部部署來源移轉到 Google Cloud NetApp Volumes Flex 服務目的地、則應使用 NetApp Data Migrator。</block>
@@ -278,8 +271,6 @@
   <block id="bb22576f9b122fdf9d78825d5814f73f" category="summary">了解如何安裝 NetApp Data Migrator 控制平面和工作虛擬機器。</block>
   <block id="021d971a688b59f55f1e01248ea81da6" category="doc">為 NetApp Data Migrator 部署控制平面和 Linux 工作虛擬機</block>
   <block id="9866e84bbeb7aaf31c785c41e852e87f" category="paragraph">使用 AWS、Azure 或 Google Cloud 服務或 Open Virtual Appliance (OVA) 範本部署 NetApp Data Migrator 的控制平面虛擬機器 (VM) 和 Linux 工作虛擬機器。Linux 工作虛擬機器支援 NFS 資料遷移。</block>
-  <block id="9c093f14319e8253b8c9b37290597239" category="inline-link-macro">NetApp 支援網站</block>
-  <block id="5ff33b6501cd191d29481875867dc11b" category="paragraph">從 <block ref="a806f88fd14897065f93f1191bd5b7da" category="inline-link-macro-rx"></block> 下載 NetApp Data Migrator 映像：</block>
   <block id="9b1b30bfc99bb38f9a91517b1b946684" category="list-text">選擇 *NetApp Data Migrator*。</block>
   <block id="310e86f89904e335507c6ff6e454da6c" category="list-text">請依照 NetApp Data Migrator 下載頁面上的說明存取 NetApp Data Migrator 映像。</block>
   <block id="6820fbb635251b795c3ca1ae5b5a14ba" category="paragraph">根據您的部署選項，選擇 AWS 、 Azure 、 Google Cloud 標籤或 OVA 標籤。</block>
@@ -305,22 +296,18 @@
   <block id="e068d5e55435058d8d80b438cbfedc6e" category="list-text">將服務帳戶 objectViewer 存取權限指派給目標 Cloud Storage 儲存貯體：</block>
   <block id="c813aaa1c28525e28180006c1c7b9550" category="paragraph">服務帳戶需要 roles/storage.objectViewer 權限，才能在移轉過程中從您的 Cloud Storage 儲存貯體讀取 VM 映像檔案。</block>
   <block id="dc36632e376a444fbc3f974928f6c693" category="paragraph">啟用 VM Migration API 後，Google Cloud 會自動佈建格式如下的服務帳戶：</block>
-  <block id="1e043504778da0aa7bcf3436ddeef0e1" category="paragraph"><block ref="5df0b69b601a351abdf7499d42281325" prefix="" category="inline-code"></block></block>
   <block id="68dbee6ed219fb61e0a1f2d7c0052a2b" category="list-text"><block ref="0a9fe612dd3aeeb522b085a5dc743836" prefix="" category="inline-code"></block> 是 Google Cloud 服務帳戶</block>
   <block id="c286a0934a11b3f2ec2cf08dd231cf8e" category="list-text"><block ref="3e3a9b04a7e76246f14a93ea417e1a4b" prefix="" category="inline-code"></block> 是 VM Migration 服務識別碼</block>
   <block id="03a45e0dc9af4eead77f83ecbd640307" category="list-text"><block ref="79c170c716ea5fca869039d6a032f2a5" prefix="" category="inline-code"></block> 是 Google Cloud 服務帳戶的標準網域</block>
   <block id="f67b849d8be2722918b033f359ddf17d" category="list-text">將自己設定為 <block ref="3e3a9b04a7e76246f14a93ea417e1a4b" prefix=" " category="inline-code"></block> 服務的管理員使用者：</block>
   <block id="e2e1100dd49a5c31e3fd0e5fd00eba78" category="paragraph">這將賦予您在專案層級的 VM 遷移管理權限。</block>
   <block id="89ef81b9ebe20a41b8624f6ea1d76320" category="list-text">取得並上傳映像檔案：</block>
-  <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link-macro">NetApp 支援網站</block>
-  <block id="e1389ed07e342a8ff8ddcbc4f7ffe46e" category="list-text">從<block ref="49b4f755ae136a93a19c82bfba9113cf" category="inline-link-macro-rx"></block>下載控制平面<block ref="d6f1afa70d6145a212d9dc6bc8a2fa64" prefix=" " category="inline-code"></block>映像檔案以及 Linux worker<block ref="d6f1afa70d6145a212d9dc6bc8a2fa64" prefix=" " category="inline-code"></block>映像檔案。</block>
   <block id="8ba0f284cbf3541ca311f101e602751d" category="list-text">將 <block ref="d6f1afa70d6145a212d9dc6bc8a2fa64" prefix=" " category="inline-code"></block> 檔案上傳到您的 Google Cloud Storage 儲存桶。</block>
   <block id="b582743a436eee96f743d05a2fa25f16" category="list-text">將映像歸檔檔案上傳到 Google Cloud Storage 後，使用 VM Migration Service 建立 VM 映像，方法是對每個映像（控制平面和 Linux 工作節點）執行下列命令。</block>
   <block id="d2b78890db7dd247ce5f92bfd2ec15ae" category="paragraph">此指令會根據提供的歸檔檔案在指定區域中建立新的 Google Cloud Platform VM 映像。</block>
   <block id="b3ab2f208f13f715b7d869c9a6ac16c7" category="list-text">列出映像匯入作業並確認完成：</block>
   <block id="586ba478b7ebec665f3df120799b6c2e" category="open-title">OVA</block>
   <block id="48c7c41b72e1d678923ce3571aa65b2d" category="paragraph-title">步驟</block>
-  <block id="58402979642aceba3c4d2702ee126f81" category="paragraph">從<block ref="49b4f755ae136a93a19c82bfba9113cf" category="inline-link-macro-rx"></block>下載控制平面<block ref="8d8b01a4d628953e7a2225813c8edb3f" prefix=" " category="inline-code"></block>映像檔案以及 Linux worker<block ref="8d8b01a4d628953e7a2225813c8edb3f" prefix=" " category="inline-code"></block>映像檔案。</block>
   <block id="7c1d6f695f65dc9c5c8094228402786f" category="inline-link-macro">建立控制平面和工作節點 VM</block>
   <block id="9145b83b060f34d93aca59652a91a807" category="paragraph">在了解如何部署控制平面虛擬機器和 Linux 工作虛擬機器之後，您可以<block ref="47786182e0e58028f57398173f17bd15" category="inline-link-macro-rx"></block>。</block>
   <block id="bcb2ecbda52b8430d09e5b500c31ebaf" category="summary">尋找有關 NetApp Data Migrator 連線錯誤、身份驗證失敗、協定問題和權限錯誤的常見問題的答案。</block>
@@ -556,15 +543,11 @@
   <block id="415b97a9b0a182511672ae3883302822" category="inline-link-macro">決定是否使用該軟體進行資料移轉作業</block>
   <block id="38638155b7eb32979bd49efbc4ecd3ea" category="paragraph">了解 NetApp Data Migrator 之後、您可以<block ref="32beaf1b333cdebcd418e0f9b4a6d185" category="inline-link-macro-rx"></block>。</block>
   <block id="362dc8eb929965a4aa87ffed37b3d617" category="doc">了解如何安裝 NetApp Data Migrator</block>
-  <block id="155fa94b7bca3977ba7c200909e43cc8" category="paragraph">若要使用 NetApp Data Migrator 執行 NFS 和 SMB 遷移作業，您需要安裝控制平面和工作節點。</block>
   <block id="8c0d588cf4ae3c3963c70ead4a5ca7e3" category="list-text">*控制平面*：控制平面充當中央管理和控制層。您需要將控制平面部署在 Linux 虛擬機器（VM）上，然後再部署工作進程。</block>
   <block id="c037928a4b33f55ae64d96e1796c0cb1" category="list-text">*Workers*：Workers 是執行實際資料遷移的虛擬機器。您可以根據規模和需求部署多個 Workers。Worker 類型取決於傳輸協定：</block>
   <block id="dcb958e16173d580dffd4bdeb217206a" category="list-text">Linux 工作者支援 NFS 移轉。</block>
   <block id="d2ac9b54e6beae65495d2457cf8c1f40" category="list-text">Windows 工作進程支援 SMB 移轉。</block>
-  <block id="76827502fd8d3d0d06e450c23346942e" category="paragraph">首先，您可以使用 AWS、Azure 或 Google Cloud 服務，或使用 Open Virtual Appliance (OVA) 範本來部署控制平面虛擬機器 (VM) 和 Linux 工作虛擬機器。您可以從 NetApp 支援網站下載部署所需的 NetApp Data Migrator 映像。</block>
-  <block id="a2b65d24cfdab17e100dd5d9903bafad" category="paragraph">部署完成後，您需要建立控制平面虛擬機器和工作虛擬機器以存取 NetApp Data Migrator。您可以使用已部署的映像來建立控制平面虛擬機器和 Linux 工作虛擬機器。您可以使用從 NetApp 支援網站下載的 Windows Worker Installer 來建立 Windows 工作虛擬機器。</block>
   <block id="0176a7764147384d95bf0b96717c78d3" category="inline-link-macro">註冊帳戶</block>
-  <block id="35884a7c97792b73e76d939f06c4c52c" category="paragraph">了解如何安裝 NetApp Data Migrator 後、您可以<block ref="d2c5c3692974708954412d809af17919" category="inline-link-macro-rx"></block>。</block>
   <block id="7e56090ee48c15842893dcf89da7a382" category="summary">NetApp Data Migrator 的法律聲明、版權、商標和開源許可資訊。</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律聲明</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">法律聲明提供版權聲明、商標、專利等資訊的存取權限。</block>
@@ -945,10 +928,6 @@
   <block id="bbe5469d33ce93c2f28586f9a9debf56" category="paragraph">首先，您需要使用預設憑證以管理員身分登入，並更新您的使用者名稱和密碼。然後，您可以建立您的第一個專案並新增檔案伺服器以啟動移轉工作流程。</block>
   <block id="83b9a73283224c028b35f767e10e1a03" category="list-text"><block ref="83b9a73283224c028b35f767e10e1a03" category="inline-link-macro-rx"></block></block>
   <block id="2dc5f7f7f6c5786ed5b37141589adae2" category="list-text"><block ref="2dc5f7f7f6c5786ed5b37141589adae2" category="inline-link-macro-rx"></block></block>
-  <block id="5b46d94ae861e93c8d77f043ac734952" category="summary">如果您是新 NetApp 客戶，則需要建立 NetApp 帳戶並完成註冊流程。</block>
-  <block id="512ce7e8c3858266467efa17d62d0051" category="doc">註冊 NetApp Data Migrator 帳戶</block>
-  <block id="4daa456be51251ffd988f63c8657d64c" category="paragraph">如果您是新 NetApp 客戶，則需要建立 NetApp 帳戶並完成註冊流程。如果您已有 NetApp 帳戶，則可以繼續 <block ref="2e1fdd8a20f38dacfbef503dc81b8d7d" category="inline-link-macro-rx"></block>。</block>
-  <block id="5f4293a5c5c507db807ae703a9d9c3dc" category="admonition">您的新 NetApp 支援網站帳戶從 *Guest access* 升級到 *Full access* 可能需要最多一個工作天。</block>
   <block id="d27c2a770a38edcade142626ac440af3" category="list-text">使用您的企業電子郵件在 <block ref="5a9b9821ca062d5154356de0071c8b9f" category="inline-link-macro-rx"></block> 上註冊帳戶。</block>
   <block id="8fd3c7eb5b3f94dd265f8f05e2041a61" category="list-text">輸入傳送至您電子郵件的一次性密碼，以驗證註冊啟動。</block>
   <block id="3c1b2d3eff4d0d793fec12d931950535" category="list-text">在註冊完成頁面上，提供所需的詳細資訊：</block>
@@ -964,8 +943,6 @@
   <block id="db729189c53fa99bdc9f58f33fd77194" category="list-text">在 NetApp Data Migrator 主頁上，選取 *說明（？）*&gt; *關於* &gt; *序號*</block>
   <block id="4cb56db1a789c4f4e932d664ca1879ce" category="list-text">在「關於 NDM」對話方塊中，記錄 NetApp Data Migrator 執行個體 ID。</block>
   <block id="c0fc849d32dbbc779b1e95ec1196b32b" category="paragraph">這是一個 20 位數的號碼，以 975 開頭。</block>
-  <block id="0bfc0e9653a7195acce2223fb3187822" category="inline-link-macro">NetApp 支援網站註冊頁面</block>
-  <block id="205ebb64be7cdbdfb8dad6344e5095aa" category="list-text">前往 <block ref="583d19e36ff27be52d23b0b9a7306b4f" category="inline-link-macro-rx"></block>。</block>
   <block id="0786589eb7392bc413e898e8782cef99" category="list-text">選取 *I am not a registered NetApp Customer* 。</block>
   <block id="9421d4188db409ce16d73b19394af0f7" category="list-text">請填寫所需的產品註冊詳細資料：</block>
   <block id="0baa9b69ccf61d4c2f40815008c37583" category="list-text">請將 *NetApp Reference SN* 欄位留空。</block>
@@ -1166,4 +1143,35 @@
   <block id="d8d50c12bd11a2109a7a384f43b0930a" category="sidebar">產生支援服務組合</block>
   <block id="42748df9eaa0be17ddc5cc1593cf57ab" category="sidebar">註冊以取得支援</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="sidebar">疑難排解</block>
+  <block id="a557e68a0918586226f7db744ff53cf4" category="list-text">選取 *I have reviewed and verified the Chain of Custody (CoC) document and all other essential information* 旁的核取方塊。</block>
+  <block id="e8640163df245e7e098847cd29d94a52" category="list-text">如果您對監管鏈（CoC）報告中的資訊感到滿意，請選擇 *Confirm* 以批准 *Bulk Cutover*。</block>
+  <block id="0165aaffb5b86064565d400bb51c02e6" category="section-title">解決中繼資料更新衝突</block>
+  <block id="e2ca9d6562f61ef76278696bf21b9166" category="paragraph">在 SMB 遷移的轉換確認程序期間，可能會發生中繼資料更新衝突。若要解決中繼資料更新衝突，請針對受影響的檔案執行中繼資料同步指令碼。</block>
+  <block id="39bb66223d591f4512a45497c8bc3184" category="list-text">下載在轉換過程中產生的 CoC 報告 ZIP 資料夾。</block>
+  <block id="a15d55d0f23df66bb7893733f386297a" category="list-text">在參與路徑配對轉換的 Windows 工作機器上解壓縮 ZIP 資料夾。</block>
+  <block id="8b65e02d40ee826b175b02e4bc45bef5" category="admonition">磁碟機號碼<block ref="5dbc98dcc983a70728bd082d1a47546e" prefix=" " category="inline-code"></block> 和<block ref="b9ece18c950afbfa6b0fdbfa4ff731d3" prefix=" " category="inline-code"></block> 用於對應 Windows 工作伺服器上的來源磁碟區和目標磁碟區。執行此腳本時，請勿將這些磁碟機號碼用於任何其他掛載。</block>
+  <block id="d8e4a0239dd5fc0a5c6e9d217763eaaf" category="list-text">複製所需的 <block ref="019ac6e58d9c4a7e1d127b0e02d8be9e" prefix=" " category="inline-code"></block> 檔案。</block>
+  <block id="3d9cebc93ee1e287479e1c608d677b8f" category="list-text">在 Windows 工作電腦上以管理員身分開啟 PowerShell。</block>
+  <block id="03faee47bc7a3f4f5bd70644ba940075" category="list-text">瀏覽至指令碼目錄：</block>
+  <block id="bb1867b35f788cdb601c39a8ac4b42fa" category="list-text">使用所有參數的佔位符執行中繼資料標記指令碼：</block>
+  <block id="561861cf3c5b804405bbe956b25dfa07" category="paragraph">SID 對應和網域相關參數（SidMapFile 和 Domain）為選用項目，可視需要加入。</block>
+  <block id="971e1a6fb808ebf9b49a8e5292af7a67" category="paragraph">在了解如何建立控制平面和工作虛擬機器之後、您可以執行以下操作：</block>
+  <block id="1251f1d578f1d6119b3c18fedfdb3ff9" category="inline-link-macro">驗證控制平面 VM</block>
+  <block id="1bc0cd7367326350e27456afb38f6c4a" category="list-text">選用 <block ref="4d97b867bb9f75267c66c77f4694e105" category="inline-link-macro-rx"></block></block>
+  <block id="84c99c15058d4e5c618312936435ab0f" category="inline-link-macro">存取 NetApp Data Migrator UI 並連接到控制平面和工作進程。</block>
+  <block id="b3cd170ee2bfc309cc7cb338f10a3904" category="list-text"><block ref="b3cd170ee2bfc309cc7cb338f10a3904" category="inline-link-macro-rx"></block></block>
+  <block id="efe7275bf81b553b7f1c1571b6fded79" category="paragraph">從 <block ref="79a5efacdd8155d1c0d2f7284cc3f087" category="inline-link-macro-rx"></block> 下載 NetApp Data Migrator 映像：</block>
+  <block id="953b1faf3afe7942fa40444c40dcdd9d" category="paragraph"><block ref="3713b6efd29a2574d01586436235bfc4" prefix="" category="inline-code"></block></block>
+  <block id="c54aeafac3fb6ac981207fb56c38dab6" category="list-text">從<block ref="a42716fdd3c80ae75cadfb8024b65de0" category="inline-link-macro-rx"></block>下載控制平面<block ref="d6f1afa70d6145a212d9dc6bc8a2fa64" prefix=" " category="inline-code"></block>映像檔案以及 Linux worker<block ref="d6f1afa70d6145a212d9dc6bc8a2fa64" prefix=" " category="inline-code"></block>映像檔案。</block>
+  <block id="ca710100283059cfe72da6c355e9d26d" category="paragraph">從<block ref="a42716fdd3c80ae75cadfb8024b65de0" category="inline-link-macro-rx"></block>下載控制平面<block ref="8d8b01a4d628953e7a2225813c8edb3f" prefix=" " category="inline-code"></block>映像檔案以及 Linux worker<block ref="8d8b01a4d628953e7a2225813c8edb3f" prefix=" " category="inline-code"></block>映像檔案。</block>
+  <block id="dff020d49284a25f4cadf7a01e536f15" category="paragraph">NetApp Data Migrator 由一個控制平面和一個或多個工作進程組成，它們協同工作，使用 NFS 和 SMB 傳輸協定執行資料遷移作業。</block>
+  <block id="7192084ed2fd41f0dbb21341fcfd063c" category="paragraph">首先，您可以使用 AWS、Azure 或 Google Cloud 服務，或使用 Open Virtual Appliance (OVA) 模板，部署控制平面虛擬機器 (VM) 和 Linux 工作虛擬機器。您可以從 NetApp 支援網站下載部署所需的 NetApp Data Migrator 映像。</block>
+  <block id="f4336a028056eb40e55adc55f67993f9" category="paragraph">部署完成後，建立控制平面 VM 和工作 VM 以存取 NetApp Data Migrator。使用已部署的映像來建立控制平面 VM 和 Linux 工作 VM。使用從 NetApp 支援網站下載的 Windows Worker Installer 建立 Windows 工作 VM。之後，您可以選擇驗證控制平面 VM 或繼續存取 NetApp Data Migrator UI 並連接到控制平面和工作節點。</block>
+  <block id="04117208e09395666e5e0c060ae2aaa3" category="paragraph">了解如何安裝 NetApp Data Migrator 後，如果您是新客戶，可以在 NetApp 支援網站上<block ref="d2c5c3692974708954412d809af17919" category="inline-link-macro-rx"></block>；如果您已有帳戶，則可以繼續<block ref="738ec4cd3729066a364fa774c0622676" category="inline-link-macro-rx"></block>。</block>
+  <block id="e0998a4bed9547e9c34bdc4f48ce4d2a" category="summary">如果您是新 NetApp 客戶，則需要先建立 NetApp 帳戶並完成註冊流程，才能存取 NetApp Data Migrator。</block>
+  <block id="eca545c10a175a8aed24f0eaf7cda74f" category="doc">註冊帳戶即可存取 NetApp Data Migrator</block>
+  <block id="5b0d7601c743963c464a12b037ae045c" category="paragraph">如果您是新 NetApp 客戶，則需要先在 NetApp 支援網站上註冊帳戶才能下載 NetApp Data Migrator。如果您已有帳戶，則可以繼續 <block ref="2e1fdd8a20f38dacfbef503dc81b8d7d" category="inline-link-macro-rx"></block>。</block>
+  <block id="034b07d5c19791bdc29e619054083834" category="admonition">您的新帳戶從 *Guest access* 升級到 *Full access* 可能需要最多一個工作天。</block>
+  <block id="173529d8b3d8c0ff4ea8f40dbf7aabe9" category="inline-link-macro">NetApp 支援網站註冊頁面</block>
+  <block id="be7a31416eb06ebc304a614c3460a1a0" category="list-text">前往 <block ref="5a5dddcca17792452be16c79d0405d2d" category="inline-link-macro-rx"></block>。</block>
 </blocks>

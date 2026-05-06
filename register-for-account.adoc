@@ -2,19 +2,19 @@
 sidebar: sidebar 
 permalink: register-for-account.html 
 keywords: netapp, data, migrator, new, support, register, account 
-summary: 如果您是新 NetApp 客戶，則需要建立 NetApp 帳戶並完成註冊流程。 
+summary: 如果您是新 NetApp 客戶，則需要先建立 NetApp 帳戶並完成註冊流程，才能存取 NetApp Data Migrator。 
 ---
-= 註冊 NetApp Data Migrator 帳戶
+= 註冊帳戶即可存取 NetApp Data Migrator
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-如果您是新 NetApp 客戶，則需要建立 NetApp 帳戶並完成註冊流程。如果您已有 NetApp 帳戶，則可以繼續 link:deploy-control-plane-and-linux-workers.html["為 NetApp Data Migrator 部署控制平面和 Linux 工作虛擬機"]。
+如果您是新 NetApp 客戶，則需要先在 NetApp 支援網站上註冊帳戶才能下載 NetApp Data Migrator。如果您已有帳戶，則可以繼續 link:deploy-control-plane-and-linux-workers.html["為 NetApp Data Migrator 部署控制平面和 Linux 工作虛擬機"]。
 
 
-NOTE: 您的新 NetApp 支援網站帳戶從 *Guest access* 升級到 *Full access* 可能需要最多一個工作天。
+NOTE: 您的新帳戶從 *Guest access* 升級到 *Full access* 可能需要最多一個工作天。
 
 .步驟
 . 使用您的企業電子郵件在 link:https://mysupport.netapp.com/site/user/registration["NetApp 支援網站"^] 上註冊帳戶。

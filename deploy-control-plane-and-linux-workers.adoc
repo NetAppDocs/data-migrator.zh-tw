@@ -63,11 +63,11 @@ Group 1065216673, Grouped object  --destination-container <YOUR_CONTAINER_NAME> 
 [source, cli]
 ----
 az image create \
-  --resource-group <YOUR_RESOURCE_GROUP> \
-  --name <YOUR_IMAGE_NAME> \
-  --source https://<YOUR_STORAGE_ACCOUNT>.blob.core.windows.net/<YOUR_CONTAINER_NAME>/<VHD_FILE_NAME>.vhd \
+  --resource-group <your_resource_group> \
+  --name <your_image_name> \
+  --source https://<your_storage_account>.blob.core.windows.net/<your_container_name>/<VHD_file_name>.vhd \
   --os-type linux \
-  --location <YOUR_AZURE_REGION>
+  --location <your_Azure_region>
 ----
 
 
@@ -86,8 +86,8 @@ az image create \
 +
 [source, cli]
 ----
-gcloud storage buckets add-iam-policy-binding gs://<GCS_BUCKET> \
-  --member=serviceAccount:service-<PROJECT_NUMBER>@gcp-sa-vmmigration.iam.gserviceaccount.com \
+gcloud storage buckets add-iam-policy-binding gs://<Google_Cloud_Storage_bucket> \
+  --member=serviceAccount:service-<project_number>@gcp-sa-vmmigration.iam.gserviceaccount.com \
   --role=roles/storage.objectViewer
 ----
 +
@@ -97,7 +97,7 @@ gcloud storage buckets add-iam-policy-binding gs://<GCS_BUCKET> \
 啟用 VM Migration API 後，Google Cloud 會自動佈建格式如下的服務帳戶：
 
 +
-`service-<PROJECT_NUMBER>@gcp-sa-vmmigration.iam.gserviceaccount.com`
+`service-<project_number>@gcp-sa-vmmigration.iam.gserviceaccount.com`
 
 +
 *** `++ gcp-sa` 是 Google Cloud 服務帳戶
@@ -109,8 +109,8 @@ gcloud storage buckets add-iam-policy-binding gs://<GCS_BUCKET> \
 +
 [source, cli]
 ----
-gcloud projects add-iam-policy-binding <PROJECT_ID> \
-  --member=user:<YOUR_EMAIL> \
+gcloud projects add-iam-policy-binding <project_ID> \
+  --member=user:<your_email> \
   --role=roles/vmmigration.admin
 ----
 +
@@ -128,11 +128,12 @@ gcloud projects add-iam-policy-binding <PROJECT_ID> \
 +
 [source, cli]
 ----
---source-file=gs://<GCS_BUCKET>/<IMAGE_NAME>.tar.gz \
-  --image-name=<IMAGE_NAME> \
-  --location=<REGION> \
-  --target-project=projects/<PROJECT_ID>/locations/global/targetProjects/<PROJECT_ID> \
-  --project=<PROJECT_ID>
+gcloud migration vms image-imports create <image_name> \
+ --source-file=gs://<Google_Cloud_Storage_bucket>/<image_name>.tar.gz \
+  --image-name=<image_name> \
+  --location=<region> \
+  --target-project=projects/<project_ID>/locations/global/targetProjects/<project_ID> \
+  --project=<project_ID>
 ----
 +
 此指令會根據提供的歸檔檔案在指定區域中建立新的 Google Cloud Platform VM 映像。
@@ -141,7 +142,7 @@ gcloud projects add-iam-policy-binding <PROJECT_ID> \
 +
 [source, cli]
 ----
-gcloud migration vms image-imports list --location=<REGION> --project=<PROJECT_ID>
+gcloud migration vms image-imports list --location=<region> --project=<project_ID>
 ----
 
 

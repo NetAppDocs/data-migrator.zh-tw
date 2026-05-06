@@ -56,9 +56,52 @@ NOTE: 當 Bulk Migrate 作業並行執行時，您可以選取一個作業。
 +
 檢閱報告以驗證轉換是否成功，以及所有資料是否已成功從來源移轉至目的地。
 
-. 選取 *I have reviewed and verified the COC document and all other essential information* 旁的核取方塊。
-. 如果您對 COC 報告中的資訊感到滿意，請選取 *Confirm* 以核准 *Bulk Cutover*。
+. 選取 *I have reviewed and verified the Chain of Custody (CoC) document and all other essential information* 旁的核取方塊。
+. 如果您對監管鏈（CoC）報告中的資訊感到滿意，請選擇 *Confirm* 以批准 *Bulk Cutover*。
 +
 狀態變更為 *Complete* 。
+
+
+
+
+
+=== 解決中繼資料更新衝突
+
+在 SMB 遷移的轉換確認程序期間，可能會發生中繼資料更新衝突。若要解決中繼資料更新衝突，請針對受影響的檔案執行中繼資料同步指令碼。
+
+.步驟
+. 下載在轉換過程中產生的 CoC 報告 ZIP 資料夾。
+. 在參與路徑配對轉換的 Windows 工作機器上解壓縮 ZIP 資料夾。
++
+
+NOTE: 磁碟機號碼 `S` 和 `T` 用於對應 Windows 工作伺服器上的來源磁碟區和目標磁碟區。執行此腳本時，請勿將這些磁碟機號碼用於任何其他掛載。
+
+. 複製所需的  `metadata_conflict_errors.csv` 檔案。
+. 在 Windows 工作電腦上以管理員身分開啟 PowerShell。
+. 瀏覽至指令碼目錄：
++
+[source, cli]
+----
+cd C:\datamigrator\scripts
+----
+. 使用所有參數的佔位符執行中繼資料標記指令碼：
++
+[source, cli]
+----
+.\stamp-metadata.ps1 `
+-SourceHost "<SourceFileServer_FQDN_or_IP>" `
+-SourceShare "<Source_ShareName_Only (e.g., data)>" `
+-DestHost "<DestinationFileServer_FQDN_or_IP>" `
+-DestShare "<Destination_ShareName_Only>" `
+-SourceUsername "<DOMAIN User_With_Read_Access_To_Source>" `
+-SourcePassword "<Password_For_Source_User>" `
+-DestUsername "<DOMAIN User_With_Write_Access_To_Destination>" `
+-DestPassword "<Password_For_Destination_User>" `
+-InputFile "<Full_Path_To_File_List_CSV (e.g., C:\Migration\files.csv)>" `
+-SidMapFile "<Full_Path_To_SID_Mapping_CSV (OldSID_to_NewSID)>" `
+-Domain "<ActiveDirectory_Domain (e.g., company.com_or_COMPANY)>"
+----
++
+SID 對應和網域相關參數（SidMapFile 和 Domain）為選用項目，可視需要加入。
 
 
