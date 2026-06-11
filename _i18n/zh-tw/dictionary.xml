@@ -106,7 +106,6 @@
   <block id="4dbe34dcfaf21a426bc5f1d0a9947fc0" category="section-title">步驟 2：新增來源和目的地對應</block>
   <block id="87834d34f8d8989b4c54caedbea8b7d4" category="paragraph">新增來源和目的地對應，以指定移轉的來源匯出路徑和目的地匯出路徑。</block>
   <block id="a270c874dd3f23eef6fb2f8c7a227252" category="list-text">選擇要移轉的來源中的匯出路徑。</block>
-  <block id="1ada8f7056024f536b0017b8a818a648" category="list-text">如果您要執行目錄層級移轉，可選擇 *Add Source Directory* 。</block>
   <block id="5657e4af05fc77ede4d05249c45b45e9" category="paragraph">選擇 *Add Source Directory* 後，將顯示目錄資源管理器檢視。此檢視顯示根目錄下的目錄清單。您可以導航到所需目錄，也可以直接複製所需目錄的路徑並貼上到資源管理器視窗的搜尋列中以導航至該資料夾。</block>
   <block id="96a001e4dedac46d583f146f571969b2" category="list-text">選擇來源目錄後，請選擇目標檔案伺服器和目標匯出路徑。</block>
   <block id="72f51b9743f5e36c1ea9f0ecd58e0f52" category="list-text">（選用）在目的地匯出路徑中選取目錄。</block>
@@ -1174,4 +1173,7 @@
   <block id="034b07d5c19791bdc29e619054083834" category="admonition">您的新帳戶從 *Guest access* 升級到 *Full access* 可能需要最多一個工作天。</block>
   <block id="173529d8b3d8c0ff4ea8f40dbf7aabe9" category="inline-link-macro">NetApp 支援網站註冊頁面</block>
   <block id="be7a31416eb06ebc304a614c3460a1a0" category="list-text">前往 <block ref="5a5dddcca17792452be16c79d0405d2d" category="inline-link-macro-rx"></block>。</block>
+  <block id="70081c17ffe468cb19f06de7d6b65a51" category="list-text">如果要執行目錄層級的遷移，可以選擇 *Add Source Directory* （新增來源目錄）。</block>
+  <block id="d76c25422f3dafa6f43c2fc5410dfaef" category="cell">將繼承的權限轉換為明確權限</block>
+  <block id="c9fbfd8a6f3192f2f1e72e34686607dc" category="paragraph">啟用此選項後，在 SMB 遷移過程中，從來源繼承的任何權限都會在目錄層級以明確權限的形式寫入目標。</block>
 </blocks>
