@@ -13,6 +13,9 @@ summary: 使用此決策矩陣來確定是否在您的資料遷移案例中使�
 [role="lead"]
 使用決策矩陣來決定是否應該使用 NetApp Data Migrator 或 SnapMirror 執行從 ONTAP 內部部署儲存系統的 NFS 和 SMB 資料移轉作業。例如、如果您要將 NFS 和 SMB 檔案從執行 ONTAP 9.12.1 的 ONTAP 內部部署來源移轉到 Google Cloud NetApp Volumes Flex 服務目的地、則應使用 NetApp Data Migrator。
 
+
+NOTE: NetApp Data Migrator 不支援將資料移轉至 ONTAP 內部部署儲存系統目的地。
+
 [cols="2,1,1,1,1,1,1a"]
 |===
 | 內部部署或第三方儲存系統來源 | Amazon FSx for NetApp ONTAP | Azure NetApp Files 硬體 | Cloud Volumes ONTAP | Google Cloud NetApp Volumes 硬體 | Google Cloud NetApp Volumes Flex | Google Cloud NetApp Volumes Flex（基於 VSA） 

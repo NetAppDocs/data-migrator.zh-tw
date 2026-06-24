@@ -323,7 +323,6 @@
   <block id="2d3cf36868e8ecba40d8329def6db3b3" category="paragraph-title">什麼原因會導致「無效的工作目錄」錯誤？</block>
   <block id="cbb858a114f3445ffa109f7630f3128c" category="paragraph">請檢查您是否已為所選匯出路徑輸入正確的工作目錄。</block>
   <block id="d3795f5dcf68afb12396dfb622c6c2f9" category="paragraph-title">為什麼我在工作目錄上會收到「寫入權限」錯誤？</block>
-  <block id="d80ce1c87712e8ebb10558acf165c002" category="paragraph">當指定了正確的匯出路徑和工作目錄，但未授予必要的寫入權限時，就會發生此錯誤。如果沒有正確的寫入存取權，檔案伺服器預先檢查將失敗，使用者將無法執行作業。請檢查出現此錯誤的使用者是否具有所需的寫入存取權。</block>
   <block id="e5f0109a3dde59ac6cf199ab61c19ca6" category="summary">產生並下載 NetApp Data Migrator 支援套件組合，其中包含診斷記錄、錯誤報告和用於疑難排解的組態資料。</block>
   <block id="8f1ffc521357732dac238b9425def2a4" category="doc">產生 NetApp Data Migrator 支援套件</block>
   <block id="0a42ec79a244c6ee75a271fa0c580a0e" category="paragraph">NetApp Data Migrator 可讓您產生支援套件，以協助疑難排解您遇到的任何問題。此套件包含診斷資訊，例如記錄檔、錯誤報告和組態資料。</block>
@@ -1176,4 +1175,6 @@
   <block id="70081c17ffe468cb19f06de7d6b65a51" category="list-text">如果要執行目錄層級的遷移，可以選擇 *Add Source Directory* （新增來源目錄）。</block>
   <block id="d76c25422f3dafa6f43c2fc5410dfaef" category="cell">將繼承的權限轉換為明確權限</block>
   <block id="c9fbfd8a6f3192f2f1e72e34686607dc" category="paragraph">啟用此選項後，在 SMB 遷移過程中，從來源繼承的任何權限都會在目錄層級以明確權限的形式寫入目標。</block>
+  <block id="2df75f082db896eeb89f434ebd16a479" category="admonition">NetApp Data Migrator 不支援將資料移轉至 ONTAP 內部部署儲存系統目的地。</block>
+  <block id="e1aa567e142d04af6a707f8d980bb5b2" category="paragraph">當指定了正確的匯出路徑和工作目錄，但未授予必要的寫入權限時，就會發生此錯誤。如果沒有正確的寫入存取權限，檔案伺服器預先檢查將失敗，您將無法執行作業。請檢查出現錯誤的使用者是否具有所需的寫入存取權限。</block>
 </blocks>
