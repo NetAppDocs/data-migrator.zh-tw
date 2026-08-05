@@ -15,6 +15,7 @@ summary: 使用 NetApp Data Migrator 中的批量遷移功能，將大量資料�
 
 
 
+[[step-1-configure-bulk-migrate-in-netapp-data-migrator]]
 == 步驟 1：在 NetApp Data Migrator 中設定批量遷移
 
 在使用批次遷移功能之前，您需要先定義批次遷移的伺服器。
@@ -28,6 +29,7 @@ summary: 使用 NetApp Data Migrator 中的批量遷移功能，將大量資料�
 
 
 
+[[step-2-add-source-and-destination-mappings]]
 == 步驟 2：新增來源和目的地對應
 
 新增來源和目的地對應，以指定移轉的來源匯出路徑和目的地匯出路徑。
@@ -53,6 +55,7 @@ NetApp Data Migrator 會阻止您選擇與現有對應存在父級或子級連�
 
 
 
+[[step-3-customize-the-bulk-migrate-job]]
 == 步驟 3：自訂 Bulk Migrate 作業
 
 您可以根據需要，從 *Options* 頁面選擇各種設定來自訂 Bulk Migrate 作業。
@@ -144,6 +147,7 @@ NetApp Data Migrator 會阻止您選擇與現有對應存在父級或子級連�
 
 
 
+[[step-4-review-and-submit]]
 == 步驟 4：檢閱並提交
 
 驗證您的設定、然後繼續執行大量移轉工作。

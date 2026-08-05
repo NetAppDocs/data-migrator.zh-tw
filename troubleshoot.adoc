@@ -15,6 +15,7 @@ summary: 使用疑難排解步驟和參考命令來協助疑難排解 NetApp Dat
 
 
 
+[[smb-mount-failure-when-using-host-name]]
 == 使用主機名稱時 SMB 掛載失敗
 
 設定目錄級遷移時，如果 SMB 檔案伺服器主機名稱以 URL 形式提供，則 SMB 掛載可能會失敗。這種情況可能發生在控制平面虛擬機器（VM）沒有正確的 DNS 配置來解析 SMB 檔案伺服器主機名稱時。掛載失敗可能會出現類似如下的錯誤 `mount failed: Resource temporarily unavailable`。
@@ -37,6 +38,7 @@ nslookup
 
 
 
+[[troubleshoot-application-access]]
 == 疑難排解應用程式存取
 
 所有認證資料均在 OpenBao 中進行管理。
@@ -67,6 +69,7 @@ cat /opt/datamigrator/openbao/cluster-keys.json
 
 
 
+[[use-the-kubectl-reference-commands]]
 == 使用 "kubectl" 參考命令
 
 * 若要取得 datamigrator 命名空間中的 Pod：
@@ -103,6 +106,7 @@ kubectl get pods -n <NAMESPACE>
 
 
 
+[[unseal-openbao]]
 == 啟封 OpenBao
 
 如果遇到 OpenBao 密封問題、請依照以下步驟解封。
@@ -123,6 +127,7 @@ kubectl exec openbao-2 -n openbao -- bao operator unseal $OPENBAO_UNSEAL_KEY
 
 
 
+[[troubleshoot-azure-vm-access]]
 == 疑難排解 Azure VM 存取
 
 您應該能夠成功建立並連接到您的 Azure VM 。但是，如果您遇到問題，請嘗試重新啟動虛擬機器或重設 SSH 組態。
@@ -157,6 +162,7 @@ kubectl exec openbao-2 -n openbao -- bao operator unseal $OPENBAO_UNSEAL_KEY
 
 
 
+[[windows-worker-fails-to-switch-user-on-smb-file-server]]
 == Windows 工作進程無法在 SMB 檔案伺服器上切換使用者
 
 當 Windows 工作進程嘗試使用與先前用於相同檔案伺服器的認證不同的認證集連線至 SMB 檔案伺服器時,可能會出現下列錯誤訊息:

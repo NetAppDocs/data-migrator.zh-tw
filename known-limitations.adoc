@@ -15,6 +15,7 @@ summary: 了解 NetApp Data Migrator 的已知限制，有助於提高遷移活�
 
 
 
+[[nfs-and-smb-discovery-and-migration-limitations]]
 == NFS 和 SMB 探索與移轉限制
 
 [cols="1,2,2a"]
@@ -48,6 +49,7 @@ summary: 了解 NetApp Data Migrator 的已知限制，有助於提高遷移活�
 |===
 
 
+[[feature-limitations]]
 == 功能限制
 
 [cols="1,2a"]

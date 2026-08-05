@@ -15,6 +15,7 @@ summary: 使用 NetApp Data Migrator 控制平面中的「專案」標籤來建�
 
 
 
+[[create-a-project]]
 == 建立專案
 
 App Admin 使用者可以在 NetApp Data Migrator 中建立新專案，並將具有已定義角色的使用者指派給該專案。
@@ -37,6 +38,7 @@ App Admin 使用者可以在 NetApp Data Migrator 中建立新專案，並將具
 
 
 
+[[edit-a-project]]
 == 編輯專案
 
 如果需要更新，您可以快速編輯專案的詳細資料。
@@ -51,6 +53,7 @@ App Admin 使用者可以在 NetApp Data Migrator 中建立新專案，並將具
 
 
 
+[[switch-between-projects]]
 == 在專案之間切換
 
 如果您同時監控多個專案，您可以快速在它們之間切換。

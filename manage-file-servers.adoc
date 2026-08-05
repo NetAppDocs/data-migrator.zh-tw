@@ -15,6 +15,7 @@ summary: 使用 NetApp Data Migrator 新增、設定和編輯使用 NFS 或 SMB 
 
 
 
+[[add-a-new-file-server]]
 == 新增檔案伺服器
 
 新增新的 NFS 或 SMB 檔案伺服器並配置工作虛擬機器。
@@ -138,6 +139,8 @@ NOTE: 如果在 Isilon 叢集上設定了 SmartConnect 服務 IP（SSIP），您
 ====
 
 
+[[manually-upload-export-and-directory-paths]]
+[[manually-upload-export-paths]]
 == 手動上傳匯出和目錄路徑
 
 NetApp Data Migrator 可讓您手動上傳匯出路徑和目錄路徑，以便在 NFS 協定的資料遷移操作中使用。此功能在無法自動偵測 NFS 匯出路徑的環境中非常有用。例如，當與 GCNV Flex 服務一起使用，或遷移目錄路徑而不是整個匯出路徑時。如果您在「匯出路徑擷取機制」面板中選擇「手動上傳」，則需要在建立檔案伺服器後下載並填寫 NetApp Data Migrator 提供的範本檔案。
@@ -167,6 +170,7 @@ NOTE: 當您需要在目錄層級設定移轉時，請使用此選項。如果�
 
 
 
+[[edit-file-server-details]]
 == 編輯檔案伺服器詳細資料
 
 如有需要，您可以對先前設定的檔案伺服器進行變更。

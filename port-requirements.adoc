@@ -15,6 +15,7 @@ summary: NetApp Data Migrator 的連接埠需求，包括控制平面和工作�
 
 
 
+[[control-plane-ports]]
 == 控制平面連接埠
 
 [cols="1,1,1,1a"]
@@ -53,6 +54,7 @@ summary: NetApp Data Migrator 的連接埠需求，包括控制平面和工作�
 |===
 
 
+[[worker-ports]]
 == 工作者連接埠
 
 [cols="1,1,1,1a"]

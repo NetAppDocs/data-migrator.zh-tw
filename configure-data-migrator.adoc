@@ -15,6 +15,8 @@ summary: 以 App Admin（管理員）身分使用預設認證登入，並更新�
 
 
 
+[[log-in-to-netapp-data-migrator]]
+[[log-in]]
 == 登入 NetApp Data Migrator
 
 登入 NetApp Data Migrator，然後變更您的登入憑證並建立您的第一個專案。
@@ -56,6 +58,7 @@ summary: 以 App Admin（管理員）身分使用預設認證登入，並更新�
 
 
 
+[[log-out-of-netapp-data-migrator]]
 == 登出 NetApp Data Migrator
 
 從 NetApp Data Migrator 登出後，下次登入時需要使用新建立的憑證（電子郵件和密碼）。

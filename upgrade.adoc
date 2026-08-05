@@ -21,6 +21,7 @@ summary: 在 NetApp Data Migrator 中升級控制平面、Linux 工作進程或 
 
 
 
+[[step-1-upload-the-upgrade-bundle]]
 == 步驟 1：上傳升級套件
 
 從本機目錄上傳升級套裝組合。
@@ -39,6 +40,7 @@ summary: 在 NetApp Data Migrator 中升級控制平面、Linux 工作進程或 
 
 
 
+[[step-2-upgrade-the-control-plane-and-workers]]
 == 步驟 2：升級控制平面和工作節點
 
 先升級控制平面，然後升級 Linux 工作節點或 Windows 工作節點。
@@ -78,6 +80,8 @@ ExecutionPolicy Bypass -File C:\datamigrator\staging\<version>\upgrade.ps1 -Vers
 
 
 
+[[step-3-view-logs-and-troubleshoot]]
+[[view-logs]]
 == 步驟 3：檢視記錄並進行疑難排解
 
 檢視虛擬機器記錄以支援疑難排解升級期間遇到的問題。

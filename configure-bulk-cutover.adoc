@@ -15,6 +15,7 @@ summary: 使用 NetApp Data Migrator 中的批次切換功能，執行來源系�
 
 
 
+[[start-a-cutover-job]]
 == 開始切換工作
 
 請依照以下步驟開始切換作業。
@@ -41,6 +42,7 @@ NOTE: 當 Bulk Migrate 作業並行執行時，您可以選取一個作業。
 
 
 
+[[approve-a-bulk-cutover-job]]
 == 核准大量轉換工作
 
 請依照下列步驟核准切換工作。
@@ -65,6 +67,7 @@ NOTE: 當 Bulk Migrate 作業並行執行時，您可以選取一個作業。
 
 
 
+[[resolve-metadata-update-conflicts]]
 === 解決中繼資料更新衝突
 
 在 SMB 遷移的轉換確認程序期間，可能會發生中繼資料更新衝突。若要解決中繼資料更新衝突，請針對受影響的檔案執行中繼資料同步指令碼。

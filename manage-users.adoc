@@ -18,6 +18,7 @@ NetApp Data Migrator 使用 link:access-control.html["角色型存取控制（RB
 
 
 
+[[add-a-new-user]]
 == 新增使用者
 
 建立新使用者並分享臨時密碼。
@@ -36,6 +37,7 @@ NetApp Data Migrator 使用 link:access-control.html["角色型存取控制（RB
 
 
 
+[[disable-an-existing-user]]
 == 停用現有使用者
 
 停用其他使用者對 NetApp Data Migrator 的存取。此操作會阻止使用者登入，但不會刪除使用者資料、先前的遷移作業或與該使用者關聯的日誌。
@@ -51,6 +53,7 @@ NetApp Data Migrator 使用 link:access-control.html["角色型存取控制（RB
 
 
 
+[[enable-a-user]]
 == 啟用使用者
 
 恢復已停用使用者對 NetApp Data Migrator 的存取，允許他們登入並根據其指派的權限執行操作。
@@ -66,6 +69,7 @@ NetApp Data Migrator 使用 link:access-control.html["角色型存取控制（RB
 
 
 
+[[reset-a-user-password]]
 == 重設使用者密碼
 
 重設現有使用者的密碼。

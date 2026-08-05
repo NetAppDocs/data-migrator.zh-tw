@@ -15,6 +15,7 @@ summary: NetApp Data Migrator 的網路需求，包括控制平面和工作區�
 
 
 
+[[verify-nfs-access]]
 == 驗證 NFS 存取
 
 對於 NFS、控制平面和工作節點需要以 root 用戶端身分存取儲存系統的權限。
@@ -32,6 +33,7 @@ ls -la /mnt/test
 
 
 
+[[verify-smb-access]]
 == 驗證 SMB 存取
 
 對於 SMB 存取，控制平面節點和工作節點需要獲得使用 SMB 憑證存取儲存系統的權限。SMB 使用者必須是備份操作員群組和管理員群組的成員。

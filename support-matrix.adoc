@@ -15,12 +15,14 @@ NetApp Data Migrator 支援某些功能、檔案伺服器和傳輸協定。
 
 
 
+[[supported-and-unsupported-features]]
 == 支援與不支援的功能
 
 NetApp Data Migrator 支援多種 NFS 和 SMB 遷移功能。但部分功能不受支援。
 
 
 
+[[supported-features]]
 === 支援的功能
 
 [cols="1,2a"]
@@ -76,6 +78,7 @@ NetApp Data Migrator 將物件和連結作為單獨的檔案進行遷移。
 |===
 
 
+[[unsupported-features]]
 === 不支援的功能
 
 [cols="1,2a"]
@@ -115,6 +118,7 @@ NetApp Data Migrator 可以探索但無法移轉替代資料串流。
 |===
 
 
+[[supported-file-servers]]
 == 支援的檔案伺服器
 
 NetApp Data Migrator 支援某些檔案伺服器作為資料遷移的來源和目標。
@@ -135,6 +139,7 @@ Azure NetApp Files（ANF）、Google Cloud NetApp Volumes（GCNV）、Amazon FSx
 |===
 
 
+[[supported-nfs-and-smb-migration-protocols]]
 == 支援 NFS 和 SMB 遷移傳輸協定
 
 NetApp Data Migrator 支援特定 NFS 和 SMB 傳輸協定版本進行資料遷移。
